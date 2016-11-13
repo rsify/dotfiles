@@ -1,0 +1,7 @@
+[user]
+	email = nikersifyyt@gmail.com
+	name = nikersify
+[credential]
+	helper = /usr/lib/git-core/git-credential-gnome-keyring
+[core]
+	editor = vim

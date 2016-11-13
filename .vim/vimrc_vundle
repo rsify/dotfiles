@@ -1,0 +1,37 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+
+set laststatus=2
+
+if ! has('gui_running')
+	set ttimeoutlen=10
+	augroup FastEscape
+		autocmd!
+		au InsertEnter * set timeoutlen=0
+		au InsertLeave * set timeoutlen=1000
+	augroup END
+endif
+
+Plugin 'vim-airline/vim-airline-themes'
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+set t_Co=256
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.space = "\ua0"
+
+Plugin 'crusoexia/vim-monokai'
+
+call vundle#end()
+filetype plugin indent on
