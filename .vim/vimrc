@@ -5,6 +5,13 @@ set ttimeoutlen=10
 set relativenumber
 set number
 set scrolloff=9999
+set tabstop=4
+set showcmd
+set cursorline
+filetype indent on
+set wildmenu
+set incsearch
+set lazyredraw
 
 source ~/.vim/vimrc_vundle
 
