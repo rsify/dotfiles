@@ -18,7 +18,5 @@ else
 	fish -c "fisher"
 fi
 
-echo "cleaning up..."
-rm bootstrap.sh README.md
 echo "done."
 exit 0

@@ -5,7 +5,10 @@
 $ cd ~
 $ git init
 $ git remote add origin https://github.com/nikersify/dotfiles.git
-$ git fetch --recurse-submodules --jobs=4
+$ git fetch --all
+$ git reset --hard origin/master
+$ git submodule init
+$ git submodule update
 $ git checkout -t origin/master
 $ ./bootstrap.sh
 ```
