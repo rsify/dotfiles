@@ -18,5 +18,7 @@ else
 	fish -c "fisher"
 fi
 
-echo "bootstrap.sh ready to be deleted. done."
+echo "cleaning up..."
+rm bootstrap.sh README.md
+echo "done."
 exit 0
