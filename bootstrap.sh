@@ -16,7 +16,8 @@ elif ! hash curl 2>/dev/null; then
 else
 	curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 	fish -c "fisher"
-	fish -c ".config/fish/custom"
+	cp --remove-destination -v ~/.config/fish/custom/* ~/.config/fish/functions/	
+	source ~/.config/fish/functions/*
 fi
 
 echo "done."
