@@ -14,8 +14,8 @@ filetype indent on
 set wildmenu
 set incsearch
 set lazyredraw
-set noshowmode
 set nocompatible
+set noshowmode
 filetype off
 
 let g:airline#extensions#tabline#enabled = 1
