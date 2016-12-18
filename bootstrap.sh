@@ -17,7 +17,10 @@ else
 	curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 	fish -c "fisher"
 	cp --remove-destination -v ~/.config/fish/custom/* ~/.config/fish/functions/	
-	source ~/.config/fish/functions/*
+	fish ~/.config/fish/functions/*
+
+	mkdir -p ~/.vim/autoload ~/.vim/bundle
+	curl -Lo ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 fi
 
 echo "done."

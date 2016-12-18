@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 syntax on
 
 set ttimeoutlen=10
@@ -12,9 +14,33 @@ filetype indent on
 set wildmenu
 set incsearch
 set lazyredraw
+set noshowmode
+set nocompatible
+filetype off
 
-source ~/.vim/vimrc_vundle
+let g:airline#extensions#tabline#enabled = 1
+
+set laststatus=2
+
+if ! has('gui_running')
+	set ttimeoutlen=10
+	augroup FastEscape
+		autocmd!
+		au InsertEnter * set timeoutlen=0
+		au InsertLeave * set timeoutlen=1000
+	augroup END
+endif
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+set t_Co=256
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.space = "\ua0"
+
+filetype plugin indent on
 
 colorscheme monokai
-
-set noshowmode
