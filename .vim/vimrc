@@ -8,6 +8,7 @@ set relativenumber
 set number
 set scrolloff=9999
 set tabstop=4
+set shiftwidth=4
 set showcmd
 set cursorline
 filetype indent on
@@ -19,6 +20,7 @@ set noshowmode
 filetype off
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_b = '%{getcwd()}'
 
 set laststatus=2
 
@@ -44,3 +46,6 @@ let g:airline_symbols.space = "\ua0"
 filetype plugin indent on
 
 colorscheme monokai
+
+highlight clear MatchParen
+highlight MatchParen cterm=bold,underline term=bold,underline
