@@ -1,7 +1,5 @@
 execute pathogen#infect()
 
-syntax on
-
 set ttimeoutlen=10
 
 set relativenumber
@@ -11,7 +9,7 @@ set tabstop=4
 set shiftwidth=4
 set showcmd
 set cursorline
-filetype indent on
+set smartindent
 set wildmenu
 set incsearch
 set lazyredraw
@@ -43,9 +41,8 @@ endif
 
 let g:airline_symbols.space = "\ua0"
 
-filetype plugin indent on
-
 colorscheme monokai
 
+syntax on
 highlight clear MatchParen
 highlight MatchParen cterm=bold,underline term=bold,underline
