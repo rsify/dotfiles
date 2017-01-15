@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/vim-monokai"]
 	path = .vim/bundle/vim-monokai
 	url = https://github.com/crusoexia/vim-monokai
+[submodule "/home/niker/.vim/bundle/delimitmate"]
+	path = /home/niker/.vim/bundle/delimitmate
+	url = https://github.com/raimondi/delimitmate
