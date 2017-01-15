@@ -20,7 +20,7 @@ $ chsh -s `which fish`
 ### vim config
 ```sh
 # adding plugins
-$ git submodule add <url> ~/.vim/bundle
+$ git submodule add <url> ~/.vim/bundle/<name>
 
 # bumping all
 $ git submodule update --recursive --remote
