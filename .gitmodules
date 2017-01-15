@@ -10,3 +10,6 @@
 [submodule "/home/niker/.vim/bundle/delimitmate"]
 	path = /home/niker/.vim/bundle/delimitmate
 	url = https://github.com/raimondi/delimitmate
+[submodule "/home/niker/.vim/bundle/neocomplete.vim"]
+	path = /home/niker/.vim/bundle/neocomplete.vim
+	url = https://github.com/shougo/neocomplete.vim

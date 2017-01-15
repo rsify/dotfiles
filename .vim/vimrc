@@ -43,6 +43,8 @@ let g:airline_symbols.space = "\ua0"
 
 let delimitMate_expand_cr = 1
 
+let g:neocomplete#enable_at_startup = 1
+
 colorscheme monokai
 
 syntax on
