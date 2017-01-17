@@ -16,3 +16,6 @@
 [submodule "/home/niker/.vim/bundle/nerdtree"]
 	path = /home/niker/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "/home/niker/.vim/bundle/vim-surround"]
+	path = /home/niker/.vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround
