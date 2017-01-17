@@ -13,3 +13,6 @@
 [submodule "/home/niker/.vim/bundle/neocomplete.vim"]
 	path = /home/niker/.vim/bundle/neocomplete.vim
 	url = https://github.com/shougo/neocomplete.vim
+[submodule "/home/niker/.vim/bundle/nerdtree"]
+	path = /home/niker/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git

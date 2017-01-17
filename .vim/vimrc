@@ -17,6 +17,10 @@ set nocompatible
 set noshowmode
 filetype off
 
+let g:mapleader = ","
+
+nnoremap <Leader>e :NERDTree<CR>
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_b = '%{getcwd()}'
 
