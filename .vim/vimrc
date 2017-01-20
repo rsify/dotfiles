@@ -17,6 +17,11 @@ set nocompatible
 set noshowmode
 filetype off
 
+set nofoldenable
+set foldmethod=indent
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
 let g:mapleader = ","
 
 nnoremap <Leader>e :NERDTree<CR>
