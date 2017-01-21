@@ -24,7 +24,9 @@ au BufWinEnter * silent loadview
 
 let g:mapleader = ","
 
-nnoremap <Leader>e :NERDTree<CR>
+nnoremap <silent> <Leader>e :NERDTree<CR>
+nnoremap <silent> <Leader>m :set mouse=a<CR>
+nnoremap <silent> <Leader>n :set mouse=<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_b = '%{getcwd()}'
