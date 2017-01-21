@@ -7,20 +7,20 @@
 [submodule ".vim/bundle/vim-monokai"]
 	path = .vim/bundle/vim-monokai
 	url = https://github.com/crusoexia/vim-monokai
-[submodule "/home/niker/.vim/bundle/delimitmate"]
-	path = /home/niker/.vim/bundle/delimitmate
+[submodule ".vim/bundle/delimitmate"]
+	path = .vim/bundle/delimitmate
 	url = https://github.com/raimondi/delimitmate
-[submodule "/home/niker/.vim/bundle/neocomplete.vim"]
-	path = /home/niker/.vim/bundle/neocomplete.vim
+[submodule ".vim/bundle/neocomplete.vim"]
+	path = .vim/bundle/neocomplete.vim
 	url = https://github.com/shougo/neocomplete.vim
-[submodule "/home/niker/.vim/bundle/nerdtree"]
-	path = /home/niker/.vim/bundle/nerdtree
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "/home/niker/.vim/bundle/vim-surround"]
-	path = /home/niker/.vim/bundle/vim-surround
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "/home/niker/.vim/bundle/vim-repeat"]
-	path = /home/niker/.vim/bundle/vim-repeat
+[submodule ".vim/bundle/vim-repeat"]
+	path = .vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat
 [submodule ".vim/bundle/nerdtree-git-plugin"]
 	path = .vim/bundle/nerdtree-git-plugin
