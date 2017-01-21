@@ -61,3 +61,7 @@ colorscheme monokai
 syntax on
 highlight clear MatchParen
 highlight MatchParen cterm=bold,underline term=bold,underline
+
+highlight ExtraWhitespace cterm=underline,bold term=bold,underline ctermfg=red
+match ExtraWhitespace /\s\+$/
+au VimEnter * silent AirlineToggleWhitespace
