@@ -17,6 +17,10 @@ set nocompatible
 set noshowmode
 filetype off
 
+if &term =~ '^screen'
+	set ttymouse=xterm2
+endif
+
 set nofoldenable
 set foldmethod=indent
 au BufWinLeave * mkview
