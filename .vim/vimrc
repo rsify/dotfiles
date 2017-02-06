@@ -64,6 +64,8 @@ let delimitMate_expand_cr = 1
 
 let g:neocomplete#enable_at_startup = 1
 
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 let NERDTreeShowHidden=1
 
 colorscheme monokai
