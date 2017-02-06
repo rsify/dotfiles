@@ -17,6 +17,8 @@ set nocompatible
 set noshowmode
 set noswapfile
 set shortmess+=A " ignore swap warnings
+set ignorecase
+set smartcase " when searching
 filetype off
 
 if &term =~ '^screen'
@@ -61,6 +63,8 @@ let g:airline_symbols.space = "\ua0"
 let delimitMate_expand_cr = 1
 
 let g:neocomplete#enable_at_startup = 1
+
+let NERDTreeShowHidden=1
 
 colorscheme monokai
 
