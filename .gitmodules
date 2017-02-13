@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab
+[submodule ".vim/bundle/vim-pug"]
+	path = .vim/bundle/vim-pug
+	url = https://github.com/digitaltoad/vim-pug.git
