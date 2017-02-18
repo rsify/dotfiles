@@ -70,10 +70,14 @@ let NERDTreeShowHidden=1
 
 colorscheme monokai
 
-syntax on
-highlight clear MatchParen
-highlight MatchParen cterm=bold,underline term=bold,underline
+function Syntaxify ()
+	highlight clear MatchParen
+	highlight MatchParen cterm=bold,underline term=bold,underline
 
-highlight ExtraWhitespace cterm=underline,bold term=bold,underline ctermfg=red
-match ExtraWhitespace /\s\+$/
+	highlight ExtraWhitespace cterm=underline,bold term=bold,underline ctermfg=red
+	match ExtraWhitespace /\s\+$/
+endfunction
+
+syntax on
+au BufWinEnter * :call Syntaxify()
 au VimEnter * silent AirlineToggleWhitespace
