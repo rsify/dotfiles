@@ -19,7 +19,7 @@ set noswapfile
 set shortmess+=A " ignore swap warnings
 set ignorecase
 set smartcase " when searching
-filetype off
+filetype on
 
 if &term =~ '^screen'
 	set ttymouse=xterm2
