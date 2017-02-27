@@ -70,7 +70,7 @@ let NERDTreeShowHidden=1
 
 colorscheme monokai
 
-function Syntaxify ()
+function! Syntaxify ()
 	highlight clear MatchParen
 	highlight MatchParen cterm=bold,underline term=bold,underline
 
@@ -81,3 +81,5 @@ endfunction
 syntax on
 au BufWinEnter * :call Syntaxify()
 au VimEnter * silent AirlineToggleWhitespace
+
+call Syntaxify()
