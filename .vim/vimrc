@@ -83,3 +83,6 @@ au BufWinEnter * :call Syntaxify()
 au VimEnter * silent AirlineToggleWhitespace
 
 call Syntaxify()
+
+au BufEnter * set colorcolumn=80
+set colorcolumn=80
