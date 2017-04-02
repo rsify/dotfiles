@@ -68,6 +68,8 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let NERDTreeShowHidden=1
 
+let g:closetag_filenames = "*.html,*.tag"
+
 colorscheme monokai
 
 function! Syntaxify ()

@@ -46,3 +46,6 @@
 [submodule ".vim/bundle/vim-riot"]
 	path = .vim/bundle/vim-riot
 	url = https://github.com/ryym/vim-riot.git
+[submodule ".vim/bundle/vim-closetag"]
+	path = .vim/bundle/vim-closetag
+	url = https://github.com/alvan/vim-closetag
