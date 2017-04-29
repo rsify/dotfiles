@@ -7,3 +7,6 @@ set -g theme_color_scheme base16-light
 function sudo!!
 	eval sudo $history[1]
 end
+
+# match all ~/.gem/ruby/[version]/bin paths
+set -gx PATH $PATH (find ~/.gem/ruby -type d -regex ".+\.gem/ruby/[^/]+/bin")
