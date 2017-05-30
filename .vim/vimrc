@@ -35,6 +35,7 @@ let g:mapleader = ","
 nnoremap <silent> <Leader>e :NERDTree<CR>
 nnoremap <silent> <Leader>m :set mouse=a<CR>
 nnoremap <silent> <Leader>n :set mouse=<CR>
+vnoremap gs :'<,'>sort<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_b = '%{getcwd()}'
