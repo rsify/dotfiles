@@ -25,6 +25,8 @@ if &term =~ '^screen'
 	set ttymouse=xterm2
 endif
 
+au BufRead,BufNewFile *.fig setfiletype pug
+
 set nofoldenable
 set foldmethod=indent
 au BufWinLeave ?* mkview 1
@@ -73,7 +75,7 @@ let g:closetag_filenames = "*.html,*.tag"
 
 colorscheme monokai
 
-function! Syntaxify ()
+function! TrailingWhitespace ()
 	highlight clear MatchParen
 	highlight MatchParen cterm=bold,underline term=bold,underline
 
@@ -82,10 +84,10 @@ function! Syntaxify ()
 endfunction
 
 syntax on
-au BufWinEnter * :call Syntaxify()
+au BufWinEnter * :call TrailingWhitespace()
 au VimEnter * silent AirlineToggleWhitespace
 
-call Syntaxify()
+call TrailingWhitespace()
 
 au BufEnter * set colorcolumn=80
 set colorcolumn=80
