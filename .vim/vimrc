@@ -73,6 +73,8 @@ let NERDTreeShowHidden=1
 
 let g:closetag_filenames = "*.html,*.tag"
 
+let g:syntastic_javascript_checkers = ['xo']
+
 colorscheme monokai
 
 function! TrailingWhitespace ()
