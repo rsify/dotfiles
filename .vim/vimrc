@@ -75,13 +75,18 @@ let g:closetag_filenames = "*.html,*.tag"
 
 let g:syntastic_javascript_checkers = ['xo']
 
+let g:syntastic_error_symbol = "✖"
+let g:syntastic_style_error_symbol = "✖"
+let g:syntastic_warning_symbol = "‼"
+let g:syntastic_style_warning_symbol = "‼"
+
 colorscheme monokai
 
 function! TrailingWhitespace ()
-	highlight clear MatchParen
-	highlight MatchParen cterm=bold,underline term=bold,underline
+	hi clear MatchParen
+	hi MatchParen cterm=bold,underline term=bold,underline
 
-	highlight ExtraWhitespace cterm=underline,bold term=bold,underline ctermfg=red
+	hi ExtraWhitespace cterm=underline,bold term=bold,underline ctermfg=red
 	match ExtraWhitespace /\s\+$/
 endfunction
 
@@ -90,6 +95,8 @@ au BufWinEnter * :call TrailingWhitespace()
 au VimEnter * silent AirlineToggleWhitespace
 
 call TrailingWhitespace()
+
+hi Error cterm=none ctermfg=white ctermbg=red
 
 au BufEnter * set colorcolumn=80
 set colorcolumn=80
