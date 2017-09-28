@@ -4,9 +4,6 @@
 [submodule ".vim/bundle/vim-airline-themes"]
 	path = .vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
-[submodule ".vim/bundle/vim-monokai"]
-	path = .vim/bundle/vim-monokai
-	url = https://github.com/crusoexia/vim-monokai
 [submodule ".vim/bundle/delimitmate"]
 	path = .vim/bundle/delimitmate
 	url = https://github.com/raimondi/delimitmate
@@ -58,3 +55,6 @@
 [submodule ".vim/bundle/vim-xo"]
 	path = .vim/bundle/vim-xo
 	url = https://github.com/sindresorhus/vim-xo
+[submodule ".vim/bundle/dracula"]
+	path = .vim/bundle/dracula
+	url = https://github.com/dracula/vim.git
