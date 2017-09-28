@@ -10,3 +10,5 @@ end
 
 # match all ~/.gem/ruby/[version]/bin paths
 set -gx PATH $PATH (find ~/.gem/ruby -type d -regex ".+\.gem/ruby/[^/]+/bin")
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
