@@ -19,6 +19,7 @@ set noswapfile
 set shortmess+=A " ignore swap warnings
 set ignorecase
 set smartcase " when searching
+set backspace=indent,eol,start " allow for deleting existing file content
 filetype on
 
 if &term =~ '^screen'
