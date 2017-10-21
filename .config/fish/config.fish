@@ -16,5 +16,4 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 set NPM_PACKAGES "$HOME/.npm"
 set -x PATH $NPM_PACKAGES/bin $PATH
 
-set -x MANPATH "$NPM_PACKAGES/share/man:(manpath)"
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
