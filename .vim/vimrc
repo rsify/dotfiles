@@ -38,6 +38,7 @@ let g:mapleader = ","
 nnoremap <silent> <Leader>e :NERDTree<CR>
 nnoremap <silent> <Leader>m :set mouse=a<CR>
 nnoremap <silent> <Leader>n :set mouse=<CR>
+nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
 vnoremap gs :'<,'>sort<CR>
 
 let g:airline#extensions#tabline#enabled = 0
