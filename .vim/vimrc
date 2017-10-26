@@ -20,6 +20,8 @@ set shortmess+=A " ignore swap warnings
 set ignorecase
 set smartcase " when searching
 set backspace=indent,eol,start " allow for deleting existing file content
+set fillchars=vert:│,fold:-
+
 filetype on
 
 if &term =~ '^screen'
@@ -41,8 +43,13 @@ nnoremap <silent> <Leader>n :set mouse=<CR>
 nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
 vnoremap gs :'<,'>sort<CR>
 
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:tmuxline_powerline_separators = 0
+
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_section_b = '%{getcwd()}'
+let g:airline_detect_modified=1
 
 set laststatus=2
 
@@ -99,6 +106,8 @@ au VimEnter * silent AirlineToggleWhitespace
 call TrailingWhitespace()
 
 hi Error cterm=none ctermfg=white ctermbg=red
+hi VertSplit cterm=none ctermfg=59 ctermbg=none
+hi EndOfBuffer ctermfg=59
 
 au BufEnter * set colorcolumn=80
 set colorcolumn=80
