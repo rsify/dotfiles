@@ -17,3 +17,5 @@ set NPM_PACKAGES "$HOME/.npm"
 set -x PATH $NPM_PACKAGES/bin $PATH
 
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+set -gx FZF_DEFAULT_COMMAND "ag -g ''"
