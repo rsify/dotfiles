@@ -8,14 +8,22 @@ function sudo!!
 	eval sudo $history[1]
 end
 
-# match all ~/.gem/ruby/[version]/bin paths
-set -gx PATH $PATH (find ~/.gem/ruby -type d -regex ".+\.gem/ruby/[^/]+/bin")
+function _path
+	set -gx PATH $PATH $argv
+end
 
+# iterm integration
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
-set NPM_PACKAGES "$HOME/.npm"
-set -x PATH $NPM_PACKAGES/bin $PATH
+# match all ~/.gem/ruby/[version]/bin paths
+_path (find ~/.gem/ruby -type d -regex ".+\.gem/ruby/[^/]+/bin")
 
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+# npm global packages
+_path "$HOME/.npm/bin"
+
+_path "/usr/local/sbin"
+
+# rust cargo path
+_path "$HOME/.cargo/bin"
 
 set -gx FZF_DEFAULT_COMMAND "ag -g ''"
