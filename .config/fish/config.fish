@@ -26,4 +26,4 @@ _path "/usr/local/sbin"
 # rust cargo path
 _path "$HOME/.cargo/bin"
 
-set -gx FZF_DEFAULT_COMMAND "ag -g ''"
+set -gx FZF_DEFAULT_COMMAND "ag --hidden --ignore .git -g ''"
