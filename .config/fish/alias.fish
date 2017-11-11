@@ -20,5 +20,7 @@ alias gr "git reset HEAD"
 alias gs "git status"
 
 # tmux
-alias tn "tmux new"
+alias ta "tmux attach -t"
+alias tk "tmux kill-session -t"
 alias tls "tmux ls"
+alias tn "tmux new -s (sort -R .config/misc/words | head -n 1)"
