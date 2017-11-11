@@ -16,7 +16,7 @@ $ git submodule init
 $ git submodule update
 $ git branch -u origin/master
 $ git config status.showuntrackedfiles no
-$ ./bootstrap.sh
+$ ./config/bin/bootstrap.sh
 $ chsh -s `which fish`
 ```
 
