@@ -33,14 +33,15 @@ au BufRead,BufNewFile *.fig setfiletype pug
 set nofoldenable
 set foldmethod=indent
 au BufWinLeave ?* mkview 1
-au BufWinEnter ?* silent loadview 1
 
 let g:mapleader = ","
 
+nnoremap <silent> <Leader>a :call AckSearch('')<Left><Left>
 nnoremap <silent> <Leader>e :NERDTree<CR>
 nnoremap <silent> <Leader>f :Files<CR> " fzf.vim files search
 nnoremap <silent> <Leader>m :set mouse=a<CR>
 nnoremap <silent> <Leader>n :set mouse=<CR>
+nnoremap <silent> <Leader>q :cclose<CR>
 nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
 nnoremap <silent> <space> :Buffers<CR> " fzf.vim buffer search window
 vnoremap gs :'<,'>sort<CR>
@@ -91,7 +92,23 @@ let g:syntastic_style_error_symbol = "✖"
 let g:syntastic_warning_symbol = "‼"
 let g:syntastic_style_warning_symbol = "‼"
 
+if executable('ag')
+	let g:ackprg = 'ag --vimgrep'
+endif
+
 colorscheme dracula
+
+function AckSearch(string) abort
+	let saved_shellpipe = &shellpipe
+	let &shellpipe = '>'
+
+	try
+		execute 'Ack!' shellescape(a:string, 1)
+	finally
+		let &shellpipe = saved_shellpipe
+	endtry
+
+endfunction
 
 function! TrailingWhitespace ()
 	hi clear MatchParen
