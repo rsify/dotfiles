@@ -41,6 +41,7 @@ nnoremap <silent> <Leader>e :NERDTree<CR>
 nnoremap <silent> <Leader>f :Files<CR> " fzf.vim files search
 nnoremap <silent> <Leader>m :set mouse=a<CR>
 nnoremap <silent> <Leader>n :set mouse=<CR>
+nnoremap <silent> <Leader>p :set invpaste<CR>
 nnoremap <silent> <Leader>q :cclose<CR>
 nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
 nnoremap <silent> <space> :Buffers<CR> " fzf.vim buffer search window
