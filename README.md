@@ -1,7 +1,9 @@
 # hello!
 
 ### prerequisites
-`git curl fish@>=2.3`
+
+`git curl fish@>=2.3 the_silver_searcher fzf`
+
 ### setup
 
 ```sh
@@ -17,7 +19,9 @@ $ git config status.showuntrackedfiles no
 $ ./bootstrap.sh
 $ chsh -s `which fish`
 ```
+
 ### vim config
+
 ```sh
 # adding plugins
 $ git submodule add <url> .vim/bundle/<name>
@@ -29,7 +33,9 @@ $ git submodule update --recursive --remote
 $ git submodule deinit [-f] .vim/bundle/<name>
 $ git rm [-f] .vim/bundle/<name>
 ```
+
 ### fisher plugins
+
 ```sh
 # installing/removing
 $ fisher <name>
