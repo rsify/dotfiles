@@ -3,11 +3,19 @@ alias ga "git add"
 alias gap "git add -p"
 
 function gc --wraps git --description 'git commit -m'
-	git commit -m "$argv"
+	if test -n "$argv"
+		git commit -m "$argv"
+	else
+		git commit
+	end
 end
 
 function gca --wraps git --description 'git commit --amend -m'
-	git commit --amend -m "$argv"
+	if test -n "$argv"
+		git commit --amend -m "$argv"
+	else
+		git commit --amend
+	end
 end
 
 alias gcan "git commit --amend --no-edit"
