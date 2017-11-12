@@ -21,6 +21,8 @@ set ignorecase
 set smartcase " when searching
 set backspace=indent,eol,start " allow for deleting existing file content
 set fillchars=vert:│,fold:-
+set splitbelow " more natural splits
+set splitright
 
 filetype on
 
@@ -36,6 +38,14 @@ au BufWinLeave ?* mkview 1
 
 let g:mapleader = ","
 
+nnoremap <silent> <c-w>\| :vsplit<cr>
+nnoremap <silent> <c-w>- :split<cr>
+nnoremap <silent> <c-w>_ :split<cr>
+nnoremap <silent> <c-h> <c-w>h
+nnoremap <silent> <c-j> <c-w>j
+nnoremap <silent> <c-k> <c-w>k
+nnoremap <silent> <c-l> <c-w>l
+
 nnoremap <silent> <Leader>a :call AckSearch('')<Left><Left>
 nnoremap <silent> <Leader>e :NERDTree<CR>
 nnoremap <silent> <Leader>f :Files<CR> " fzf.vim files search
@@ -45,6 +55,7 @@ nnoremap <silent> <Leader>p :set invpaste<CR>
 nnoremap <silent> <Leader>q :cclose<CR>
 nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
 nnoremap <silent> <space> :Buffers<CR> " fzf.vim buffer search window
+
 vnoremap gs :'<,'>sort<CR>
 
 let g:airline_left_sep = ''
