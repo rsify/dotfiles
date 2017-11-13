@@ -55,10 +55,21 @@ nnoremap <silent> <Leader>p :set invpaste<CR>
 nnoremap <silent> <Leader>q :cclose<CR>
 nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
 nnoremap <silent> <space> :Buffers<CR> " fzf.vim buffer search window
+nmap <silent> [s <Plug>(ale_previous_wrap)
+nmap <silent> ]s <Plug>(ale_next_wrap)
 
 vnoremap gs :'<,'>sort<CR>
 
 set laststatus=2
+
+if ! has('gui_running')
+	set ttimeoutlen=10
+	augroup FastEscape
+		autocmd!
+		au InsertEnter * set timeoutlen=0
+		au InsertLeave * set timeoutlen=1000
+	augroup END
+endif
 
 " ALE components copied from
 " https://github.com/statico/dotfiles/blob/f6e5807b4357403e0a5b786d7220d1a7ecbe63d9/.vim/vimrc#L299
@@ -109,14 +120,20 @@ function! LightlineLinterOK() abort
 	return l:counts.total == 0 ? '✓ ' : ''
 endfunction
 
-if ! has('gui_running')
-	set ttimeoutlen=10
-	augroup FastEscape
-		autocmd!
-		au InsertEnter * set timeoutlen=0
-		au InsertLeave * set timeoutlen=1000
-	augroup END
-endif
+autocmd User ALELint call s:MaybeUpdateLightline()
+function! s:MaybeUpdateLightline()
+	if exists('#lightline')
+		call lightline#update()
+	end
+endfunction
+
+let g:ale_javascript_xo_options = '--extend ~/.xo.js'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_list_window_size = 8
+let g:ale_open_list = 1
+let g:ale_set_quickfix = 1
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '▲'
 
 set t_Co=256
 
@@ -130,13 +147,6 @@ let NERDTreeShowHidden=1
 
 let g:closetag_filenames = "*.html,*.tag"
 
-let g:syntastic_javascript_checkers = ['xo']
-
-let g:syntastic_error_symbol = "✖"
-let g:syntastic_style_error_symbol = "✖"
-let g:syntastic_warning_symbol = "‼"
-let g:syntastic_style_warning_symbol = "‼"
-
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
@@ -149,7 +159,7 @@ endif
 
 colorscheme dracula
 
-function AckSearch(string) abort
+function! AckSearch(string) abort
 	let saved_shellpipe = &shellpipe
 	let &shellpipe = '>'
 
@@ -161,6 +171,8 @@ function AckSearch(string) abort
 
 endfunction
 
+syntax on
+
 function! TrailingWhitespace ()
 	hi clear MatchParen
 	hi MatchParen cterm=bold,underline term=bold,underline
@@ -169,12 +181,14 @@ function! TrailingWhitespace ()
 	match ExtraWhitespace /\s\+$/
 endfunction
 
-syntax on
 au BufWinEnter * :call TrailingWhitespace()
 
 call TrailingWhitespace()
 
-hi Error cterm=none ctermfg=white ctermbg=red
+hi link ALEWarningSign Warn
+
+hi Error cterm=none ctermfg=red ctermbg=none
+hi Warn cterm=none ctermfg=215 ctermbg=none
 hi VertSplit cterm=none ctermfg=59 ctermbg=none
 hi EndOfBuffer ctermfg=59
 
