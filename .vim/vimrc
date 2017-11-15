@@ -127,6 +127,10 @@ function! s:MaybeUpdateLightline()
 	end
 endfunction
 
+let g:ale_linters = {
+\	'javascript': ['xo']
+\}
+
 let g:ale_javascript_xo_options = '--extend ~/.xo.js'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_list_window_size = 8
