@@ -24,6 +24,7 @@ alias gdc "git diff --cached"
 alias gl "git log"
 alias glg "git log --color=always --format=oneline --abbrev-commit --decorate | head"
 alias gp "git push"
+alias gpf "git push --force"
 alias gr "git reset HEAD"
 alias gs "git status"
 
