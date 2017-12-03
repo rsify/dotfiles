@@ -2,7 +2,7 @@
 alias ga "git add"
 alias gap "git add -p"
 
-function gc --wraps git --description 'git commit -m'
+function gc --wraps git --description "git commit -m"
 	if test -n "$argv"
 		git commit -m "$argv"
 	else
@@ -10,7 +10,7 @@ function gc --wraps git --description 'git commit -m'
 	end
 end
 
-function gca --wraps git --description 'git commit --amend -m'
+function gca --wraps git --description "git commit --amend -m"
 	if test -n "$argv"
 		git commit --amend -m "$argv"
 	else
@@ -31,4 +31,11 @@ alias gs "git status"
 alias ta "tmux attach -t"
 alias tk "tmux kill-session -t"
 alias tls "tmux ls"
-alias tn "tmux new -s (sort -R .config/misc/words | head -n 1)"
+
+function tn --wraps tmux --description "tmux new"
+	if test -n "$argv"
+		tmux new -s "$argv"
+	else
+		tmux new -s (sort -R .config/misc/words | head -n 1)
+	end
+end
