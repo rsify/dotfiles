@@ -2,33 +2,41 @@ execute pathogen#infect()
 
 set ttimeoutlen=10
 
-set relativenumber
-set number
-set scrolloff=9999
-set tabstop=4
-set shiftwidth=4
-set showcmd
 set cursorline
-set smartindent
-set wildmenu
+set fillchars=vert:│,fold:-
 set incsearch
 set lazyredraw
 set nocompatible
 set noshowmode
 set noswapfile
-set shortmess+=A " ignore swap warnings
-set ignorecase
-set smartcase " when searching
-set backspace=indent,eol,start " allow for deleting existing file content
-set fillchars=vert:│,fold:-
-set splitbelow " more natural splits
-set splitright
+set number
+set relativenumber
+set scrolloff=9999
+set shiftwidth=4
+set showcmd
+set smartindent
+set tabstop=4
+set wildmenu
 
-filetype on
+" ignore swap warnings
+set shortmess+=A
+
+" when searching
+set smartcase
+set ignorecase
+
+" allow for deleting existing file content
+set backspace=indent,eol,start
+
+" more natural splits
+set splitbelow
+set splitright
 
 if &term =~ '^screen'
 	set ttymouse=xterm2
 endif
+
+filetype on
 
 au BufRead,BufNewFile *.fig setfiletype pug
 
@@ -48,13 +56,19 @@ nnoremap <silent> <c-l> <c-w>l
 
 nnoremap <silent> <Leader>a :call AckSearch('')<Left><Left>
 nnoremap <silent> <Leader>e :NERDTree<CR>
-nnoremap <silent> <Leader>f :Files<CR> " fzf.vim files search
+
+" fzf.vim files search
+nnoremap <silent> <Leader>f :Files<CR>
+
 nnoremap <silent> <Leader>m :set mouse=a<CR>
 nnoremap <silent> <Leader>n :set mouse=<CR>
 nnoremap <silent> <Leader>p :set invpaste<CR>
 nnoremap <silent> <Leader>q :cclose<CR>
 nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
-nnoremap <silent> <space> :Buffers<CR> " fzf.vim buffer search window
+
+" fzf.vim buffer search window
+nnoremap <silent> <space> :Buffers<CR>
+
 nmap <silent> [s <Plug>(ale_previous_wrap)
 nmap <silent> ]s <Plug>(ale_next_wrap)
 
@@ -145,6 +159,7 @@ let delimitMate_expand_cr = 1
 
 let g:neocomplete#enable_at_startup = 1
 
+let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let NERDTreeShowHidden=1
