@@ -40,3 +40,7 @@ function tn --wraps tmux --description "tmux new"
 		tmux new -s (sort -R .config/misc/words | head -n 1)
 	end
 end
+
+function git --description 'Alias for hub, which wraps git to provide extra functionality with GitHub.'
+    hub $argv
+end
