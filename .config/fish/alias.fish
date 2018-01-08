@@ -28,6 +28,10 @@ alias gpf "git push --force"
 alias gr "git reset HEAD"
 alias gs "git status"
 
+function git --description "Alias for hub, which wraps git to provide extra functionality with GitHub."
+    hub $argv
+end
+
 # tmux
 alias ta "tmux attach -t"
 alias tk "tmux kill-session -t"
@@ -41,6 +45,26 @@ function tn --wraps tmux --description "tmux new"
 	end
 end
 
-function git --description 'Alias for hub, which wraps git to provide extra functionality with GitHub.'
-    hub $argv
+# mac
+function ding --description "Show a notification"
+    set st $status
+
+    set desc "$_ - $PWD"
+
+    set title "Ding!"
+    if test -n "$argv"
+	set title "$argv"
+    end
+
+    set sound "hero"
+    # play scary sound if last cmd errored
+    if test ! $st -eq 0
+	set sound "sosumi"
+	set err "Error ($st) - "
+    end
+
+    switch (uname)
+	case Darwin
+	    /usr/bin/osascript -e "display notification \"$desc\" with title \"$err$title\" sound name \"$sound\""
+    end
 end
