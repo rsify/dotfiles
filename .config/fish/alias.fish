@@ -36,6 +36,7 @@ alias cv "vim ~/.vim/vimrc"
 
 alias ga "git add"
 alias gap "git add -p"
+alias gau "git add -u"
 
 function gc --wraps git --description "git commit -m"
 	if test -n "$argv"
@@ -61,7 +62,13 @@ alias glg "git log --color=always --format=oneline --abbrev-commit --decorate | 
 alias gp "git push"
 alias gpf "git push --force"
 alias gr "git reset HEAD"
+alias grm "git rm"
 alias gs "git status"
+alias gsuba "git submodule add"
+alias gsubi "git submodule init"
+alias gsubdi "git submodule deinit"
+alias gsubu "git submodule update"
+alias gsubur "git submodule update --recursive --remote"
 
 function git --description "Alias for hub, which wraps git to provide extra functionality with GitHub."
 	hub $argv
@@ -144,6 +151,10 @@ alias safaril 'open -a safari'
 
 # misc
 # ====
+
+alias lsa 'ls -a'
+alias how 'howdoi'
+alias hows 'howdoi -n 5'
 
 function sudo!!
 	eval sudo $history[1]
