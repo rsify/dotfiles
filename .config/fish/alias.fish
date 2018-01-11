@@ -152,9 +152,10 @@ alias safaril 'open -a safari'
 # misc
 # ====
 
-alias lsa 'ls -a'
+alias fns 'functions'
 alias how 'howdoi'
 alias hows 'howdoi -n 5'
+alias lsa 'ls -a'
 
 function sudo!!
 	eval sudo $history[1]
