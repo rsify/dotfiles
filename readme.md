@@ -20,7 +20,7 @@ $ ./config/bin/bootstrap.sh
 $ chsh -s `which fish`
 
 # enable vim javascript completion via tern
-$ cd .vim/bundle/completor.vim
+$ cd .vim/pack/nikersify/start/completor.vim
 $ make js
 ```
 
@@ -28,14 +28,14 @@ $ make js
 
 ```sh
 # adding plugins
-$ git submodule add <url> .vim/bundle/<name>
+$ git submodule add <url> .vim/pack/nikersify/start/<name>
 
 # bumping all
 $ git submodule update --recursive --remote
 
 # removing plugins, [-f] for uncommited changes
-$ git submodule deinit [-f] .vim/bundle/<name>
-$ git rm [-f] .vim/bundle/<name>
+$ git submodule deinit [-f] .vim/pack/nikersify/start/<name>
+$ git rm [-f] .vim/pack/nikersify/start/<name>
 ```
 
 ### fisher plugins
