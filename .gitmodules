@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/delimitmate"]
 	path = .vim/bundle/delimitmate
 	url = https://github.com/raimondi/delimitmate
-[submodule ".vim/bundle/neocomplete.vim"]
-	path = .vim/bundle/neocomplete.vim
-	url = https://github.com/shougo/neocomplete.vim
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -19,9 +16,6 @@
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
-[submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
-	url = https://github.com/ervandew/supertab
 [submodule ".vim/bundle/vim-pug"]
 	path = .vim/bundle/vim-pug
 	url = https://github.com/digitaltoad/vim-pug.git
@@ -67,3 +61,9 @@
 [submodule ".vim/bundle/vim-sleuth"]
 	path = .vim/bundle/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
+[submodule ".vim/bundle/completor.vim"]
+	path = .vim/bundle/completor.vim
+	url = https://github.com/maralla/completor.vim
+[submodule ".vim/bundle/ultisnips"]
+	path = .vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips

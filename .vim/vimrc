@@ -1,3 +1,6 @@
+set encoding=utf-8
+set fileencoding=utf-8
+
 execute pathogen#infect()
 
 set ttimeoutlen=10
@@ -39,6 +42,7 @@ endif
 filetype on
 
 au BufRead,BufNewFile *.fig setfiletype pug
+au BufRead,BufNewFile *.tex setfiletype tex
 
 set nofoldenable
 set foldmethod=indent
@@ -63,6 +67,7 @@ nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>m :set mouse=a<CR>
 nnoremap <silent> <Leader>n :set mouse=<CR>
 nnoremap <silent> <Leader>p :set invpaste<CR>
+nnoremap <silent> <Leader>s :UltiSnipsEdit<CR>
 nnoremap <silent> <Leader>q :cclose<CR>
 nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
 
@@ -157,10 +162,10 @@ set t_Co=256
 
 let delimitMate_expand_cr = 1
 
-let g:neocomplete#enable_at_startup = 1
+let g:completor_refresh_always = 0
 
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+let g:UltiSnipsEditSplit="horizontal"
 
 let NERDTreeShowHidden=1
 
