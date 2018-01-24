@@ -11,7 +11,7 @@ set -g status-justify "centre"
 set -g status-left "#[fg=colour235,bg=colour114] #S #[fg=colour145,bg=colour236,nobold,nounderscore,noitalics]#(if [ #{mouse} == "1" ]; then echo ' m '; fi)"
 set -g status-left-attr "none"
 set -g status-left-length "100"
-set -g status-right "#[fg=colour236,bg=,nobold,nounderscore,noitalics]#[fg=colour145,bg=colour236] %Y-%m-%d | %H:%M #[fg=colour114,bg=colour236,nobold,nounderscore,noitalics]#[fg=colour235,bg=colour114] #h "
+set -g status-right "#[fg=colour145,bg=colour236]#(~/.config/bin/np.sh)#[fg=colour114,bg=colour236]#[fg=colour235,bg=colour114] #h "
 set -g status-right-attr "none"
 set -g status-right-length "100"
 setw -g pane-border-format '─'
