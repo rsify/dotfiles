@@ -29,7 +29,15 @@ alias but "brew untap"
 
 alias ca "vim ~/.config/fish/alias.fish"
 alias cf "vim ~/.config/fish/config.fish"
+alias ck "vim ~/Library/Preferences/kitty/kitty.conf"
 alias cv "vim ~/.vim/vimrc"
+
+# fish
+# ====
+
+alias fns 'functions'
+alias fsa 'source ~/.config/fish/alias.fish'
+alias fsc 'source ~/.config/fish/config.fish'
 
 # git
 # ===
@@ -97,6 +105,8 @@ end
 # mac
 # ===
 
+alias md 'macdown'
+
 function ding --description "Show a notification"
 	set st $status
 
@@ -152,10 +162,12 @@ alias safaril 'open -a safari'
 # misc
 # ====
 
-alias fns 'functions'
 alias how 'howdoi'
 alias hows 'howdoi -n 5'
+alias ls1 'ls -1'
 alias lsa 'ls -a'
+alias mkdir 'mkdir -p'
+alias v 'vim'
 
 function sudo!!
 	eval sudo $history[1]
