@@ -31,6 +31,8 @@ alias ca "vim ~/.config/fish/alias.fish"
 alias cf "vim ~/.config/fish/config.fish"
 alias ck "vim ~/Library/Preferences/kitty/kitty.conf"
 alias cv "vim ~/.vim/vimrc"
+alias ct "vim ~/.tmux.conf"
+alias ctt "vim ~/.tmux.theme"
 
 # fish
 # ====
@@ -162,6 +164,7 @@ alias safaril 'open -a safari'
 # misc
 # ====
 
+alias chx 'chmod +x'
 alias how 'howdoi'
 alias hows 'howdoi -n 5'
 alias ls1 'ls -1'
