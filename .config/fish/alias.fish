@@ -87,11 +87,15 @@ end
 # tmux
 # ====
 
-alias ta "tmux attach -t"
+function ta --description "tmux attach"
+	# functioned so it doesn't wrap tmux' default completions
+	tmux attach -t $argv
+end
+
 alias tk "tmux kill-session -t"
 alias tls "tmux ls"
 
-function tn --wraps tmux --description "tmux new"
+function tn --description "tmux new"
 	if test -n "$argv"
 		# start session in ~/dev/<argv> if the dir exists
 		if test -d ~/dev/$argv
@@ -103,6 +107,9 @@ function tn --wraps tmux --description "tmux new"
 		tmux new -s (sort -R .config/misc/words | head -n 1)
 	end
 end
+
+complete --command ta -xa "(tmux ls -F '#S')"
+complete --command tn -xa "(ls -1 ~/dev)"
 
 # mac
 # ===
