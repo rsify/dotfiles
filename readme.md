@@ -1,5 +1,7 @@
 # hello!
 
+![Screenshot](/.config/media/vim.png?raw=true "🎉")
+
 ### prerequisites
 
 `git curl fish@>=2.3 the_silver_searcher fzf`
