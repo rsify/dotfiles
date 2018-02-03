@@ -92,7 +92,7 @@ endif
 " https://github.com/statico/dotfiles/blob/f6e5807b4357403e0a5b786d7220d1a7ecbe63d9/.vim/vimrc#L299
 
 let g:lightline = {
-\ 'colorscheme': 'darcula',
+\ 'colorscheme': 'deus',
 \ 'inactive': {
 \   'left': [[], ['file', 'modified']],
 \   'right': []
@@ -100,6 +100,10 @@ let g:lightline = {
 \ 'active': {
 \   'left': [['mode', 'paste'], ['file', 'modified']],
 \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+\ },
+\ 'tabline': {
+\ 'left': [ [ 'tabs' ] ],
+\ 'right': [ [ 'close' ] ]
 \ },
 \ 'component': {
 \   'file': '%{expand("%")}'
