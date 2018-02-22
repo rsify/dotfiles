@@ -47,6 +47,7 @@ alias fsc 'source ~/.config/fish/config.fish'
 alias ga "git add"
 alias gap "git add -p"
 alias gau "git add -u"
+alias gapp "git apply"
 
 function gc --wraps git --description "git commit -m"
 	if test -n "$argv"
@@ -65,12 +66,14 @@ function gca --wraps git --description "git commit --amend -m"
 end
 
 alias gcan "git commit --amend --no-edit"
+alias gck "git checkout"
 alias gd "git diff"
 alias gdc "git diff --cached"
 alias gl "git log"
 alias glg "git log --color=always --format=oneline --abbrev-commit --decorate | head"
 alias gp "git push"
 alias gpf "git push --force"
+alias gpu "git pull"
 alias gr "git reset"
 alias grm "git rm"
 alias gs "git status"
