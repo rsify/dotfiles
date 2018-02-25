@@ -42,6 +42,9 @@ filetype on
 au BufRead,BufNewFile *.fig setfiletype pug
 au BufRead,BufNewFile *.tex setfiletype tex
 
+" vim-commentary
+au FileType javascript setlocal commentstring=//\ %s
+
 set nofoldenable
 set foldmethod=indent
 au BufWinLeave ?* mkview 1
