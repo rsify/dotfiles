@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/delimitmate"]
 	path = .vim/pack/nikersify/start/delimitmate
 	url = https://github.com/raimondi/delimitmate
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/pack/nikersify/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/pack/nikersify/start/vim-surround
 	url = https://github.com/tpope/vim-surround
@@ -67,3 +64,6 @@
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/pack/nikersify/start/ultisnips
 	url = https://github.com/SirVer/ultisnips
+[submodule ".vim/pack/nikersify/start/vim-vinegar"]
+	path = .vim/pack/nikersify/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar

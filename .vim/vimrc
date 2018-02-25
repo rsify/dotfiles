@@ -48,16 +48,15 @@ au BufWinLeave ?* mkview 1
 
 let g:mapleader = ","
 
-nnoremap <silent> <c-w>\| :vsplit<cr>
-nnoremap <silent> <c-w>- :split<cr>
-nnoremap <silent> <c-w>_ :split<cr>
+nnoremap <silent> <c-w>\| :Vexplore!<cr>
+nnoremap <silent> <c-w>- :Sex<cr>
+nnoremap <silent> <c-w>_ :Sex<cr>
 nnoremap <silent> <c-h> <c-w>h
 nnoremap <silent> <c-j> <c-w>j
 nnoremap <silent> <c-k> <c-w>k
 nnoremap <silent> <c-l> <c-w>l
 
 nnoremap <silent> <Leader>a :call AckSearch('')<Left><Left>
-nnoremap <silent> <Leader>e :NERDTree<CR>
 
 " fzf.vim files search
 nnoremap <silent> <Leader>f :Files<CR>
@@ -168,8 +167,6 @@ let g:completor_refresh_always = 0
 
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit="horizontal"
-
-let NERDTreeShowHidden=1
 
 let g:closetag_filenames = "*.html,*.tag"
 
