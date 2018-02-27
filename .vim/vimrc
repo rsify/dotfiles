@@ -213,6 +213,8 @@ au BufWinEnter * :call TrailingWhitespace()
 
 call TrailingWhitespace()
 
+syn keyword cTodo TODO
+hi link cTodo Todo
 hi link ALEWarningSign Warn
 
 hi Error cterm=none ctermfg=red ctermbg=none
