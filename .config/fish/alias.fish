@@ -48,6 +48,7 @@ alias ga "git add"
 alias gap "git add -p"
 alias gau "git add -u"
 alias gapp "git apply"
+alias gbr "git browse"
 
 function gc --wraps git --description "git commit -m"
 	if test -n "$argv"
@@ -78,8 +79,8 @@ alias gr "git reset"
 alias grm "git rm"
 alias gs "git status"
 alias gsuba "git submodule add"
-alias gsubi "git submodule init"
 alias gsubdi "git submodule deinit"
+alias gsubi "git submodule init"
 alias gsubu "git submodule update"
 alias gsubur "git submodule update --recursive --remote"
 
@@ -179,6 +180,7 @@ alias how 'howdoi'
 alias hows 'howdoi -n 5'
 alias ls1 'ls -1'
 alias lsa 'ls -a'
+alias lsa1 'ls -a1'
 alias mkdir 'mkdir -p'
 alias v 'vim'
 
