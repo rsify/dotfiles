@@ -48,6 +48,7 @@ alias ga "git add"
 alias gap "git add -p"
 alias gau "git add -u"
 alias gapp "git apply"
+alias gb "git branch"
 alias gbr "git browse"
 
 function gc --wraps git --description "git commit -m"
