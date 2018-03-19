@@ -179,6 +179,9 @@ let g:gitgutter_sign_modified_removed = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_removed_first_line = '∙'
 
+let g:polyglot_disabled = ['vue']
+let g:vue_disable_pre_processors = 1
+
 au BufRead,BufNewFile * Sleuth
 
 if executable('ag')
