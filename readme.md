@@ -4,7 +4,7 @@
 
 ### prerequisites
 
-`git curl fish@>=2.3 the_silver_searcher fzf`
+`git hub curl fish@>=2.3 the_silver_searcher fzf`
 
 ### setup
 
@@ -18,7 +18,9 @@ $ git submodule init
 $ git submodule update
 $ git branch -u origin/master
 $ git config status.showuntrackedfiles no
-$ ./config/bin/bootstrap.sh
+$ mkdir -p .npm/bin .cargo/bin .gem/ruby
+$ ./.config/bin/bootstrap.sh
+$ echo `which fish` | sudo tee /etc/shells
 $ chsh -s `which fish`
 
 # enable vim javascript completion via tern

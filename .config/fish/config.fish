@@ -1,5 +1,9 @@
+set -g TERM xterm-256color
+
 source ~/.config/fish/alias.fish
 source ~/.config/fish/colors.fish
+
+[ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 
 set -g EDITOR vim
 
