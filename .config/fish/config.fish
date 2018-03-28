@@ -1,5 +1,3 @@
-set -g TERM xterm-256color
-
 source ~/.config/fish/alias.fish
 source ~/.config/fish/colors.fish
 
