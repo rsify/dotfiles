@@ -30,9 +30,11 @@ alias but "brew untap"
 alias ca "vim ~/.config/fish/alias.fish"
 alias cf "vim ~/.config/fish/config.fish"
 alias ck "vim ~/Library/Preferences/kitty/kitty.conf"
-alias cv "vim ~/.vim/vimrc"
+alias ckr "vim ~/.config/karabiner/karabiner.json"
+alias cs "vim ~/.slate.js"
 alias ct "vim ~/.tmux.conf"
 alias ctt "vim ~/.tmux.theme"
+alias cv "vim ~/.vim/vimrc"
 
 # fish
 # ====
