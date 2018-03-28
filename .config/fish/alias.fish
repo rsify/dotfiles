@@ -184,7 +184,11 @@ alias ls1 'ls -1'
 alias lsa 'ls -a'
 alias lsa1 'ls -a1'
 alias mkdir 'mkdir -p'
+
+alias f 'ag -g'
+alias r 'ag'
 alias v 'vim'
+alias vf 'vim (fzf)'
 
 function sudo!!
 	eval sudo $history[1]
