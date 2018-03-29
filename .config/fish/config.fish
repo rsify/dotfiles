@@ -2,6 +2,7 @@ source ~/.config/fish/alias.fish
 source ~/.config/fish/colors.fish
 
 [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+[ -f ~/.config/fish/env.fish ]; and source ~/.config/fish/env.fish
 
 set -g EDITOR vim
 
