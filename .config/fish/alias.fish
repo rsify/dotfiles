@@ -21,7 +21,7 @@ alias bs "brew search"
 alias bt "brew tap"
 alias bug "brew upgrade"
 alias bun "brew uninstall"
-alias bup "brew update"
+alias bup "brew upgrade"
 alias but "brew untap"
 
 # config
@@ -69,17 +69,31 @@ function gca --wraps git --description "git commit --amend -m"
 	end
 end
 
+function gcal --wraps git --description "git commit --all -m"
+	if test -n "$argv"
+		git commit --all -m "$argv"
+	else
+		git commit --all
+	end
+end
+
 alias gcan "git commit --amend --no-edit"
 alias gck "git checkout"
 alias gd "git diff"
 alias gdc "git diff --cached"
+alias gf "git fetch"
 alias gi "git init"
 alias gl "git log"
+alias gl1 "git log -n 1"
 alias glg "git log --color=always --format=oneline --abbrev-commit --decorate | head"
+alias gm "git merge"
 alias gp "git push"
 alias gpf "git push --force"
 alias gpu "git pull"
+alias gpu "git push -u origin master"
 alias gr "git reset"
+alias grb "git rebase"
+alias grl "git reflog"
 alias grm "git rm"
 alias gs "git status"
 alias gsuba "git submodule add"
@@ -182,6 +196,12 @@ alias safaril 'open -a safari'
 alias chx 'chmod +x'
 alias how 'howdoi'
 alias hows 'howdoi -n 5'
+
+function mkd --description 'Make directory and cd'
+	mkdir $argv
+	cd $argv[1]
+end
+
 alias ls1 'ls -1'
 alias lsa 'ls -a'
 alias lsa1 'ls -a1'
@@ -195,3 +215,5 @@ alias vf 'vim (fzf)'
 function sudo!!
 	eval sudo $history[1]
 end
+
+alias flushdns "sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
