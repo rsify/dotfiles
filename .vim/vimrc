@@ -155,7 +155,7 @@ let g:ale_linters = {
 \}
 
 let g:ale_pattern_options = {
-\	'^\/Users\/nikersify': {'ale_enabled': 0}
+\	'\/Users\/nikersify\/[^/]*\.js': {'ale_enabled': 0}
 \}
 
 let g:ale_javascript_xo_options = '--extend ~/.xo.js'

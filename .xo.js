@@ -1,6 +1,5 @@
 module.exports = {
 	rules: {
-		semi: 0,
-		'import/no-unresolved': 0
+		semi: 0
 	}
 }
