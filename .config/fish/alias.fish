@@ -109,29 +109,37 @@ end
 # tmux
 # ====
 
-function ta --description "tmux attach"
-	# functioned so it doesn't wrap tmux' default completions
-	tmux attach -t $argv
-end
-
-alias tk "tmux kill-session -t"
-alias tls "tmux ls"
-
-function tn --description "tmux new"
+function t --description "tmux swiss knife"
 	if test -n "$argv"
-		# start session in ~/dev/<argv> if the dir exists
-		if test -d ~/dev/$argv
-			tmux new -s "$argv" -c ~/dev/$argv
+		if tmux ls -F "#S" | grep -Fxq $argv -
+			echo true
+			# if exists, attach
+			tmux attach -t $argv
 		else
-			tmux new -s "$argv"
+			echo false
+			# if session doesn't exist, create it
+			if test -d ~/dev/$argv
+				tmux new -s "$argv" -c ~/dev/$argv
+			else if test -d ~/work/projects/$argv
+				tmux new -s "work/$argv" -c ~/work/projects/$argv
+			else
+				tmux new -s "$argv"
+			end
 		end
 	else
-		tmux new -s (sort -R .config/misc/words | head -n 1)
+		# no arguments, list sessions
+		tmux ls
 	end
 end
 
-complete --command ta -xa "(tmux ls -F '#S')"
-complete --command tn -xa "(ls -1 ~/dev)"
+function tk --description "tmux kill session[s]"
+	for session in $argv
+		tmux kill-session -t $session
+	end
+end
+
+complete --command t -xa "(tmux ls -F '#S')"
+complete --command tk -xa "(tmux ls -F '#S')"
 
 # mac
 # ===
