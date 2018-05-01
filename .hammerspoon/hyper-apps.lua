@@ -13,5 +13,6 @@ return {
 	{ 'p', 'Postico' },
 	{ 'r', 'Microsoft Remote Desktop' },
 	{ 's', 'Safari' },
-	{ 't', 'kitty' }
+	{ 't', 'kitty' },
+	{ 'q', 'Finder' }
 }
