@@ -15,5 +15,6 @@ myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", function(f
 end):start()
 
 require('hyper')
+require('2do-sync')
 
 hs.notify.new({title='Hammerspoon', informativeText='Ready!'}):send()
