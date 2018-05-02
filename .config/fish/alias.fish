@@ -4,23 +4,22 @@
 alias b "brew"
 alias bcd "brew cask doctor"
 alias bch "brew cask help"
-alias bci "brew cask info"
-alias bcin "brew cask install"
+alias bci "brew cask install"
+alias bcin "brew cask info"
 alias bcl "brew cask list"
-alias bcri "brew cask reinstall"
+alias bcr "brew cask reinstall"
+alias bcrm "brew cask uninstall"
 alias bcs "brew cask search"
-alias bcu "brew cask upgrade"
-alias bcun "brew cask uninstall"
+alias bcup "brew cask upgrade"
 alias bd "brew doctor"
 alias bh "brew help"
-alias bi "brew info"
-alias bin "brew install"
+alias bi "brew install"
+alias bin "brew info"
 alias bl "brew list"
-alias bri "brew reinstall"
+alias br "brew reinstall"
+alias brm "brew uninstall"
 alias bs "brew search"
 alias bt "brew tap"
-alias bug "brew upgrade"
-alias bun "brew uninstall"
 alias bup "brew upgrade"
 alias but "brew untap"
 
@@ -105,6 +104,22 @@ alias gsubur "git submodule update --recursive --remote"
 function git --description "Alias for hub, which wraps git to provide extra functionality with GitHub."
 	hub $argv
 end
+
+# npm
+# ===
+
+alias ngi "npm install -g"
+alias ngin "npm info -g"
+alias nglg "npm list -g"
+alias ngrm "npm uninstall -g"
+alias ni "npm install"
+alias nin "npm info"
+alias nls "npm list"
+alias nr "npm run"
+alias nrb "npm rebuild"
+alias nrbf "npm rebuild --force"
+alias nrm "npm uninstall"
+alias ns "npm start"
 
 # tmux
 # ====
