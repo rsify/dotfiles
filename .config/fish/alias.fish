@@ -108,6 +108,7 @@ end
 # npm
 # ===
 
+alias ndi "npm install -D"
 alias ngi "npm install -g"
 alias ngin "npm info -g"
 alias nglg "npm list -g"
@@ -128,11 +129,9 @@ alias ns "npm start"
 function t --description "tmux swiss knife"
 	if test -n "$argv"
 		if tmux ls -F "#S" | grep -Fxq $argv -
-			echo true
 			# if exists, attach
 			tmux attach -t $argv
 		else
-			echo false
 			# if session doesn't exist, create it
 			if test -d ~/dev/$argv
 				tmux new -s "$argv" -c ~/dev/$argv
