@@ -3,7 +3,10 @@
 function sync_2do()
 	local twoDo = hs.appfinder.appFromName('2Do')
 
-	twoDo:selectMenuItem({"File", "Sync"})
+	-- Only if internet is available
+	if hs.network.reachability.internet():status() == 2 then
+		twoDo:selectMenuItem({"File", "Sync"})
+	end
 end
 
 hs.hotkey.bind({'cmd', 'alt'}, 'W', sync_2do)
