@@ -45,6 +45,8 @@ au BufRead,BufNewFile *.tex setfiletype tex
 " vim-commentary
 au FileType javascript setlocal commentstring=//\ %s
 
+au FileType markdown let b:sleuth_automatic=0
+
 set nofoldenable
 set foldmethod=indent
 au BufWinLeave ?* mkview 1
@@ -151,7 +153,8 @@ function! s:MaybeUpdateLightline()
 endfunction
 
 let g:ale_linters = {
-\	'javascript': ['xo']
+\	'javascript': ['xo'],
+\	'markdown': []
 \}
 
 let g:ale_pattern_options = {
