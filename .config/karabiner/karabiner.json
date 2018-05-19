@@ -1,14 +1,17 @@
 {
     "global": {
         "check_for_updates_on_startup": true,
-        "show_in_menu_bar": false,
+        "show_in_menu_bar": true,
         "show_profile_name_in_menu_bar": false
     },
     "profiles": [
         {
             "complex_modifications": {
                 "parameters": {
-                    "basic.simultaneous_threshold_milliseconds": 50
+                    "basic.simultaneous_threshold_milliseconds": 500,
+                    "basic.to_delayed_action_delay_milliseconds": 500,
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 100
                 },
                 "rules": [
                     {
@@ -26,12 +29,12 @@
                                 "to": [
                                     {
                                         "key_code": "left_shift",
+                                        "lazy": true,
                                         "modifiers": [
                                             "left_command",
                                             "left_control",
                                             "left_option"
-                                        ],
-                                        "lazy": true
+                                        ]
                                     }
                                 ],
                                 "to_if_alone": [
@@ -64,21 +67,20 @@
                                         }
                                     }
                                 ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "s"
-                                    },
-                                    {
-                                        "key_code": "d"
-                                    }
-                                ],
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
                                             "name": "superduper",
                                             "value": 0
                                         }
-
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "s"
+                                    },
+                                    {
+                                        "key_code": "d"
                                     }
                                 ],
                                 "type": "basic"
@@ -106,6 +108,14 @@
                                         }
                                     }
                                 ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "superduper",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
                                 "to_if_alone": [
                                     {
                                         "key_code": "d"
@@ -114,18 +124,16 @@
                                         "key_code": "s"
                                     }
                                 ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "superduper",
-                                            "value": 0
-                                        }
-
-                                    }
-                                ],
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "name": "superduper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "super duper -> down",
                                 "from": {
                                     "key_code": "j",
@@ -135,13 +143,6 @@
                                         ]
                                     }
                                 },
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "superduper",
-                                        "value": 1
-                                    }
-                                ],
                                 "to": [
                                     {
                                         "key_code": "down_arrow"
@@ -150,6 +151,13 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "name": "superduper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "super duper -> up",
                                 "from": {
                                     "key_code": "k",
@@ -159,13 +167,6 @@
                                         ]
                                     }
                                 },
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "superduper",
-                                        "value": 1
-                                    }
-                                ],
                                 "to": [
                                     {
                                         "key_code": "up_arrow"
@@ -174,6 +175,13 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "name": "superduper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "super duper -> right",
                                 "from": {
                                     "key_code": "l",
@@ -183,13 +191,6 @@
                                         ]
                                     }
                                 },
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "superduper",
-                                        "value": 1
-                                    }
-                                ],
                                 "to": [
                                     {
                                         "key_code": "right_arrow"
@@ -198,6 +199,13 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "name": "superduper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "super duper -> left",
                                 "from": {
                                     "key_code": "h",
@@ -207,16 +215,239 @@
                                         ]
                                     }
                                 },
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "superduper",
-                                        "value": 1
-                                    }
-                                ],
                                 "to": [
                                     {
                                         "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "sr: safari tab",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "s"
+                                        },
+                                        {
+                                            "key_code": "r"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"custom.tab\" in workflow \"net.deanishe.alfred.safari\" with argument \"\"'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "st: safari tabs",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "s"
+                                        },
+                                        {
+                                            "key_code": "t"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"custom.tabs\" in workflow \"net.deanishe.alfred.safari\" with argument \"\"'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "sv: safari bookmarks folders",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "s"
+                                        },
+                                        {
+                                            "key_code": "v"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"all-folders\" in workflow \"net.deanishe.alfred.safari\" with argument \"\"'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "sb: safari bookmarks search",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "s"
+                                        },
+                                        {
+                                            "key_code": "b"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"custom.bookmarks\" in workflow \"net.deanishe.alfred.safari\" with argument \"\"'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "sh: safari history",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "s"
+                                        },
+                                        {
+                                            "key_code": "h"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"custom.history\" in workflow \"net.deanishe.alfred.safari\" with argument \"\"'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "gs: new google sheet",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "g"
+                                        },
+                                        {
+                                            "key_code": "s"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open https://docs.google.com/spreadsheets/create"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "gn: new macvim document",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "g"
+                                        },
+                                        {
+                                            "key_code": "n"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open mvim://open?url=file://$(mktemp)"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "g3: annotate desktop screenshot",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "g"
+                                        },
+                                        {
+                                            "key_code": "3"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "screencapture -P $(mktemp)"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "g4: annotate area screenshot",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "g"
+                                        },
+                                        {
+                                            "key_code": "4"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "screencapture -iP $(mktemp)"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "wb: online.mbank.pl",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "w"
+                                        },
+                                        {
+                                            "key_code": "b"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open https://online.mbank.pl/pl/Login"
                                     }
                                 ],
                                 "type": "basic"
@@ -326,13 +557,136 @@
             ],
             "name": "Niker",
             "selected": true,
-            "simple_modifications": {
-                "escape": "out"
-            },
+            "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "escape"
+                    },
+                    "to": {
+                        "key_code": "out"
+                    }
+                }
+            ],
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
                 "country_code": 0,
                 "keyboard_type": "ansi"
+            }
+        },
+        {
+            "complex_modifications": {
+                "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 50,
+                    "basic.to_delayed_action_delay_milliseconds": 500,
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 500
+                },
+                "rules": []
+            },
+            "devices": [],
+            "fn_function_keys": [
+                {
+                    "from": {
+                        "key_code": "f1"
+                    },
+                    "to": {
+                        "consumer_key_code": "display_brightness_decrement"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f2"
+                    },
+                    "to": {
+                        "consumer_key_code": "display_brightness_increment"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f3"
+                    },
+                    "to": {
+                        "key_code": "mission_control"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f4"
+                    },
+                    "to": {
+                        "key_code": "launchpad"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f5"
+                    },
+                    "to": {
+                        "key_code": "illumination_decrement"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f6"
+                    },
+                    "to": {
+                        "key_code": "illumination_increment"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f7"
+                    },
+                    "to": {
+                        "consumer_key_code": "rewind"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f8"
+                    },
+                    "to": {
+                        "consumer_key_code": "play_or_pause"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f9"
+                    },
+                    "to": {
+                        "consumer_key_code": "fastforward"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f10"
+                    },
+                    "to": {
+                        "consumer_key_code": "mute"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f11"
+                    },
+                    "to": {
+                        "consumer_key_code": "volume_decrement"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f12"
+                    },
+                    "to": {
+                        "consumer_key_code": "volume_increment"
+                    }
+                }
+            ],
+            "name": "None",
+            "selected": false,
+            "simple_modifications": [],
+            "virtual_hid_keyboard": {
+                "country_code": 0
             }
         }
     ]
