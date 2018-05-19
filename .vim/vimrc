@@ -79,6 +79,9 @@ nnoremap <silent> <space> :Buffers<CR>
 nmap <silent> [s <Plug>(ale_previous_wrap)
 nmap <silent> ]s <Plug>(ale_next_wrap)
 
+" select last changed (e.g. pasted) text
+nnoremap gp `[v`]
+
 vnoremap gs :'<,'>sort<CR>
 
 set laststatus=2
