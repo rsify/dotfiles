@@ -45,7 +45,15 @@ au BufRead,BufNewFile *.tex setfiletype tex
 " vim-commentary
 au FileType javascript setlocal commentstring=//\ %s
 
-au FileType markdown let b:sleuth_automatic=0
+au FileType markdown,haskell let b:sleuth_automatic=0
+
+function! HaskellIndent ()
+	set shiftwidth=2
+	set tabstop=2
+	set expandtab
+endfunction
+
+au FileType haskell :call HaskellIndent()
 
 set nofoldenable
 set foldmethod=indent
@@ -189,10 +197,10 @@ let g:gitgutter_sign_modified_removed = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_removed_first_line = '∙'
 
-let g:polyglot_disabled = ['vue']
+let g:polyglot_disabled = ['vue', 'haskell']
 let g:vue_disable_pre_processors = 1
 
-au BufRead,BufNewFile * Sleuth
+au BufRead,BufNewFile sass Sleuth
 
 if executable('ag')
 	let g:ackprg = 'ag --vimgrep'

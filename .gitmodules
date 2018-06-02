@@ -82,3 +82,6 @@
 [submodule ".vim/pack/nikersify/start/vim-polyglot"]
 	path = .vim/pack/nikersify/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule ".vim/pack/nikersify/start/vim-haskell-indent"]
+	path = .vim/pack/nikersify/start/vim-haskell-indent
+	url = https://github.com/itchyny/vim-haskell-indent
