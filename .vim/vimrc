@@ -63,6 +63,12 @@ au BufWinLeave ?* mkview 1
 
 let g:mapleader = ","
 
+" make option/alt binds work
+execute "set <A-h>=\eh"
+execute "set <A-j>=\ej"
+execute "set <A-k>=\ek"
+execute "set <A-l>=\el"
+
 nnoremap <silent> <c-w>\| :Vexplore!<cr>
 nnoremap <silent> <c-w>- :Sex<cr>
 nnoremap <silent> <c-w>_ :Sex<cr>

@@ -85,3 +85,6 @@
 [submodule ".vim/pack/nikersify/start/vim-haskell-indent"]
 	path = .vim/pack/nikersify/start/vim-haskell-indent
 	url = https://github.com/itchyny/vim-haskell-indent
+[submodule ".vim/pack/nikersify/start/vim-move"]
+	path = .vim/pack/nikersify/start/vim-move
+	url = https://github.com/matze/vim-move
