@@ -3,6 +3,8 @@ set fileencoding=utf-8
 
 set ttimeoutlen=10
 
+set breakindent
+set breakindentopt=shift:4
 set cursorline
 set fillchars=vert:│,fold:-
 set incsearch
