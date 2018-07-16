@@ -69,6 +69,9 @@ execute "set <A-j>=\ej"
 execute "set <A-k>=\ek"
 execute "set <A-l>=\el"
 
+imap <A-j> <ESC><Plug>MoveLineDowni
+imap <A-k> <ESC><Plug>MoveLineUpi
+
 nnoremap <silent> <c-w>\| :Vexplore!<cr>
 nnoremap <silent> <c-w>- :Sex<cr>
 nnoremap <silent> <c-w>_ :Sex<cr>
