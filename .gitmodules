@@ -88,3 +88,6 @@
 [submodule ".vim/pack/nikersify/start/vim-move"]
 	path = .vim/pack/nikersify/start/vim-move
 	url = https://github.com/matze/vim-move
+[submodule "/Users/nikersify/.vim/pack/nikersify/start/vim-sneak"]
+	path = /Users/nikersify/.vim/pack/nikersify/start/vim-sneak
+	url = https://github.com/justinmk/vim-sneak
