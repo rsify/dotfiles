@@ -1,3 +1,7 @@
+if has('python3')
+  silent! python3 1
+endif
+
 set encoding=utf-8
 set fileencoding=utf-8
 
