@@ -2,7 +2,7 @@
     "global": {
         "check_for_updates_on_startup": true,
         "show_in_menu_bar": true,
-        "show_profile_name_in_menu_bar": false
+        "show_profile_name_in_menu_bar": true
     },
     "profiles": [
         {
@@ -223,7 +223,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "sr: safari tab",
+                                "description": "[sr]: safari tab",
                                 "from": {
                                     "simultaneous": [
                                         {
@@ -246,7 +246,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "st: safari tabs",
+                                "description": "[st]: safari tabs",
                                 "from": {
                                     "simultaneous": [
                                         {
@@ -269,7 +269,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "sv: safari bookmarks folders",
+                                "description": "[sv]: safari bookmarks folders",
                                 "from": {
                                     "simultaneous": [
                                         {
@@ -292,7 +292,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "sb: safari bookmarks search",
+                                "description": "[sb]: safari bookmarks search",
                                 "from": {
                                     "simultaneous": [
                                         {
@@ -315,7 +315,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "sh: safari history",
+                                "description": "[sh]: safari history",
                                 "from": {
                                     "simultaneous": [
                                         {
@@ -338,7 +338,30 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "gs: new google sheet",
+                                "description": "[gc]: color pick to clipboard",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "g"
+                                        },
+                                        {
+                                            "key_code": "c"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Pickerino'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "[gs]: new google sheet",
                                 "from": {
                                     "simultaneous": [
                                         {
@@ -361,7 +384,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "gn: new macvim document",
+                                "description": "[gn]: new macvim document",
                                 "from": {
                                     "simultaneous": [
                                         {
@@ -384,7 +407,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "g3: annotate desktop screenshot",
+                                "description": "[g3]: annotate desktop screenshot",
                                 "from": {
                                     "simultaneous": [
                                         {
@@ -407,7 +430,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "g4: annotate area screenshot",
+                                "description": "[g4]: annotate area screenshot",
                                 "from": {
                                     "simultaneous": [
                                         {
@@ -430,7 +453,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "wb: online.mbank.pl",
+                                "description": "[wb]: online.mbank.pl",
                                 "from": {
                                     "simultaneous": [
                                         {
@@ -448,6 +471,126 @@
                                 "to": [
                                     {
                                         "shell_command": "open https://online.mbank.pl/pl/Login"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "[wn]: noisli.com",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "w"
+                                        },
+                                        {
+                                            "key_code": "n"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open https://www.noisli.com"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "[qn]: query npms.io",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "q"
+                                        },
+                                        {
+                                            "key_code": "n"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"custom\" in workflow \"com.sindresorhus.npms\" with argument \"\"'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "[qn]: [shift] query npms.io with boost-exact:true",
+                                "from": {
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ]
+                                    },
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "q"
+                                        },
+                                        {
+                                            "key_code": "n"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"custom\" in workflow \"com.sindresorhus.npms\" with argument \"boost-exact:true \"'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "[qw]: web searches workflow",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "q"
+                                        },
+                                        {
+                                            "key_code": "w"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"web searches\" in workflow \"nikivi.web.searches\" with argument \"\"'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "[qg]: query github",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "q"
+                                        },
+                                        {
+                                            "key_code": "g"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"custom\" in workflow \"de.gh01.alfred.github\" with argument \"\"'"
                                     }
                                 ],
                                 "type": "basic"
@@ -563,7 +706,7 @@
                         "key_code": "escape"
                     },
                     "to": {
-                        "key_code": "out"
+                        "shell_command": "/Library/Application\\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli --select-profile 'Simple'"
                     }
                 }
             ],
@@ -571,6 +714,139 @@
                 "caps_lock_delay_milliseconds": 0,
                 "country_code": 0,
                 "keyboard_type": "ansi"
+            }
+        },
+        {
+            "complex_modifications": {
+                "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 50,
+                    "basic.to_delayed_action_delay_milliseconds": 500,
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 500
+                },
+                "rules": []
+            },
+            "devices": [],
+            "fn_function_keys": [
+                {
+                    "from": {
+                        "key_code": "f1"
+                    },
+                    "to": {
+                        "consumer_key_code": "display_brightness_decrement"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f2"
+                    },
+                    "to": {
+                        "consumer_key_code": "display_brightness_increment"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f3"
+                    },
+                    "to": {
+                        "key_code": "mission_control"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f4"
+                    },
+                    "to": {
+                        "key_code": "launchpad"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f5"
+                    },
+                    "to": {
+                        "key_code": "illumination_decrement"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f6"
+                    },
+                    "to": {
+                        "key_code": "illumination_increment"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f7"
+                    },
+                    "to": {
+                        "consumer_key_code": "rewind"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f8"
+                    },
+                    "to": {
+                        "consumer_key_code": "play_or_pause"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f9"
+                    },
+                    "to": {
+                        "consumer_key_code": "fastforward"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f10"
+                    },
+                    "to": {
+                        "consumer_key_code": "mute"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f11"
+                    },
+                    "to": {
+                        "consumer_key_code": "volume_decrement"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f12"
+                    },
+                    "to": {
+                        "consumer_key_code": "volume_increment"
+                    }
+                }
+            ],
+            "name": "Simple",
+            "selected": false,
+            "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": {
+                        "key_code": "escape"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "escape"
+                    },
+                    "to": {
+                        "shell_command": "/Library/Application\\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli --select-profile 'Niker'"
+                    }
+                }
+            ],
+            "virtual_hid_keyboard": {
+                "country_code": 0
             }
         },
         {
