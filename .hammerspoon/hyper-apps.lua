@@ -1,5 +1,5 @@
 return {
-	{ '1', 'Screen Sharing'},
+	{ '1', 'Dash'},
 	{ '2', 'MacDown' },
 	{ '3', 'Trello' },
 	{ '4', 'iTunes' },
@@ -14,8 +14,8 @@ return {
 	{ 'l', 'SnippetsLab' },
 	{ 'm', 'Mail' },
 	{ 'p', 'Postico' },
+	{ 'q', 'Finder' },
 	{ 'r', 'Microsoft Remote Desktop' },
 	{ 's', 'Safari' },
-	{ 't', 'kitty' },
-	{ 'q', 'Finder' }
+	{ 't', 'kitty' }
 }
