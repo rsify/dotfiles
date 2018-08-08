@@ -3,6 +3,7 @@ return {
 	{ '2', 'MacDown' },
 	{ '3', 'Trello' },
 	{ '4', 'iTunes' },
+	{ '5', 'Skim' },
 	{ 'a', 'Slack' },
 	{ 'b', 'Airtable' },
 	{ 'c', 'Caprine' },
@@ -17,5 +18,6 @@ return {
 	{ 'q', 'Finder' },
 	{ 'r', 'Microsoft Remote Desktop' },
 	{ 's', 'Safari' },
-	{ 't', 'kitty' }
+	{ 't', 'kitty' },
+	{ 'v', 'MacVim' }
 }
