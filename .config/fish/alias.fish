@@ -123,6 +123,7 @@ alias nrb "npm rebuild"
 alias nrbf "npm rebuild --force"
 alias nrm "npm uninstall"
 alias ns "npm start"
+alias nt "npm test"
 
 # tmux
 # ====
@@ -232,6 +233,9 @@ alias lsa1 'ls -a1'
 alias mkdir 'mkdir -p'
 
 alias f 'ag -g'
+alias p 'python'
+alias p2 'python2'
+alias p3 'python3'
 alias r 'ag'
 alias v 'vim'
 alias vf 'vim (fzf)'
