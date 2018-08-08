@@ -91,3 +91,6 @@
 [submodule "/Users/nikersify/.vim/pack/nikersify/start/vim-sneak"]
 	path = /Users/nikersify/.vim/pack/nikersify/start/vim-sneak
 	url = https://github.com/justinmk/vim-sneak
+[submodule ".vim/pack/nikersify/start/vim-indexed-search"]
+	path = .vim/pack/nikersify/start/vim-indexed-search
+	url = https://github.com/henrik/vim-indexed-search

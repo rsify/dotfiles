@@ -68,10 +68,10 @@ au BufWinLeave ?* mkview 1
 let g:mapleader = ","
 
 " make option/alt binds work
-execute "set <A-h>=\eh"
-execute "set <A-j>=\ej"
-execute "set <A-k>=\ek"
-execute "set <A-l>=\el"
+" execute "set <A-h>=\eh"
+" execute "set <A-j>=\ej"
+" execute "set <A-k>=\ek"
+" execute "set <A-l>=\el"
 
 imap <A-j> <ESC><Plug>MoveLineDowni
 imap <A-k> <ESC><Plug>MoveLineUpi
@@ -180,11 +180,8 @@ endfunction
 
 let g:ale_linters = {
 \	'javascript': ['xo'],
-\	'vue': ['xo'],
 \	'markdown': []
 \}
-
-let g:ale_linter_aliases = {'vue': ['javascript']}
 
 let g:ale_pattern_options = {
 \	'\/Users\/nikersify\/[^/]*\.js': {'ale_enabled': 0}
@@ -217,6 +214,9 @@ let g:gitgutter_sign_removed_first_line = '∙'
 
 let g:polyglot_disabled = ['vue', 'haskell']
 let g:vue_disable_pre_processors = 1
+
+let g:indexed_search_colors = 0
+let g:indexed_search_numbered_only = 1
 
 au BufRead,BufNewFile sass Sleuth
 
