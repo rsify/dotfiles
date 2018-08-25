@@ -19,5 +19,6 @@ return {
 	{ 'r', 'Microsoft Remote Desktop' },
 	{ 's', 'Safari' },
 	{ 't', 'kitty' },
-	{ 'v', 'MacVim' }
+	{ 'v', 'MacVim' },
+	{ 'x', 'Calendar' }
 }
