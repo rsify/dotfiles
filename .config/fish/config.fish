@@ -11,12 +11,12 @@ source ~/.config/fish/colors.fish
 
 set -g EDITOR vim
 
+# iterm integration
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
 function _path
 	set -gx PATH $PATH $argv
 end
-
-# iterm integration
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 # match all ~/.gem/ruby/[version]/bin paths
 _path (find ~/.gem/ruby -type d -regex ".+\.gem/ruby/[^/]+/bin")
@@ -30,3 +30,17 @@ _path "/usr/local/sbin"
 _path "$HOME/.cargo/bin"
 
 set -gx FZF_DEFAULT_COMMAND "ag --hidden --ignore .git -g ''"
+
+function __bind_functions
+	set val (eval echo (commandline -t))
+
+	printf "\n"
+	functions $val
+	printf "\n"
+
+	commandline -f repaint
+end
+
+function fish_user_key_bindings
+	bind \ea __bind_functions
+end
