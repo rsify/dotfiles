@@ -15,3 +15,5 @@ export PS1="\[\e[1m\]\[\e[38;5;161m\]\u@\H \[\e[0m\]\[\e[38;5;154m\]\w \[\e[1m\]
 # else
 # 	echo "fish not installed, do it now"
 # fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
