@@ -1,8 +1,3 @@
-# if not in a tmux session
-if test -z "$TMUX"
-	set -gx TERM xterm-256color
-end
-
 source ~/.config/fish/alias.fish
 source ~/.config/fish/colors.fish
 
