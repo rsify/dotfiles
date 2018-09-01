@@ -2,6 +2,15 @@ if has('python3')
   silent! python3 1
 endif
 
+" true color
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+
+" italics
+let &t_ZH = "\<Esc>[3m"
+let &t_ZR = "\<Esc>[23m"
+
 set encoding=utf-8
 set fileencoding=utf-8
 
@@ -195,7 +204,7 @@ let g:ale_set_quickfix = 1
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '▲'
 
-set t_Co=256
+" set t_Co=256
 
 let delimitMate_expand_cr = 1
 
@@ -225,6 +234,7 @@ if executable('ag')
 endif
 
 colorscheme dracula
+let g:dracula_colorterm = 0
 
 function! AckSearch(string) abort
 	let saved_shellpipe = &shellpipe

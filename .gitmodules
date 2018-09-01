@@ -25,9 +25,6 @@
 [submodule ".vim/bundle/vim-xo"]
 	path = .vim/pack/nikersify/start/vim-xo
 	url = https://github.com/sindresorhus/vim-xo
-[submodule ".vim/bundle/dracula"]
-	path = .vim/pack/nikersify/start/dracula
-	url = https://github.com/nikersify/dracula-vim.git
 [submodule ".vim/bundle/fzf.vim"]
 	path = .vim/pack/nikersify/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
@@ -94,3 +91,6 @@
 [submodule ".vim/pack/nikersify/start/vim-indexed-search"]
 	path = .vim/pack/nikersify/start/vim-indexed-search
 	url = https://github.com/henrik/vim-indexed-search
+[submodule ".vim/pack/nikersify/start/dracula"]
+	path = .vim/pack/nikersify/start/dracula
+	url = https://github.com/dracula/vim
