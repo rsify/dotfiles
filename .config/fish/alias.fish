@@ -211,9 +211,22 @@ function chrome --description 'Open Google Chrome.app'
 end
 
 # local files
+# ===
 alias chromel 'open -a "google chrome"'
 alias firefoxl 'open -a firefox'
 alias safaril 'open -a safari'
+
+# overrides
+function _alias_if_exists
+	if type -q $argv[1]
+		alias $argv[1] $argv[2]
+	end
+end
+
+_alias_if_exists cat bat
+_alias_if_exists ls exa
+_alias_if_exists stat gstat
+_alias_if_exists ping prettyping
 
 # misc
 # ====
