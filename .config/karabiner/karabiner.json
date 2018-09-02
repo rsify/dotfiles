@@ -45,6 +45,23 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "fn+d - water drunk",
+                                "from" : {
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn"
+                                        ]
+                                    },
+                                    "key_code": "d"
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "afplay /System/Library/Sounds/Tink.aiff; open -g 'bitbar://refreshPlugin?name=drink.*'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "super duper trigger sd",
                                 "from": {
                                     "simultaneous": [
