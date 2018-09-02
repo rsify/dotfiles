@@ -237,6 +237,12 @@ endfunction
 
 au BufWinEnter * :call TrailingWhitespace()
 
+" close vim if quickfix is the only buffer left
+augroup QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+augroup END
+
 call TrailingWhitespace()
 
 syn keyword cTodo TODO
