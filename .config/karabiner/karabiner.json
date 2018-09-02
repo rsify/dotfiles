@@ -56,7 +56,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "afplay /System/Library/Sounds/Tink.aiff; open -g 'bitbar://refreshPlugin?name=drink.*'"
+                                        "shell_command": "afplay /System/Library/Sounds/Tink.aiff; bash ~/.bitbar/drink.1m.sh drink; open -g 'bitbar://refreshPlugin?name=drink.*'"
                                     }
                                 ],
                                 "type": "basic"
