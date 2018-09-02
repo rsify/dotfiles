@@ -7,9 +7,6 @@
 [submodule ".vim/bundle/vim-repeat"]
 	path = .vim/pack/nikersify/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
-[submodule ".vim/bundle/nerdtree-git-plugin"]
-	path = .vim/pack/nikersify/start/nerdtree-git-plugin
-	url = https://github.com/xuyuanp/nerdtree-git-plugin
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/pack/nikersify/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
@@ -19,9 +16,6 @@
 [submodule ".vim/bundle/vim-closetag"]
 	path = .vim/pack/nikersify/start/vim-closetag
 	url = https://github.com/alvan/vim-closetag
-[submodule ".vim/bundle/emmet-vim"]
-	path = .vim/pack/nikersify/start/emmet-vim
-	url = https://github.com/mattn/emmet-vim.git
 [submodule ".vim/bundle/vim-xo"]
 	path = .vim/pack/nikersify/start/vim-xo
 	url = https://github.com/sindresorhus/vim-xo
@@ -82,9 +76,6 @@
 [submodule ".vim/pack/nikersify/start/vim-haskell-indent"]
 	path = .vim/pack/nikersify/start/vim-haskell-indent
 	url = https://github.com/itchyny/vim-haskell-indent
-[submodule ".vim/pack/nikersify/start/vim-move"]
-	path = .vim/pack/nikersify/start/vim-move
-	url = https://github.com/matze/vim-move
 [submodule "/Users/nikersify/.vim/pack/nikersify/start/vim-sneak"]
 	path = /Users/nikersify/.vim/pack/nikersify/start/vim-sneak
 	url = https://github.com/justinmk/vim-sneak
