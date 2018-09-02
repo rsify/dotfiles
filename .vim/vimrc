@@ -32,6 +32,7 @@ set shiftwidth=4
 set showcmd
 set smartindent
 set tabstop=4
+set updatetime=100
 set wildmenu
 
 " ignore swap warnings

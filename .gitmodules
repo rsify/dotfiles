@@ -94,3 +94,6 @@
 [submodule ".vim/pack/nikersify/start/dracula"]
 	path = .vim/pack/nikersify/start/dracula
 	url = https://github.com/dracula/vim
+[submodule ".vim/pack/nikersify/start/vim-tmux-focus-events"]
+	path = .vim/pack/nikersify/start/vim-tmux-focus-events
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events
