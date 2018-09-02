@@ -245,14 +245,15 @@ augroup END
 
 call TrailingWhitespace()
 
-syn keyword cTodo TODO
-hi link cTodo Todo
-hi link ALEWarningSign Warn
-
-hi Error cterm=none ctermfg=red ctermbg=none
+hi Error ctermfg=red ctermbg=none guifg=#ff0000 guibg=NONE cterm=underline
 hi Warn cterm=none ctermfg=215 ctermbg=none
 hi VertSplit cterm=none ctermfg=59 ctermbg=none
 hi EndOfBuffer ctermfg=59
+
+syn keyword cTodo TODO
+hi link cTodo Todo
+hi link ALEWarningSign Warn
+hi link ALEErrorSign Error
 
 au BufEnter * set colorcolumn=80
 set colorcolumn=80
