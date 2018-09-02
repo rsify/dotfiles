@@ -163,6 +163,9 @@ let g:lightline#ale#indicator_errors = '✖ '
 let g:lightline#ale#indicator_warnings = '▲ '
 let g:lightline#ale#indicator_ok = '✓ '
 
+" disable ale in ~
+let g:ale_enabled = getcwd() !=? expand('~')
+
 let g:ale_linters = {
 \  'javascript': ['xo'],
 \  'markdown': []
