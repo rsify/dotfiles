@@ -46,13 +46,13 @@
                             },
                             {
                                 "description": "fn+d - water drunk",
-                                "from" : {
+                                "from": {
+                                    "key_code": "d",
                                     "modifiers": {
                                         "mandatory": [
                                             "fn"
                                         ]
-                                    },
-                                    "key_code": "d"
+                                    }
                                 },
                                 "to": [
                                     {
@@ -741,7 +741,29 @@
                     "basic.to_if_alone_timeout_milliseconds": 1000,
                     "basic.to_if_held_down_threshold_milliseconds": 500
                 },
-                "rules": []
+                "rules": [
+                    {
+                        "manipulators": [
+                            {
+                                "description": "fn+d - water drunk",
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "afplay /System/Library/Sounds/Tink.aiff; bash ~/.bitbar/drink.1m.sh drink; open -g 'bitbar://refreshPlugin?name=drink.*'"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
             },
             "devices": [],
             "fn_function_keys": [
