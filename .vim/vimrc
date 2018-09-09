@@ -18,6 +18,7 @@ set ttimeoutlen=10
 
 set breakindent
 set breakindentopt=shift:4
+setlocal cm=blowfish2
 set cursorline
 set fillchars=vert:│,fold:-
 set incsearch
