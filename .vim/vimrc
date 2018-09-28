@@ -169,8 +169,10 @@ let g:ale_enabled = getcwd() !=? expand('~')
 
 let g:ale_linters = {
 \  'javascript': ['xo'],
+\  'vue': ['xo'],
 \  'markdown': []
 \}
+let g:ale_linter_aliases = {'vue': 'javascript'}
 
 let g:ale_pattern_options = {
 \  '\/Users\/nikersify\/[^/]*\.js': {'ale_enabled': 0}
