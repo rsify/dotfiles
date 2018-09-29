@@ -447,7 +447,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "[gn]: new macvim document",
+                                "description": "[gn]: new macvim note",
                                 "from": {
                                     "simultaneous": [
                                         {
@@ -464,7 +464,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open mvim://open?url=file://$(mktemp)"
+                                        "shell_command": "open mvim://open?url=file://$(~/.config/bin/note-destination.sh)"
                                     }
                                 ],
                                 "type": "basic"
@@ -487,7 +487,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "screencapture -P $(mktemp)"
+                                        "shell_command": "screencapture -P $(~/.config/bin/screenshot-destination.sh)"
                                     }
                                 ],
                                 "type": "basic"
@@ -510,7 +510,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "screencapture -iP $(mktemp)"
+                                        "shell_command": "screencapture -iP $(~/.config/bin/screenshot-destination.sh)"
                                     }
                                 ],
                                 "type": "basic"
