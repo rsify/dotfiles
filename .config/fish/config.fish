@@ -6,9 +6,6 @@ source ~/.config/fish/colors.fish
 
 set -g EDITOR vim
 
-# iterm integration
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-
 function _path
 	set -gx PATH $PATH $argv
 end
