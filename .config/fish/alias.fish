@@ -240,12 +240,25 @@ function mkd --description 'Make directory and cd'
 	cd $argv[1]
 end
 
+function i --description 'cd or cat'
+	if test -n "$argv"
+		set file "$argv"
+	else
+		set file "."
+	end
+
+	if test -d "$file"
+		cd "$file"
+	else
+		cat "$file"
+	end
+end
+
+alias f 'ag -g'
 alias ls1 'ls -1'
 alias lsa 'ls -a'
 alias lsa1 'ls -a1'
 alias mkdir 'mkdir -p'
-
-alias f 'ag -g'
 alias p 'python'
 alias p2 'python2'
 alias p3 'python3'
