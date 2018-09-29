@@ -240,6 +240,52 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "[bc]: set default browser - chrome",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "b"
+                                        },
+                                        {
+                                            "key_code": "c"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "/usr/local/bin/defaultbrowser chrome"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "[bs]: set default browser - safari",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "b"
+                                        },
+                                        {
+                                            "key_code": "s"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "/usr/local/bin/defaultbrowser safari"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "[sr]: safari tab",
                                 "from": {
                                     "simultaneous": [
@@ -516,6 +562,29 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "[qf]: query font awesome",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "q"
+                                        },
+                                        {
+                                            "key_code": "f"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"custom\" in workflow \"com.ruedap.font-awesome\" with argument \"\"'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "[qn]: query npms.io",
                                 "from": {
                                     "simultaneous": [
@@ -562,6 +631,29 @@
                                 "to": [
                                     {
                                         "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"custom\" in workflow \"com.sindresorhus.npms\" with argument \"boost-exact:true \"'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "[qs]: query snippets",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "q"
+                                        },
+                                        {
+                                            "key_code": "s"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Alfred 3\" to run trigger \"custom\" in workflow \"com.renfei.SnippetsLab.AlfredWorkflow\" with argument \"\"'"
                                     }
                                 ],
                                 "type": "basic"
@@ -724,6 +816,14 @@
                     },
                     "to": {
                         "shell_command": "/Library/Application\\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli --select-profile 'Simple'"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "fn"
+                    },
+                    "to": {
+                        "key_code": "left_shift"
                     }
                 }
             ],
