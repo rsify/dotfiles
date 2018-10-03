@@ -35,6 +35,7 @@ set smartindent
 set tabstop=4
 set updatetime=100
 set wildmenu
+set wildmode=list
 
 " ignore swap warnings
 set shortmess+=A
