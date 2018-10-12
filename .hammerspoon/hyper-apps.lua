@@ -5,7 +5,7 @@ return {
 	{ '4', 'iTunes' },
 	{ '5', 'Skim' },
 	{ 'a', 'Slack' },
-	{ 'b', 'Airtable' },
+	{ 'b', 'Basecamp 3' },
 	{ 'c', 'Caprine' },
 	{ 'd', '2Do' },
 	{ 'f', 'FileZilla' },
