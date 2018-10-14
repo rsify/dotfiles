@@ -235,7 +235,7 @@ function! TrailingWhitespace ()
 	hi clear MatchParen
 	hi MatchParen cterm=bold,underline term=bold,underline
 
-	hi ExtraWhitespace cterm=underline,bold term=bold,underline ctermfg=red
+	hi ExtraWhitespace cterm=underline,bold gui=underline,bold ctermfg=red guifg=#ee0000
 	match ExtraWhitespace /\s\+$/
 endfunction
 
