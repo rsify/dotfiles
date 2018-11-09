@@ -208,6 +208,12 @@ let g:vue_disable_pre_processors = 1
 let g:indexed_search_colors = 0
 let g:indexed_search_numbered_only = 1
 
+" Bash version
+"let g:gh_open_command = 'fn() { echo "$@" | pbcopy; }; fn '
+
+" Fish version
+let g:gh_open_command = 'function fn; echo "$argv" | pbcopy; end; fn '
+
 au BufRead,BufNewFile sass Sleuth
 
 if executable('ag')

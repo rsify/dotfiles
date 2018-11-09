@@ -91,3 +91,6 @@
 [submodule ".vim/pack/nikersify/start/lightline-ale"]
 	path = .vim/pack/nikersify/start/lightline-ale
 	url = https://github.com/maximbaz/lightline-ale
+[submodule ".vim/pack/nikersify/start/vim-gh-line"]
+	path = .vim/pack/nikersify/start/vim-gh-line
+	url = https://github.com/ruanyl/vim-gh-line
