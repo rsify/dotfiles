@@ -47,13 +47,14 @@ alias fsc 'source ~/.config/fish/config.fish'
 # ===
 
 alias ga "git add"
+alias gaa "git add --all"
 alias gap "git add -p"
 alias gau "git add -u"
 alias gapp "git apply"
 alias gb "git branch"
 alias gbr "git browse"
 
-function gc --wraps git --description "git commit -m"
+function gc --wraps "git commit -m"
 	if test -n "$argv"
 		git commit -m "$argv"
 	else
@@ -61,7 +62,15 @@ function gc --wraps git --description "git commit -m"
 	end
 end
 
-function gca --wraps git --description "git commit --amend -m"
+function gcv --wraps "git commit --no-verify -m"
+	if test -n "$argv"
+		git commit -n -m "$argv"
+	else
+		git commit -n
+	end
+end
+
+function gca --wraps "git commit --amend -m"
 	if test -n "$argv"
 		git commit --amend -m "$argv"
 	else
@@ -69,7 +78,17 @@ function gca --wraps git --description "git commit --amend -m"
 	end
 end
 
-function gcal --wraps git --description "git commit --all -m"
+function gcva --wraps "git commit --amend -n -m"
+	if test -n "$argv"
+		git commit --amend -nm "$argv"
+	else
+		git commit --amend -n
+	end
+end
+
+alias gcvan "git commit --amend -n --no-edit"
+
+function gcal --wraps "git commit --all -m"
 	if test -n "$argv"
 		git commit --all -m "$argv"
 	else
@@ -212,11 +231,14 @@ end
 
 # local files
 # ===
+
 alias chromel 'open -a "google chrome"'
 alias firefoxl 'open -a firefox'
 alias safaril 'open -a safari'
 
 # overrides
+# ===
+
 function _alias_if_exists
 	if type -q $argv[1]
 		alias $argv[1] $argv[2]
