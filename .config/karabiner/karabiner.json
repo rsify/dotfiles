@@ -534,6 +534,29 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "[wd]: dashboard.adprofity.com",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "w"
+                                        },
+                                        {
+                                            "key_code": "d"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open https://dashboard.adprofity.com"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "[wn]: noisli.com",
                                 "from": {
                                     "simultaneous": [
@@ -552,6 +575,29 @@
                                 "to": [
                                     {
                                         "shell_command": "open https://www.noisli.com"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "[wp]: adprofity github pull requests",
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "w"
+                                        },
+                                        {
+                                            "key_code": "p"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse"
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open 'https://github.com/pulls?q=is%3Aopen+is%3Apr+org%3Aadprofity+sort%3Aupdated-desc'"
                                     }
                                 ],
                                 "type": "basic"
@@ -920,7 +966,21 @@
                     }
                 ]
             },
-            "devices": [],
+            "devices": [
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 142,
+                        "vendor_id": 1226
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": []
+                }
+            ],
             "fn_function_keys": [
                 {
                     "from": {
