@@ -12,6 +12,7 @@ return {
 	{ 'g', 'Google Chrome' },
 	{ 'h', 'Insomnia' },
 	{ 'i', 'Discord' },
+	{ 'k', 'Activity Monitor' },
 	{ 'l', 'SnippetsLab' },
 	{ 'm', 'Mail' },
 	{ 'p', 'Postico' },
