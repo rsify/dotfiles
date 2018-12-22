@@ -9,7 +9,6 @@ alias bcin "brew cask info"
 alias bcl "brew cask list"
 alias bcr "brew cask reinstall"
 alias bcrm "brew cask uninstall"
-alias bcs "brew cask search"
 alias bcup "brew cask upgrade"
 alias bd "brew doctor"
 alias bh "brew help"
@@ -98,6 +97,7 @@ end
 
 alias gcan "git commit --amend --no-edit"
 alias gck "git checkout"
+alias gcl "git clone"
 alias gd "git diff"
 alias gdc "git diff --cached"
 alias gf "git fetch"
@@ -106,12 +106,16 @@ alias gl "git log"
 alias gl1 "git log -n 1"
 alias glg "git log --color=always --format=oneline --abbrev-commit --decorate | head"
 alias gm "git merge"
+alias gmff "git merge --ff-only"
 alias gp "git push"
 alias gpf "git push --force"
+alias gpl "git pull"
 alias gpu "git pull"
 alias gpu "git push -u origin master"
 alias gr "git reset"
 alias grb "git rebase"
+alias grba "git rebase --abort"
+alias grbc "git rebase --continue"
 alias grl "git reflog"
 alias grm "git rm"
 alias gs "git status"
@@ -254,6 +258,8 @@ _alias_if_exists ping prettyping
 # ====
 
 alias chx 'chmod +x'
+alias d 'docker'
+alias dc 'docker-compose'
 alias how 'howdoi'
 alias hows 'howdoi -n 5'
 
