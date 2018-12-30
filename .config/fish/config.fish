@@ -21,8 +21,18 @@ _path "/usr/local/sbin"
 # rust cargo path
 _path "$HOME/.cargo/bin"
 
+# go
+set --universal -x GOPATH "$HOME/dev/go"
+
+if not test -d $GOPATH
+	echo $GOPATH
+	mkdir -p $GOPATH
+end
+
+# fzf
 set -gx FZF_DEFAULT_COMMAND "ag --hidden --ignore .git -g ''"
 
+# binds
 function __bind_functions
 	set val (eval echo (commandline -t))
 
