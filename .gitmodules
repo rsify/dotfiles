@@ -94,3 +94,6 @@
 [submodule ".vim/pack/nikersify/start/vim-gh-line"]
 	path = .vim/pack/nikersify/start/vim-gh-line
 	url = https://github.com/ruanyl/vim-gh-line
+[submodule ".vim/pack/nikersify/start/vim-illuminate"]
+	path = .vim/pack/nikersify/start/vim-illuminate
+	url = https://github.com/RRethy/vim-illuminate
