@@ -51,7 +51,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "afplay /System/Library/Sounds/Tink.aiff; bash ~/.bitbar/drink.1m.sh drink; open -g 'bitbar://refreshPlugin?name=drink.*'"
+                                        "shell_command": "afplay /System/Library/Sounds/Tink.aiff; bash ~/.bitbar/b-drink.1m.sh drink; open -g 'bitbar://refreshPlugin?name=b-drink.*'"
                                     }
                                 ],
                                 "type": "basic"
@@ -957,7 +957,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "afplay /System/Library/Sounds/Tink.aiff; bash ~/.bitbar/drink.1m.sh drink; open -g 'bitbar://refreshPlugin?name=drink.*'"
+                                        "shell_command": "afplay /System/Library/Sounds/Tink.aiff; bash ~/.bitbar/b-drink.1m.sh drink; open -g 'bitbar://refreshPlugin?name=b-drink.*'"
                                     }
                                 ],
                                 "type": "basic"
