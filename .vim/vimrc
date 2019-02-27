@@ -194,13 +194,15 @@ let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '▲'
 
 let delimitMate_expand_cr = 1
+au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:}"
+let delimitMate_jump_expansion = 1
 
 let g:completor_refresh_always = 0
 
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit="horizontal"
 
-let g:closetag_filenames = "*.html,*.tag"
+let g:closetag_filenames = "*.html,*.tag,*.js,*.jsx"
 
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
