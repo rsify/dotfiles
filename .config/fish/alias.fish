@@ -290,6 +290,19 @@ alias mkdir 'mkdir -p'
 alias p 'python'
 alias p2 'python2'
 alias p3 'python3'
+
+function prod -a mode --description 'productivotivoti mode'
+	set apps Mail Discord Caprine Skype Telegram Messages
+
+	for app in $apps
+		if test "$mode" = "on"
+			osascript -e "quit app \"$app\"" &
+		else if test "$mode" = "off"
+			open -gja "$app" &
+		end
+	end
+end
+
 alias r 'ag'
 alias v 'vim'
 alias vf 'vim (fzf)'
