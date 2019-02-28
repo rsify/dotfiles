@@ -15,6 +15,7 @@ return {
 	{ 'k', 'Activity Monitor' },
 	{ 'l', 'SnippetsLab' },
 	{ 'm', 'Mail' },
+	{ 'n', 'FSNotes' },
 	{ 'p', 'Postico' },
 	{ 'q', 'Finder' },
 	{ 'r', 'Microsoft Remote Desktop' },
