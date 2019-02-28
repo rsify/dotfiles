@@ -97,3 +97,6 @@
 [submodule ".vim/pack/nikersify/start/vim-illuminate"]
 	path = .vim/pack/nikersify/start/vim-illuminate
 	url = https://github.com/RRethy/vim-illuminate
+[submodule ".vim/pack/nikersify/start/vim-sort-motion"]
+	path = .vim/pack/nikersify/start/vim-sort-motion
+	url = https://github.com/christoomey/vim-sort-motion
