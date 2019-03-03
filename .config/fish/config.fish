@@ -30,6 +30,7 @@ if not test -d $GOPATH
 end
 
 # fzf
+set -gx FZF_DEFAULT_COMMAND "ag --hidden --ignore .git -g ''"
 set -gx FZF_CTRL_T_COMMAND "ag --hidden --ignore .git -g ''"
 
 # binds
