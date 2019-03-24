@@ -204,6 +204,8 @@ let g:vim_markdown_new_list_item_indent = 0
 
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit="horizontal"
+" disable autotrigger for better typing performance
+au VimEnter * au! UltiSnips_AutoTrigger
 
 let g:closetag_filenames = "*.html,*.tag,*.js,*.jsx"
 
