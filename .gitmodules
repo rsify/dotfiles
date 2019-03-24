@@ -100,3 +100,6 @@
 [submodule ".vim/pack/nikersify/start/vim-sort-motion"]
 	path = .vim/pack/nikersify/start/vim-sort-motion
 	url = https://github.com/christoomey/vim-sort-motion
+[submodule ".vim/pack/nikersify/start/completor-typescript"]
+	path = .vim/pack/nikersify/start/completor-typescript
+	url = https://github.com/maralla/completor-typescript
