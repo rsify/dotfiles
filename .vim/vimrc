@@ -200,6 +200,8 @@ let g:completor_completion_delay = 0
 au BufRead,BufNewFile *.md let g:completor_auto_trigger = 0
 imap <expr> <CR> pumvisible() ? "<C-Y>\<Plug>delimitMateCR" : "\<Plug>delimitMateCR"
 
+let g:vim_markdown_new_list_item_indent = 0
+
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit="horizontal"
 
