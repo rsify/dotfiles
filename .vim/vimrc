@@ -196,7 +196,9 @@ let delimitMate_expand_cr = 1
 au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:}"
 let delimitMate_jump_expansion = 1
 
-let g:completor_refresh_always = 0
+let g:completor_completion_delay = 0
+au BufRead,BufNewFile *.md let g:completor_auto_trigger = 0
+imap <expr> <CR> pumvisible() ? "<C-Y>\<Plug>delimitMateCR" : "\<Plug>delimitMateCR"
 
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit="horizontal"
