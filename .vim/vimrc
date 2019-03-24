@@ -63,6 +63,7 @@ endif
 
 filetype on
 
+au BufRead,BufNewFile *.rkt set lisp
 au BufRead,BufNewFile *.fig setfiletype pug
 au BufRead,BufNewFile *.tex setfiletype tex
 
