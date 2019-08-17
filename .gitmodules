@@ -103,3 +103,12 @@
 [submodule ".vim/pack/nikersify/start/completor-typescript"]
 	path = .vim/pack/nikersify/start/completor-typescript
 	url = https://github.com/maralla/completor-typescript
+[submodule ".vim/pack/nikersify/start/traces.vim"]
+	path = .vim/pack/nikersify/start/traces.vim
+	url = https://github.com/markonm/traces.vim
+[submodule ".vim/pack/nikersify/start/vim-js-pretty-template"]
+	path = .vim/pack/nikersify/start/vim-js-pretty-template
+	url = https://github.com/Quramy/vim-js-pretty-template
+[submodule ".vim/pack/nikersify/start/pgsql.vim"]
+	path = .vim/pack/nikersify/start/pgsql.vim
+	url = https://github.com/lifepillar/pgsql.vim
