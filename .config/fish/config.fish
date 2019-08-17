@@ -1,3 +1,5 @@
+set -x LC_ALL en_US.UTF-8
+
 source ~/.config/fish/alias.fish
 source ~/.config/fish/colors.fish
 

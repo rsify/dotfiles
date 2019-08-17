@@ -1,5 +1,9 @@
 language en_US
 
+packadd! dracula
+
+syntax on
+
 if has('python3')
   silent! python3 1
 endif
@@ -22,13 +26,15 @@ set fileencoding=utf-8
 
 set ttimeoutlen=10
 
+set belloff=all
 set breakindent
 set breakindentopt=shift:4
-setlocal cm=blowfish2
 set cursorline
 set fillchars=vert:│,fold:-
+set formatoptions=tcqr
 set incsearch
 set lazyredraw
+set maxmempattern=5000
 set nocompatible
 set noshowmode
 set noswapfile
@@ -42,6 +48,7 @@ set tabstop=4
 set updatetime=100
 set wildmenu
 set wildmode=list
+setlocal cm=blowfish2
 
 " ignore swap warnings
 set shortmess+=A
@@ -68,7 +75,11 @@ au BufRead,BufNewFile *.fig setfiletype pug
 au BufRead,BufNewFile *.tex setfiletype tex
 
 " vim-commentary
-au FileType javascript setlocal commentstring=//\ %s
+au FileType javascript,typescript setlocal commentstring=//\ %s
+au Filetype typescript setlocal commentstring=//\ %s
+au Filetype sass setlocal commentstring=//\ %s
+au FileType vim setlocal commentstring=\"\ %s
+au FileType pug setlocal commentstring=//-\ %s
 
 au FileType markdown,haskell let b:sleuth_automatic=0
 
@@ -104,6 +115,7 @@ nnoremap <silent> <c-k> <c-w>k
 nnoremap <silent> <c-l> <c-w>l
 
 nnoremap <silent> <Leader>a :call AckSearch('')<Left><Left>
+nnoremap <silent> <Leader>d :call completor#do('doc')<CR>
 
 " fzf.vim files search
 nnoremap <silent> <Leader>f :Files<CR>
@@ -111,8 +123,8 @@ nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>m :set mouse=a<CR>
 nnoremap <silent> <Leader>n :set mouse=<CR>
 nnoremap <silent> <Leader>p :set invpaste<CR>
-nnoremap <silent> <Leader>s :UltiSnipsEdit<CR>
 nnoremap <silent> <Leader>q :cclose<CR>
+nnoremap <silent> <Leader>s :UltiSnipsEdit<CR>
 nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
 
 " fzf.vim buffer search window
@@ -173,12 +185,17 @@ let g:lightline#ale#indicator_ok = '✓ '
 " disable ale in ~
 let g:ale_enabled = getcwd() !=? expand('~')
 
+" \  'typescript': ['xo', 'tsserver'],
 let g:ale_linters = {
 \  'javascript': ['xo'],
 \  'vue': ['xo'],
 \  'markdown': []
 \}
-let g:ale_linter_aliases = {'vue': 'javascript'}
+
+"\  'typescript': 'javascript'
+let g:ale_linter_aliases = {
+\  'vue': 'javascript',
+\}
 
 let g:ale_pattern_options = {
 \  '\/Users\/nikersify\/[^/]*\.js': {'ale_enabled': 0}
@@ -186,6 +203,7 @@ let g:ale_pattern_options = {
 
 let g:ale_javascript_xo_options = '--extend ~/.xo.js'
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
 let g:ale_list_window_size = 8
 let g:ale_open_list = 1
 let g:ale_set_quickfix = 1
@@ -207,7 +225,7 @@ let g:UltiSnipsEditSplit="horizontal"
 " disable autotrigger for better typing performance
 au VimEnter * au! UltiSnips_AutoTrigger
 
-let g:closetag_filenames = "*.html,*.tag,*.js,*.jsx"
+let g:closetag_filenames = "*.html,*.tag,*.js,*.jsx,*.tsx"
 
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
@@ -226,6 +244,13 @@ let g:indexed_search_numbered_only = 1
 
 " Fish version
 let g:gh_open_command = 'function fn; echo "$argv" | pbcopy; end; fn '
+
+" vim-js-pretty-template
+au FileType javascript :call jspretmpl#register_tag('sql', 'sql')
+" au FileType javascript :call jspretmpl#register_tag('pug', 'pug')
+au FileType javascript JsPreTmpl
+
+let g:sql_type_default = 'pgsql'
 
 au BufRead,BufNewFile sass Sleuth
 
@@ -247,8 +272,6 @@ function! AckSearch(string) abort
 	endtry
 
 endfunction
-
-syntax on
 
 function! TrailingWhitespace ()
 	hi clear MatchParen

@@ -233,6 +233,11 @@ function chrome --description 'Open Google Chrome.app'
 	open -a 'google chrome' (_prefix_url_with_http $argv)
 end
 
+function proxy --description 'Toggle system proxy'
+	networksetup -setwebproxystate Wi-Fi $argv
+	networksetup -setsecurewebproxystate Wi-Fi $argv
+end
+
 # local files
 # ===
 
