@@ -1,57 +1,59 @@
 # brew
 # ====
 
-alias b "brew"
-alias bcd "brew cask doctor"
-alias bch "brew cask help"
-alias bci "brew cask install"
-alias bcin "brew cask info"
-alias bcl "brew cask list"
-alias bcr "brew cask reinstall"
-alias bcrm "brew cask uninstall"
-alias bcup "brew cask upgrade"
-alias bd "brew doctor"
-alias bh "brew help"
-alias bi "brew install"
-alias bin "brew info"
-alias bl "brew list"
-alias br "brew reinstall"
-alias brm "brew uninstall"
-alias bs "brew search"
-alias bt "brew tap"
-alias bup "brew upgrade"
-alias but "brew untap"
+alias -s ecc "echo ectoplasm"
+alias -s b "brew"
+alias -s bcd "brew cask doctor"
+alias -s bch "brew cask help"
+alias -s bci "brew cask install"
+alias -s bcin "brew cask info"
+alias -s bcl "brew cask list"
+alias -s bcr "brew cask reinstall"
+alias -s bcrm "brew cask uninstall"
+alias -s bcup "brew cask upgrade"
+alias -s bd "brew doctor"
+alias -s bh "brew help"
+alias -s bi "brew install"
+alias -s bin "brew info"
+alias -s bl "brew list"
+alias -s br "brew reinstall"
+alias -s brm "brew uninstall"
+alias -s bs "brew search"
+alias -s bt "brew tap"
+alias -s bup "brew upgrade"
+alias -s but "brew untap"
 
 # config
 # ======
 
-alias ca "vim ~/.config/fish/alias.fish"
-alias cf "vim ~/.config/fish/config.fish"
-alias ch "vim ~/.hammerspoon/init.lua"
-alias cha "vim ~/.hammerspoon/hyper-apps.lua"
-alias ck "vim ~/Library/Preferences/kitty/kitty.conf"
-alias ckr "vim ~/.config/karabiner/karabiner.json"
-alias ct "vim ~/.tmux.conf"
-alias ctt "vim ~/.tmux.theme"
-alias cv "vim ~/.vim/vimrc"
+alias -s ca "vim ~/.config/fish/alias.fish"
+alias -s cas "source ~/.config/fish/alias.fish"
+alias -s cf "vim ~/.config/fish/config.fish"
+alias -s ch "vim ~/.hammerspoon/init.lua"
+alias -s cha "vim ~/.hammerspoon/hyper-apps.lua"
+alias -s ck "vim ~/.config/kitty/kitty.conf"
+alias -s ckr "vim ~/.config/karabiner.edn"
+alias -s ct "vim ~/.tmux.conf"
+alias -s ctt "vim ~/.tmux.theme"
+alias -s cv "vim ~/.vim/vimrc"
 
 # fish
 # ====
 
-alias fns 'functions'
-alias fsa 'source ~/.config/fish/alias.fish'
-alias fsc 'source ~/.config/fish/config.fish'
+alias -s fns 'functions'
+alias -s fsa 'source ~/.config/fish/alias.fish'
+alias -s fsc 'source ~/.config/fish/config.fish'
 
 # git
 # ===
 
-alias ga "git add"
-alias gaa "git add --all"
-alias gap "git add -p"
-alias gau "git add -u"
-alias gapp "git apply"
-alias gb "git branch"
-alias gbr "git browse"
+alias -s ga "git add"
+alias -s gaa "git add --all"
+alias -s gap "git add -p"
+alias -s gau "git add -u"
+alias -s gapp "git apply"
+alias -s gb "git branch"
+alias -s gbr "git browse"
 
 function gc --wraps "git commit -m"
 	if test -n "$argv"
@@ -60,6 +62,7 @@ function gc --wraps "git commit -m"
 		git commit
 	end
 end
+funcsave gc
 
 function gcv --wraps "git commit --no-verify -m"
 	if test -n "$argv"
@@ -68,6 +71,7 @@ function gcv --wraps "git commit --no-verify -m"
 		git commit -n
 	end
 end
+funcsave gcv
 
 function gca --wraps "git commit --amend -m"
 	if test -n "$argv"
@@ -76,6 +80,7 @@ function gca --wraps "git commit --amend -m"
 		git commit --amend
 	end
 end
+funcsave gca
 
 function gcva --wraps "git commit --amend -n -m"
 	if test -n "$argv"
@@ -84,8 +89,9 @@ function gcva --wraps "git commit --amend -n -m"
 		git commit --amend -n
 	end
 end
+funcsave gcva
 
-alias gcvan "git commit --amend -n --no-edit"
+alias -s gcvan "git commit --amend -n --no-edit"
 
 function gcal --wraps "git commit --all -m"
 	if test -n "$argv"
@@ -94,59 +100,62 @@ function gcal --wraps "git commit --all -m"
 		git commit --all
 	end
 end
+funcsave gcal
 
-alias gcan "git commit --amend --no-edit"
-alias gck "git checkout"
-alias gcl "git clone"
-alias gd "git diff"
-alias gdc "git diff --cached"
-alias gf "git fetch"
-alias gi "git init"
-alias gl "git log"
-alias gl1 "git log -n 1"
-alias glg "git log --color=always --format=oneline --abbrev-commit --decorate | head"
-alias gm "git merge"
-alias gmff "git merge --ff-only"
-alias gp "git push"
-alias gpf "git push --force"
-alias gpl "git pull"
-alias gpu "git pull"
-alias gpu "git push -u origin master"
-alias gr "git reset"
-alias grb "git rebase"
-alias grba "git rebase --abort"
-alias grbc "git rebase --continue"
-alias grl "git reflog"
-alias grm "git rm"
-alias gs "git status"
-alias gsuba "git submodule add"
-alias gsubdi "git submodule deinit"
-alias gsubi "git submodule init"
-alias gsubu "git submodule update"
-alias gsubur "git submodule update --recursive --remote"
+alias -s g "git"
+alias -s gcan "git commit --amend --no-edit"
+alias -s gck "git checkout"
+alias -s gcl "git clone"
+alias -s gd "git diff"
+alias -s gdc "git diff --cached"
+alias -s gf "git fetch"
+alias -s gi "git init"
+alias -s gl "git log"
+alias -s gl1 "git log -n 1"
+alias -s glg "git log --color=always --format=oneline --abbrev-commit --decorate | head"
+alias -s gm "git merge"
+alias -s gmff "git merge --ff-only"
+alias -s gp "git push"
+alias -s gpf "git push --force"
+alias -s gpl "git pull"
+alias -s gpu "git pull"
+alias -s gpu "git push -u origin master"
+alias -s gr "git reset"
+alias -s grb "git rebase"
+alias -s grba "git rebase --abort"
+alias -s grbc "git rebase --continue"
+alias -s grl "git reflog"
+alias -s grm "git rm"
+alias -s gs "git status"
+alias -s gsuba "git submodule add"
+alias -s gsubdi "git submodule deinit"
+alias -s gsubi "git submodule init"
+alias -s gsubu "git submodule update"
+alias -s gsubur "git submodule update --recursive --remote"
 
 function git --description "Alias for hub, which wraps git to provide extra functionality with GitHub."
 	hub $argv
 end
+funcsave git
 
 # npm
 # ===
 
-alias ndi "npm install -D"
-alias ngi "npm install -g"
-alias ngin "npm info -g"
-alias nglg "npm list -g"
-alias ngrm "npm uninstall -g"
-alias ni "npm install"
-alias nid "npm install --save-dev"
-alias nin "npm info"
-alias nls "npm list"
-alias nr "npm run"
-alias nrb "npm rebuild"
-alias nrbf "npm rebuild --force"
-alias nrm "npm uninstall"
-alias ns "npm start"
-alias nt "npm test"
+alias -s ndi "npm install -D"
+alias -s ngi "npm install -g"
+alias -s ngin "npm info -g"
+alias -s nglg "npm list -g"
+alias -s ngrm "npm uninstall -g"
+alias -s ni "npm install"
+alias -s nid "npm install --save-dev"
+alias -s nin "npm info"
+alias -s nls "npm list"
+alias -s nr "npm run"
+alias -s nrb "npm rebuild"
+alias -s nrbf "npm rebuild --force"
+alias -s nrm "npm uninstall"
+alias -s ns "npm start"
+alias -s nt "npm test"
 
 # tmux
 # ====
@@ -171,12 +180,14 @@ function t --description "tmux swiss knife"
 		tmux ls
 	end
 end
+funcsave t
 
 function tk --description "tmux kill session[s]"
 	for session in $argv
 		tmux kill-session -t $session
 	end
 end
+funcsave tk
 
 complete --command t -xa "(tmux ls -F '#S')"
 complete --command tk -xa "(tmux ls -F '#S')"
@@ -184,7 +195,7 @@ complete --command tk -xa "(tmux ls -F '#S')"
 # mac
 # ===
 
-alias md 'macdown'
+alias -s md 'macdown'
 
 function ding --description "Show a notification"
 	set st $status
@@ -208,6 +219,7 @@ function ding --description "Show a notification"
 			/usr/bin/osascript -e "display notification \"$desc\" with title \"$err$title\" sound name \"$sound\""
 	end
 end
+funcsave ding
 
 function _prefix_url_with_http
 	set res $argv
@@ -220,58 +232,72 @@ function _prefix_url_with_http
 
 	echo $res
 end
+funcsave _prefix_url_with_http
 
 function safari --description 'Open Safari.app'
 	open -a 'safari' (_prefix_url_with_http $argv)
 end
+funcsave safari
 
 function firefox --description 'Open Firefox.app'
 	open -a 'firefox' (_prefix_url_with_http $argv)
 end
+funcsave firefox
 
 function chrome --description 'Open Google Chrome.app'
 	open -a 'google chrome' (_prefix_url_with_http $argv)
 end
+funcsave chrome
 
 function proxy --description 'Toggle system proxy'
 	networksetup -setwebproxystate Wi-Fi $argv
 	networksetup -setsecurewebproxystate Wi-Fi $argv
 end
+funcsave proxy
+
+# bitwarden
+# ===
+
+function bwu --description 'Unlock Bitwarden vault'
+	set -gx BW_SESSION (bw unlock --raw)
+end
+funcsave bwu
 
 # local files
 # ===
 
-alias chromel 'open -a "google chrome"'
-alias firefoxl 'open -a firefox'
-alias safaril 'open -a safari'
+alias -s chromel 'open -a "google chrome"'
+alias -s firefoxl 'open -a firefox'
+alias -s safaril 'open -a safari'
 
 # overrides
 # ===
 
-function _alias_if_exists
-	if type -q $argv[1]
-		alias $argv[1] $argv[2]
+function alias_if_exists
+	if type -q $argv[2]
+		alias -s $argv[1] $argv[2]
 	end
 end
 
-_alias_if_exists cat bat
-_alias_if_exists ls exa
-_alias_if_exists stat gstat
-_alias_if_exists ping prettyping
+alias_if_exists cat bat
+alias_if_exists ls exa
+alias_if_exists stat gstat
+alias_if_exists ping prettyping
 
 # misc
 # ====
 
-alias chx 'chmod +x'
-alias d 'docker'
-alias dc 'docker-compose'
-alias how 'howdoi'
-alias hows 'howdoi -n 5'
+alias -s chx 'chmod +x'
+alias -s d 'docker'
+alias -s dc 'docker-compose'
+alias -s how 'howdoi'
+alias -s hows 'howdoi -n 5'
 
 function mkd --description 'Make directory and cd'
 	mkdir $argv
 	cd $argv[1]
 end
+funcsave mkd
 
 function i --description 'cd or cat'
 	if test -n "$argv"
@@ -286,15 +312,18 @@ function i --description 'cd or cat'
 		cat "$file"
 	end
 end
+funcsave i
 
-alias f 'ag -g'
-alias ls1 'ls -1'
-alias lsa 'ls -a'
-alias lsa1 'ls -a1'
-alias mkdir 'mkdir -p'
-alias p 'python'
-alias p2 'python2'
-alias p3 'python3'
+alias -s f 'ag -g'
+alias -s ls1 'ls -1'
+alias -s lsa 'ls -a'
+alias -s lsa1 'ls -a1'
+alias -s mkdir 'mkdir -p'
+alias -s nd 'nextd'
+alias -s p 'python'
+alias -s p2 'python2'
+alias -s p3 'python3'
+alias -s pd 'prevd'
 
 function prod -a mode --description 'productivotivoti mode'
 	set apps Mail Discord Caprine Skype Telegram Messages
@@ -307,13 +336,15 @@ function prod -a mode --description 'productivotivoti mode'
 		end
 	end
 end
+funcsave prod
 
-alias r 'ag'
-alias v 'vim'
-alias vf 'vim (fzf)'
+alias -s r 'ag'
+alias -s v 'vim'
+alias -s vf 'vim (fzf)'
 
 function sudo!!
 	eval sudo $history[1]
 end
+funcsave sudo!!
 
-alias flushdns "sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
+alias -s flushdns "sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"

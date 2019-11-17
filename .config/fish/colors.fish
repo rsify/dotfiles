@@ -1,6 +1,6 @@
 set -g fish_color_autosuggestion BD93F9
 set -g fish_color_cancel -r
-set -g fish_color_command white --bold
+set -g fish_color_command white
 set -g fish_color_comment 6272A4
 set -g fish_color_cwd green
 set -g fish_color_cwd_root red
