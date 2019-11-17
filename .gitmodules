@@ -40,9 +40,6 @@
 [submodule ".vim/bundle/vim-sleuth"]
 	path = .vim/pack/nikersify/start/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
-[submodule ".vim/bundle/completor.vim"]
-	path = .vim/pack/nikersify/start/completor.vim
-	url = https://github.com/maralla/completor.vim
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/pack/nikersify/start/ultisnips
 	url = https://github.com/SirVer/ultisnips
@@ -94,15 +91,9 @@
 [submodule ".vim/pack/nikersify/start/vim-gh-line"]
 	path = .vim/pack/nikersify/start/vim-gh-line
 	url = https://github.com/ruanyl/vim-gh-line
-[submodule ".vim/pack/nikersify/start/vim-illuminate"]
-	path = .vim/pack/nikersify/start/vim-illuminate
-	url = https://github.com/RRethy/vim-illuminate
 [submodule ".vim/pack/nikersify/start/vim-sort-motion"]
 	path = .vim/pack/nikersify/start/vim-sort-motion
 	url = https://github.com/christoomey/vim-sort-motion
-[submodule ".vim/pack/nikersify/start/completor-typescript"]
-	path = .vim/pack/nikersify/start/completor-typescript
-	url = https://github.com/maralla/completor-typescript
 [submodule ".vim/pack/nikersify/start/traces.vim"]
 	path = .vim/pack/nikersify/start/traces.vim
 	url = https://github.com/markonm/traces.vim
@@ -112,3 +103,7 @@
 [submodule ".vim/pack/nikersify/start/pgsql.vim"]
 	path = .vim/pack/nikersify/start/pgsql.vim
 	url = https://github.com/lifepillar/pgsql.vim
+[submodule ".vim/pack/nikersify/start/coc.nvim"]
+	path = .vim/pack/nikersify/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+	branch = release

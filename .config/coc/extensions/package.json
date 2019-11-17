@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "coc-json": ">=1.2.4",
+    "coc-tailwindcss": ">=0.3.2",
+    "coc-tsserver": ">=1.4.6",
+    "coc-ultisnips": ">=1.2.3"
+  }
+}

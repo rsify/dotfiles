@@ -35,9 +35,11 @@ set formatoptions=tcqr
 set incsearch
 set lazyredraw
 set maxmempattern=5000
+set nobackup
 set nocompatible
 set noshowmode
 set noswapfile
+set nowritebackup
 set number
 set relativenumber
 set scrolloff=9999
@@ -50,8 +52,8 @@ set wildmenu
 set wildmode=list
 setlocal cm=blowfish2
 
-" ignore swap warnings
-set shortmess+=A
+" hide |ins-completion-menu| messages
+set shortmess+=c
 
 " when searching
 set smartcase
@@ -113,13 +115,11 @@ nnoremap <silent> <c-j> <c-w>j
 nnoremap <silent> <c-k> <c-w>k
 nnoremap <silent> <c-l> <c-w>l
 
+nmap <silent> <Leader>d <Plug>(coc-definition)
+nmap <silent> <Leader>r <Plug>(coc-rename)
 nnoremap <silent> <Leader>a :call AckSearch('')<Left><Left>
-nnoremap <silent> <Leader>d :call completor#do('doc')<CR>
-
-" fzf.vim files search
-nnoremap <silent> <Leader>f :Files<CR>
-
 nnoremap <silent> <Leader>e :copen<CR>
+nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>m :set mouse=a<CR>
 nnoremap <silent> <Leader>n :set mouse=<CR>
 nnoremap <silent> <Leader>p :set invpaste<CR>
@@ -127,9 +127,13 @@ nnoremap <silent> <Leader>q :cclose<CR>
 nnoremap <silent> <Leader>s :UltiSnipsEdit<CR>
 nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
 
+" coc.nvim documentation
+nnoremap <silent> K :call CocAction('doHover')<CR>
+
 " fzf.vim buffer search window
 nnoremap <silent> <space> :Buffers<CR>
 
+nmap <silent> <Leader>r <Plug>(coc-rename)
 nmap <silent> [s <Plug>(ale_previous_wrap)
 nmap <silent> ]s <Plug>(ale_next_wrap)
 
@@ -257,6 +261,10 @@ au BufRead,BufNewFile sass Sleuth
 if executable('ag')
 	let g:ackprg = 'ag --vimgrep'
 endif
+
+" coc.nvim
+" Highlight symbol under cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 colorscheme dracula
 let g:dracula_colorterm = 0
