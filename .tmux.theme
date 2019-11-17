@@ -4,10 +4,12 @@ set -g pane-active-border-style fg="colour114"
 set -g pane-border-style fg="colour236"
 set -g status "on"
 set -g status-style bg="default"
-set -g status-justify "centre"
+set -g status-justify "left"
 set -g status-left "#[fg=colour235,bg=colour114] #S #[fg=colour145,bg=colour236,nobold,nounderscore,noitalics]"
 set -g status-left-length "100"
-set -g status-right "#[fg=colour114,bg=colour236]#[fg=colour235,bg=colour114] #h "
+set -g status-right "#[fg=colour235] #{git_name}#[fg=colour235]#{git_upstream} #{git_branch}#[fg=colour235]#{git_status}"
+set -g @git_status_status_delimiter ' '
+set -g status-interval 1
 set -g status-right-length "100"
 setw -g pane-border-format '─'
 setw -g pane-border-status bottom
