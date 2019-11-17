@@ -4,7 +4,7 @@
 
 ### prerequisites
 
-`git hub curl fish@>=2.3 the_silver_searcher fzf`
+`git hub fish>=3 the_silver_searcher fzf`
 
 ### setup
 
@@ -19,7 +19,6 @@ $ git submodule update
 $ git branch -u origin/master
 $ git config status.showuntrackedfiles no
 $ mkdir -p .npm/bin .cargo/bin .gem/ruby
-$ ./.config/bin/bootstrap.sh
 $ echo `which fish` | sudo tee /etc/shells
 $ chsh -s `which fish`
 
@@ -40,12 +39,4 @@ $ git submodule update --recursive --remote
 # removing plugins, [-f] for uncommited changes
 $ git submodule deinit [-f] .vim/pack/nikersify/start/<name>
 $ git rm [-f] .vim/pack/nikersify/start/<name>
-```
-
-### fisher plugins
-
-```sh
-# installing/removing
-$ fisher <name>
-$ fisher rm <name>
 ```
