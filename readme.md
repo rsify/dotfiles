@@ -30,13 +30,12 @@ $ make js
 ### vim config
 
 ```sh
-# adding plugins
+# add plugin
 $ git submodule add <url> .vim/pack/nikersify/start/<name>
 
-# bumping all
+# bump all
 $ git submodule update --recursive --remote
 
-# removing plugins, [-f] for uncommited changes
-$ git submodule deinit [-f] .vim/pack/nikersify/start/<name>
-$ git rm [-f] .vim/pack/nikersify/start/<name>
+# remove plugins
+$ git rm -f .vim/pack/nikersify/start/<name>
 ```
