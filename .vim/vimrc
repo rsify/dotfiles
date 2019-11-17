@@ -76,7 +76,6 @@ au BufRead,BufNewFile *.tex setfiletype tex
 
 " vim-commentary
 au FileType javascript,typescript setlocal commentstring=//\ %s
-au Filetype typescript setlocal commentstring=//\ %s
 au Filetype sass setlocal commentstring=//\ %s
 au FileType vim setlocal commentstring=\"\ %s
 au FileType pug setlocal commentstring=//-\ %s
@@ -120,6 +119,7 @@ nnoremap <silent> <Leader>d :call completor#do('doc')<CR>
 " fzf.vim files search
 nnoremap <silent> <Leader>f :Files<CR>
 
+nnoremap <silent> <Leader>e :copen<CR>
 nnoremap <silent> <Leader>m :set mouse=a<CR>
 nnoremap <silent> <Leader>n :set mouse=<CR>
 nnoremap <silent> <Leader>p :set invpaste<CR>
@@ -233,7 +233,7 @@ let g:gitgutter_sign_modified_removed = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_removed_first_line = '∙'
 
-let g:polyglot_disabled = ['vue', 'haskell']
+let g:polyglot_disabled = ['vue', 'haskell', 'jsx']
 let g:vue_disable_pre_processors = 1
 
 let g:indexed_search_colors = 0
