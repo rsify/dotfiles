@@ -67,7 +67,7 @@ set splitbelow
 set splitright
 
 if &term =~ '^screen'
-	set ttymouse=xterm2
+  set ttymouse=xterm2
 endif
 
 filetype on
@@ -85,9 +85,9 @@ au FileType pug setlocal commentstring=//-\ %s
 au FileType markdown,haskell let b:sleuth_automatic=0
 
 function! HaskellIndent ()
-	set shiftwidth=2
-	set tabstop=2
-	set expandtab
+  set shiftwidth=2
+  set tabstop=2
+  set expandtab
 endfunction
 
 au FileType haskell :call HaskellIndent()
@@ -143,12 +143,12 @@ nnoremap gp `[v`]
 set laststatus=2
 
 if ! has('gui_running')
-	set ttimeoutlen=10
-	augroup FastEscape
-		autocmd!
-		au InsertEnter * set timeoutlen=0
-		au InsertLeave * set timeoutlen=1000
-	augroup END
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
 endif
 
 let g:lightline = {
@@ -259,7 +259,7 @@ let g:sql_type_default = 'pgsql'
 au BufRead,BufNewFile sass Sleuth
 
 if executable('ag')
-	let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --vimgrep'
 endif
 
 " coc.nvim
@@ -270,23 +270,23 @@ colorscheme dracula
 let g:dracula_colorterm = 0
 
 function! AckSearch(string) abort
-	let saved_shellpipe = &shellpipe
-	let &shellpipe = '>'
+  let saved_shellpipe = &shellpipe
+  let &shellpipe = '>'
 
-	try
-		execute 'Ack!' shellescape(a:string, 1)
-	finally
-		let &shellpipe = saved_shellpipe
-	endtry
+  try
+    execute 'Ack!' shellescape(a:string, 1)
+  finally
+    let &shellpipe = saved_shellpipe
+  endtry
 
 endfunction
 
 function! TrailingWhitespace ()
-	hi clear MatchParen
-	hi MatchParen cterm=bold,underline term=bold,underline
+  hi clear MatchParen
+  hi MatchParen cterm=bold,underline term=bold,underline
 
-	hi ExtraWhitespace cterm=underline,bold gui=underline,bold ctermfg=red guifg=#ee0000
-	match ExtraWhitespace /\s\+$/
+  hi ExtraWhitespace cterm=underline,bold gui=underline,bold ctermfg=red guifg=#ee0000
+  match ExtraWhitespace /\s\+$/
 endfunction
 
 au BufWinEnter * :call TrailingWhitespace()
