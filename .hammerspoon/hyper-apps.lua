@@ -9,7 +9,7 @@ return {
 	{ 'c', 'Caprine' },
 	{ 'd', '2Do' },
 	{ 'f', 'Figma' },
-	{ 'g', 'Google Chrome' },
+	{ 'g', 'Firefox' },
 	{ 'h', 'Insomnia' },
 	{ 'i', 'Discord' },
 	{ 'k', 'Activity Monitor' },
