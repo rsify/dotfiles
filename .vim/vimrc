@@ -2,7 +2,7 @@ language en_US
 
 packadd! dracula
 
-syntax on
+syntax enable
 
 if has('python3')
   silent! python3 1
@@ -36,7 +36,7 @@ set incsearch
 set lazyredraw
 set maxmempattern=5000
 set nobackup
-set nocompatible
+set nohlsearch
 set noshowmode
 set noswapfile
 set nowritebackup
@@ -50,7 +50,6 @@ set tabstop=4
 set updatetime=100
 set wildmenu
 set wildmode=list
-setlocal cm=blowfish2
 
 " hide |ins-completion-menu| messages
 set shortmess+=c
@@ -126,6 +125,9 @@ nnoremap <silent> <Leader>p :set invpaste<CR>
 nnoremap <silent> <Leader>q :cclose<CR>
 nnoremap <silent> <Leader>s :UltiSnipsEdit<CR>
 nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
+
+" disable annoying ex mode shit
+map q: <NOP>
 
 " coc.nvim documentation
 nnoremap <silent> K :call CocAction('doHover')<CR>
@@ -262,9 +264,10 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" coc.nvim
 " Highlight symbol under cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
+if exists('*CocActionAsync')
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+endif
 
 colorscheme dracula
 let g:dracula_colorterm = 0
@@ -280,6 +283,11 @@ function! AckSearch(string) abort
   endtry
 
 endfunction
+
+function! SynGroup()
+  let l:s = synID(line('.'), col('.'), 1)
+  echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
 
 function! TrailingWhitespace ()
   hi clear MatchParen
@@ -299,15 +307,16 @@ augroup END
 
 call TrailingWhitespace()
 
-hi Error ctermfg=red ctermbg=none guifg=#ff0000 guibg=NONE cterm=underline
+hi Error ctermfg=red ctermbg=none guifg=#ff0000 guibg=none cterm=underline
 hi Warn cterm=none ctermfg=215 ctermbg=none
-hi VertSplit cterm=none ctermfg=59 ctermbg=none
+hi VertSplit cterm=none ctermfg=59 ctermbg=none gui=none guifg=#4e4e51 guibg=none
 hi EndOfBuffer ctermfg=59
 
 syn keyword cTodo TODO
 hi link cTodo Todo
 hi link ALEWarningSign Warn
 hi link ALEErrorSign Error
+hi link QuickFixLine CursorLine
 
 au BufEnter * set colorcolumn=80
 set colorcolumn=80

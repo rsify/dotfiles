@@ -1,0 +1,7 @@
+{
+	"diagnostic.displayByAle": true,
+	"diagnostic.refreshAfterSave": true,
+	"typescript.suggest.autoImports": false,
+	"javascript.suggest.autoImports": false,
+	"diagnostic.enableSign": false
+}

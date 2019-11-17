@@ -341,6 +341,7 @@ funcsave prod
 alias -s r 'ag'
 alias -s v 'vim'
 alias -s vf 'vim (fzf)'
+alias -s vim 'nvim'
 
 function sudo!!
 	eval sudo $history[1]
