@@ -341,7 +341,7 @@ funcsave prod
 alias -s r 'ag'
 alias -s v 'vim'
 alias -s vf 'vim (fzf)'
-alias -s vim 'nvim'
+alias -s vim 'env SHELL=/bin/zsh nvim'
 
 function sudo!!
 	eval sudo $history[1]

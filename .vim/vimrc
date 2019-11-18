@@ -93,9 +93,11 @@ au FileType haskell :call HaskellIndent()
 
 set nofoldenable
 set foldmethod=indent
-au BufWinLeave ?* mkview 1
 
 let g:mapleader = ","
+
+let g:filebeagle_suppress_keymaps = 1
+map <silent> - <Plug>FileBeagleOpenCurrentBufferDir
 
 " make option/alt binds work
 " execute "set <A-h>=\eh"
@@ -106,9 +108,9 @@ let g:mapleader = ","
 imap <A-j> <ESC><Plug>MoveLineDowni
 imap <A-k> <ESC><Plug>MoveLineUpi
 
-nnoremap <silent> <c-w>\| :Vexplore!<cr>
-nnoremap <silent> <c-w>- :Sex<cr>
-nnoremap <silent> <c-w>_ :Sex<cr>
+nnoremap <silent> <c-w>\| <c-w>v :FileBeagle<CR>
+nnoremap <silent> <c-w>-  <c-w>s :FileBeagle<CR>
+nnoremap <silent> <c-w>_  <c-w>s :FileBeagle<CR>
 nnoremap <silent> <c-h> <c-w>h
 nnoremap <silent> <c-j> <c-w>j
 nnoremap <silent> <c-k> <c-w>k
@@ -190,9 +192,10 @@ let g:lightline#ale#indicator_ok = '✓ '
 
 " disable ale in ~
 let g:ale_enabled = getcwd() !=? expand('~')
+let g:ale_disable_lsp = 1
 
-" \  'typescript': ['xo', 'tsserver'],
 let g:ale_linters = {
+\  'typescript': ['xo'],
 \  'javascript': ['xo'],
 \  'vue': ['xo'],
 \  'markdown': []
@@ -211,6 +214,7 @@ let g:ale_javascript_xo_options = '--extend ~/.xo.js'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_list_window_size = 8
+let g:ale_lint_on_enter = 0
 let g:ale_open_list = 1
 let g:ale_set_quickfix = 1
 let g:ale_sign_error = '✖'
@@ -229,7 +233,7 @@ let g:vim_markdown_new_list_item_indent = 0
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit="horizontal"
 " disable autotrigger for better typing performance
-au VimEnter * au! UltiSnips_AutoTrigger
+" au VimEnter * au! UltiSnips_AutoTrigger
 
 let g:closetag_filenames = "*.html,*.tag,*.js,*.jsx,*.tsx"
 
@@ -252,9 +256,9 @@ let g:indexed_search_numbered_only = 1
 let g:gh_open_command = 'function fn; echo "$argv" | pbcopy; end; fn '
 
 " vim-js-pretty-template
-au FileType javascript :call jspretmpl#register_tag('sql', 'sql')
+" au FileType javascript :call jspretmpl#register_tag('sql', 'sql')
 " au FileType javascript :call jspretmpl#register_tag('pug', 'pug')
-au FileType javascript JsPreTmpl
+" au FileType javascript JsPreTmpl
 
 let g:sql_type_default = 'pgsql'
 
@@ -265,9 +269,7 @@ if executable('ag')
 endif
 
 " Highlight symbol under cursor
-if exists('*CocActionAsync')
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-endif
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 colorscheme dracula
 let g:dracula_colorterm = 0
@@ -307,9 +309,9 @@ augroup END
 
 call TrailingWhitespace()
 
-hi Error ctermfg=red ctermbg=none guifg=#ff0000 guibg=none cterm=underline
-hi Warn cterm=none ctermfg=215 ctermbg=none
-hi VertSplit cterm=none ctermfg=59 ctermbg=none gui=none guifg=#4e4e51 guibg=none
+hi Error ctermfg=red ctermbg=bg guifg=#ff0000 guibg=bg cterm=underline
+hi Warn cterm=none ctermfg=215 ctermbg=bg
+hi VertSplit cterm=none ctermfg=59 ctermbg=bg gui=none guifg=#4e4e51 guibg=bg
 hi EndOfBuffer ctermfg=59
 
 syn keyword cTodo TODO
