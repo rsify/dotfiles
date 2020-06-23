@@ -1,4 +1,4 @@
-# Defined in /Users/nikersify/.config/fish/alias.fish @ line 302
+# Defined in /Users/nikersify/.config/fish/alias.fish @ line 310
 function i --description 'cd or cat'
     if test -n "$argv"
 		set file "$argv"

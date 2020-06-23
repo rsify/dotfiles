@@ -9,7 +9,7 @@ function ding --description 'Show a notification'
 		set title "$argv"
 	end
 
-	set sound "hero"
+	set sound "glass"
 	# play scary sound if last cmd errored
 	if test ! $st -eq 0
 		set sound "sosumi"

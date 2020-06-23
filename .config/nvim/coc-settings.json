@@ -1,7 +1,40 @@
 {
 	"diagnostic.displayByAle": true,
-	"diagnostic.refreshAfterSave": true,
-	"typescript.suggest.autoImports": false,
+	"diagnostic.enableSign": false,
+	"diagnostic.level": "information",
 	"javascript.suggest.autoImports": false,
-	"diagnostic.enableSign": false
+	"typescript.suggest.autoImports": false,
+	"coc.preferences.formatOnType": false,
+	"coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "yaml", "elm", "graphql"],
+	"tsserver.formatOnType": false,
+	"diagnostic.refreshAfterSave": true,
+	"languageserver": {
+		"elmLS": {
+			"command": "elm-language-server",
+			"filetypes": ["elm"],
+			"rootPatterns": ["elm.json"],
+			"initializationOptions": {
+				"elmFormatPath": "elm-format"
+			}
+		}
+	},
+	"tailwindCSS.headwind.runOnSave": true,
+	"tailwindCSS.headwind.classRegex": {
+		"html": "\\bclass\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\']",
+		"css": "\\B@apply\\s+([_a-zA-Z0-9\\s\\-\\:\\/]+);",
+		"javascript": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
+		"javascriptreact": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
+		"typescript": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
+		"typescriptreact": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
+		"elm": "\\bclass \"([[_a-zA-Z0-9\\s-:/]]+)\""
+	},
+	"prettier.requireConfig": true,
+	"tailwindCSS.jsLanguages": [
+		"javascript",
+		"javascriptreact",
+		"reason",
+		"typescriptreact",
+		"elm"
+	],
+	"css.validate": false
 }

@@ -1,4 +1,4 @@
-# Defined in /Users/nikersify/.config/fish/alias.fish @ line 328
+# Defined in /Users/nikersify/.config/fish/alias.fish @ line 333
 function prod --description 'productivotivoti mode' --argument mode
     set apps Mail Discord Caprine Skype Telegram Messages
 

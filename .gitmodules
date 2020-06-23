@@ -104,6 +104,12 @@
 	path = .vim/pack/nikersify/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
 	branch = release
-[submodule ".vim/pack/nikersify/start/vim-filebeagle"]
-	path = .vim/pack/nikersify/start/vim-filebeagle
-	url = https://github.com/jeetsukumaran/vim-filebeagle
+[submodule "/Users/nikersify/.vim/pack/nikersify/start/switch.vim"]
+	path = /Users/nikersify/.vim/pack/nikersify/start/switch.vim
+	url = https://github.com/AndrewRadev/switch.vim
+[submodule ".vim/pack/nikersify/start/defx.nvim"]
+	path = .vim/pack/nikersify/start/defx.nvim
+	url = https://github.com/Shougo/defx.nvim
+[submodule "/Users/nikersify/.vim/pack/nikersify/start/defx-git"]
+	path = /Users/nikersify/.vim/pack/nikersify/start/defx-git
+	url = https://github.com/kristijanhusak/defx-git

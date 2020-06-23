@@ -6,11 +6,16 @@
             :held 10}}
  :templates {:app "open -a \"%s\""
              :alfred "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"}
- :main [{:des "fn"
+ :main [{:des "jkl; navigation with fn"
          :rules [[:!F##h :left_arrow]
                  [:!F##j :down_arrow]
                  [:!F##k :up_arrow]
                  [:!F##l :right_arrow]]}
+        {:des "jkl; navigation without fn"
+         :rules [[:!TC##h :left_arrow]
+                 [:!TC##j :down_arrow]
+                 [:!TC##k :up_arrow]
+                 [:!TC##l :right_arrow]]}
         {:des "fn-q-layer"
          :rules [[:fn [["fn-layer" 1] :fn] nil {:afterup ["fn-layer" 0]}]
                  [:!Fq ["q-layer" 1] ["fn-layer" 1] {:afterup ["q-layer" 0]}]
@@ -19,7 +24,9 @@
         {:des "fn-b-layer"
          :rules [[:fn [["fn-layer" 1] :fn] nil {:afterup ["fn-layer" 0]}]
                  [:!Fb ["b-layer" 1] ["fn-layer" 1] {:afterup ["b-layer" 0]}]
-                 [:##g "/usr/local/bin/defaultbrowser nightly" [["fn-layer" 1]
+                 [:##f "/usr/local/bin/defaultbrowser firefox" [["fn-layer" 1]
+                                                                ["b-layer" 1]]]
+                 [:##g "/usr/local/bin/defaultbrowser chrome" [["fn-layer" 1]
                                                                ["b-layer" 1]]]
                  [:##s "/usr/local/bin/defaultbrowser safari" [["fn-layer" 1]
                                                                ["b-layer" 1]]]]}

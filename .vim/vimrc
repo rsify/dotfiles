@@ -26,6 +26,10 @@ set fileencoding=utf-8
 
 set ttimeoutlen=10
 
+" fzf.vim is broken with fish and for some reason uses this rather than &shell
+" to determine the shell to run fzf in
+let $SHELL = '/bin/bash'
+
 set belloff=all
 set breakindent
 set breakindentopt=shift:4
@@ -69,7 +73,9 @@ if &term =~ '^screen'
   set ttymouse=xterm2
 endif
 
-filetype on
+filetype plugin indent on
+set autoindent
+set smartindent
 
 au BufRead,BufNewFile *.rkt set lisp
 au BufRead,BufNewFile *.fig setfiletype pug
@@ -94,10 +100,80 @@ au FileType haskell :call HaskellIndent()
 set nofoldenable
 set foldmethod=indent
 
-let g:mapleader = ","
+let g:mapleader = ','
 
-let g:filebeagle_suppress_keymaps = 1
-map <silent> - <Plug>FileBeagleOpenCurrentBufferDir
+function! Open_defx (dir, search)
+  execute "Defx " . a:dir . " -search=" . a:search . " -columns=mark:indent:filename:time -show-ignored-files -toggle -new -root-marker='  '"
+endfunction
+
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrw = 1
+
+augroup DefxInsteadOfNetrw
+  au!
+  let g:loaded_netrwSettings = 1
+  let g:loaded_netrwFileHandlers = 1
+
+  let s:isdir = {dir ->
+        \ !empty(dir) && (isdirectory(dir) ||
+        \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir))
+        \ )}
+
+  au VimEnter * silent! au! FileExplorer *
+  au BufEnter * if s:isdir(expand('%'))
+        \ | call Open_defx(expand('%'), expand('%'))
+        \ | endif
+augroup END
+
+nnoremap <silent> - :call Open_defx(expand('%:p:h'), expand('%:p'))<CR>
+" `expand('%:p')`
+" `expand('%:p:h')`
+"
+nnoremap <silent> <c-w>\| <c-w>v :call Open_defx(expand('%:p:h'), expand('%:p'))<CR>
+nnoremap <silent> <c-w>-  <c-w>s :call Open_defx(expand('%:p:h'), expand('%:p'))<CR>
+nnoremap <silent> <c-w>_  <c-w>s :call Open_defx(expand('%:p:h'), expand('%:p'))<CR>
+
+autocmd FileType defx call s:defx_my_settings()
+function! s:defx_my_settings() abort
+  " dirty hack to hide ExtraWhitespace highlighting by appending a `figure
+  " space` character (U+2007) to every row as a time column
+  call defx#custom#column('time', {
+        \ 'format': ' ',
+        \ })
+
+  call defx#custom#column('git', 'indicators', {
+        \ 'Modified'  : '●',
+        \ 'Staged'    : '+',
+        \ 'Untracked' : 'u',
+        \ 'Renamed'   : 'r',
+        \ 'Unmerged'  : 'm',
+        \ 'Ignored'   : 'i',
+        \ 'Deleted'   : 'x',
+        \ 'Unknown'   : '?'
+        \ })
+
+  " dese me wante
+  nnoremap <silent><buffer><expr> - defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> <CR> defx#do_action('open')
+  nnoremap <silent><buffer><expr> % defx#do_action('new_file')
+  nnoremap <silent><buffer><expr> K defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> D defx#do_action('remove')
+  nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr> q defx#do_action('quit')
+  nnoremap <silent><buffer><expr> r defx#do_action('rename')
+
+  " Define mappings
+  nnoremap <silent><buffer><expr> c defx#do_action('copy')
+  nnoremap <silent><buffer><expr> m defx#do_action('move')
+  nnoremap <silent><buffer><expr> p defx#do_action('paste')
+  nnoremap <silent><buffer><expr> ! defx#do_action('execute_command')
+  nnoremap <silent><buffer><expr> yy defx#do_action('yank_path')
+  nnoremap <silent><buffer><expr> ; defx#do_action('repeat')
+  nnoremap <silent><buffer><expr> <Tab> defx#do_action('toggle_select') . 'j'
+  nnoremap <silent><buffer><expr> * defx#do_action('toggle_select_all')
+  nnoremap <silent><buffer><expr> <C-g> defx#do_action('print')
+  nnoremap <silent><buffer><expr> cd defx#do_action('change_vim_cwd')
+endfunction
 
 " make option/alt binds work
 " execute "set <A-h>=\eh"
@@ -108,16 +184,21 @@ map <silent> - <Plug>FileBeagleOpenCurrentBufferDir
 imap <A-j> <ESC><Plug>MoveLineDowni
 imap <A-k> <ESC><Plug>MoveLineUpi
 
-nnoremap <silent> <c-w>\| <c-w>v :FileBeagle<CR>
-nnoremap <silent> <c-w>-  <c-w>s :FileBeagle<CR>
-nnoremap <silent> <c-w>_  <c-w>s :FileBeagle<CR>
+nmap <silent> \ :Switch<CR>
 nnoremap <silent> <c-h> <c-w>h
 nnoremap <silent> <c-j> <c-w>j
 nnoremap <silent> <c-k> <c-w>k
 nnoremap <silent> <c-l> <c-w>l
 
+nnoremap <silent> <Left> gh
+nnoremap <silent> <Down> gj
+nnoremap <silent> <Up> gk
+nnoremap <silent> <Right> gl
+
 nmap <silent> <Leader>d <Plug>(coc-definition)
 nmap <silent> <Leader>r <Plug>(coc-rename)
+nmap <silent> <Leader>t <Plug>(coc-type-definition)
+nmap <silent> <Leader>x :CocFix<CR>
 nnoremap <silent> <Leader>a :call AckSearch('')<Left><Left>
 nnoremap <silent> <Leader>e :copen<CR>
 nnoremap <silent> <Leader>f :Files<CR>
@@ -127,22 +208,32 @@ nnoremap <silent> <Leader>p :set invpaste<CR>
 nnoremap <silent> <Leader>q :cclose<CR>
 nnoremap <silent> <Leader>s :UltiSnipsEdit<CR>
 nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
+nnoremap <silent> [q :ALEPreviousWrap<CR>
+nnoremap <silent> ]q :ALENextWrap<CR>
 
-" disable annoying ex mode shit
-map q: <NOP>
+nnoremap <Leader>n :call <sid>defx_open()<CR>
 
-" coc.nvim documentation
-nnoremap <silent> K :call CocAction('doHover')<CR>
+" coc.nvim & vim docs
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " fzf.vim buffer search window
 nnoremap <silent> <space> :Buffers<CR>
 
-nmap <silent> <Leader>r <Plug>(coc-rename)
 nmap <silent> [s <Plug>(ale_previous_wrap)
 nmap <silent> ]s <Plug>(ale_next_wrap)
 
 " select last changed (e.g. pasted) text
 nnoremap gp `[v`]
+
+inoremap <silent><expr> <C-n> coc#refresh()
 
 set laststatus=2
 
@@ -170,7 +261,7 @@ let g:lightline = {
 \  'right': [ [ 'close' ] ]
 \  },
 \  'component': {
-\    'file': '%{expand("%")}'
+\    'file': '%{fnamemodify(expand("%"), ":~:.")}'
 \  },
 \  'component_expand': {
 \    'linter_checking': 'lightline#ale#checking',
@@ -210,19 +301,25 @@ let g:ale_pattern_options = {
 \  '\/Users\/nikersify\/[^/]*\.js': {'ale_enabled': 0}
 \}
 
+let g:ale_fixers = {
+\  'haskell': ['brittany']
+\  }
+
+let g:ale_elm_ls_elm_analyse_trigger = 'never'
+let g:ale_fix_on_save = 1
 let g:ale_javascript_xo_options = '--extend ~/.xo.js'
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
-let g:ale_list_window_size = 8
+let g:ale_keep_list_window_open = 1
 let g:ale_lint_on_enter = 0
-let g:ale_open_list = 1
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_list_window_size = 8
 let g:ale_set_quickfix = 1
+let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '▲'
 
 let delimitMate_expand_cr = 1
 au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:}"
-let delimitMate_jump_expansion = 1
 
 let g:completor_completion_delay = 0
 au BufRead,BufNewFile *.md let g:completor_auto_trigger = 0
@@ -237,13 +334,16 @@ let g:UltiSnipsEditSplit="horizontal"
 
 let g:closetag_filenames = "*.html,*.tag,*.js,*.jsx,*.tsx"
 
+" disable vim-polyglot's default elm formatter for the sake of coc.nvim's
+let g:elm_format_autosave = 0
+
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_removed_first_line = '∙'
 
-let g:polyglot_disabled = ['vue', 'haskell', 'jsx']
+let g:polyglot_disabled = ['vue', 'haskell']
 let g:vue_disable_pre_processors = 1
 
 let g:indexed_search_colors = 0
@@ -256,9 +356,9 @@ let g:indexed_search_numbered_only = 1
 let g:gh_open_command = 'function fn; echo "$argv" | pbcopy; end; fn '
 
 " vim-js-pretty-template
-" au FileType javascript :call jspretmpl#register_tag('sql', 'sql')
+" au FileType javascript,typescript :call jspretmpl#register_tag('sql', 'sql')
 " au FileType javascript :call jspretmpl#register_tag('pug', 'pug')
-" au FileType javascript JsPreTmpl
+" au FileType javascript,typescript JsPreTmpl
 
 let g:sql_type_default = 'pgsql'
 
@@ -269,10 +369,12 @@ if executable('ag')
 endif
 
 " Highlight symbol under cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 colorscheme dracula
+
 let g:dracula_colorterm = 0
+let g:switch_mapping = ""
 
 function! AckSearch(string) abort
   let saved_shellpipe = &shellpipe
@@ -283,7 +385,6 @@ function! AckSearch(string) abort
   finally
     let &shellpipe = saved_shellpipe
   endtry
-
 endfunction
 
 function! SynGroup()
@@ -293,7 +394,7 @@ endfun
 
 function! TrailingWhitespace ()
   hi clear MatchParen
-  hi MatchParen cterm=bold,underline term=bold,underline
+  hi MatchParen cterm=bold,underline term=bold,underline gui=underline,bold
 
   hi ExtraWhitespace cterm=underline,bold gui=underline,bold ctermfg=red guifg=#ee0000
   match ExtraWhitespace /\s\+$/
@@ -309,6 +410,7 @@ augroup END
 
 call TrailingWhitespace()
 
+hi CursorLine guibg=#2f3142
 hi Error ctermfg=red ctermbg=bg guifg=#ff0000 guibg=bg cterm=underline
 hi Warn cterm=none ctermfg=215 ctermbg=bg
 hi VertSplit cterm=none ctermfg=59 ctermbg=bg gui=none guifg=#4e4e51 guibg=bg

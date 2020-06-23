@@ -1,8 +1,11 @@
 {
   "dependencies": {
-    "coc-json": ">=1.2.4",
-    "coc-tailwindcss": ">=0.3.2",
-    "coc-tsserver": ">=1.4.6",
-    "coc-ultisnips": ">=1.2.3"
+    "coc-css": ">=1.2.3",
+    "coc-json": ">=1.2.6",
+    "coc-prettier": ">=1.1.14",
+    "coc-tailwindcss": ">=0.6.0",
+    "coc-tsserver": ">=1.4.15",
+    "coc-ultisnips": ">=1.2.3",
+    "coc-vimlsp": ">=0.8.0"
   }
 }

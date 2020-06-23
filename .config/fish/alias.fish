@@ -207,7 +207,7 @@ function ding --description "Show a notification"
 		set title "$argv"
 	end
 
-	set sound "hero"
+	set sound "glass"
 	# play scary sound if last cmd errored
 	if test ! $st -eq 0
 		set sound "sosumi"
@@ -275,12 +275,19 @@ alias -s safaril 'open -a safari'
 
 function alias_if_exists
 	if type -q $argv[2]
-		alias -s $argv[1] $argv[2]
+		if test -n "$argv[3]"
+			alias -s $argv[1] $argv[3]
+		else
+			alias -s $argv[1] $argv[2]
+		end
 	end
 end
 
 alias_if_exists cat bat
-alias_if_exists ls exa
+alias_if_exists ls exa 'exa -x --sort type'
+alias_if_exists ls1 exa 'exa -1 --sort type'
+alias_if_exists lsa exa 'exa -ax --sort type'
+alias_if_exists lsa1 exa 'exa -a1 --sort type'
 alias_if_exists stat gstat
 alias_if_exists ping prettyping
 
@@ -288,6 +295,7 @@ alias_if_exists ping prettyping
 # ====
 
 alias -s chx 'chmod +x'
+alias -s orange '~/dev/scripts/orange/index.js'
 alias -s d 'docker'
 alias -s dc 'docker-compose'
 alias -s how 'howdoi'
@@ -315,9 +323,6 @@ end
 funcsave i
 
 alias -s f 'ag -g'
-alias -s ls1 'ls -1'
-alias -s lsa 'ls -a'
-alias -s lsa1 'ls -a1'
 alias -s mkdir 'mkdir -p'
 alias -s nd 'nextd'
 alias -s p 'python'
@@ -341,7 +346,7 @@ funcsave prod
 alias -s r 'ag'
 alias -s v 'vim'
 alias -s vf 'vim (fzf)'
-alias -s vim 'env SHELL=/bin/zsh nvim'
+alias -s vim 'nvim'
 
 function sudo!!
 	eval sudo $history[1]

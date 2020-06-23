@@ -58,3 +58,5 @@ function fish_user_key_bindings
 	bind \ea __bind_functions
 	fzf_key_bindings
 end
+
+eval (direnv hook fish)
