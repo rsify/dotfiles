@@ -9,7 +9,7 @@ source ~/.config/fish/colors.fish
 [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 [ -f ~/.config/fish/env.fish ]; and source ~/.config/fish/env.fish
 
-set -g EDITOR vim
+set -gx EDITOR vim
 
 function _path
 	set -gx PATH $argv $PATH
@@ -59,4 +59,10 @@ function fish_user_key_bindings
 	fzf_key_bindings
 end
 
-eval (direnv hook fish)
+if type -q direnv
+	eval (direnv hook fish)
+end
+
+fish_ssh_agent
+
+set -x GPG_TTY (tty)

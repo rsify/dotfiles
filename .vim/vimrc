@@ -195,6 +195,7 @@ nnoremap <silent> <Down> gj
 nnoremap <silent> <Up> gk
 nnoremap <silent> <Right> gl
 
+nmap <silent> <Leader>b <Plug>(coc-references)
 nmap <silent> <Leader>d <Plug>(coc-definition)
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nmap <silent> <Leader>t <Plug>(coc-type-definition)

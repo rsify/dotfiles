@@ -295,11 +295,13 @@ alias_if_exists ping prettyping
 # ====
 
 alias -s chx 'chmod +x'
-alias -s orange '~/dev/scripts/orange/index.js'
 alias -s d 'docker'
 alias -s dc 'docker-compose'
 alias -s how 'howdoi'
 alias -s hows 'howdoi -n 5'
+alias -s ld 'lazydocker'
+alias -s lg 'lazygit'
+alias -s orange '~/dev/scripts/orange/index.js'
 
 function mkd --description 'Make directory and cd'
 	mkdir $argv

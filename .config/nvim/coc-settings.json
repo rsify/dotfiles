@@ -5,14 +5,29 @@
 	"javascript.suggest.autoImports": false,
 	"typescript.suggest.autoImports": false,
 	"coc.preferences.formatOnType": false,
-	"coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "yaml", "elm", "graphql"],
+	"tsserver.maxTsServerMemory": 4000,
+	"coc.preferences.formatOnSaveFiletypes": [
+		"javascript",
+		"typescript",
+		"typescriptreact",
+		"json",
+		"yaml",
+		"elm",
+		"graphql"
+	],
 	"tsserver.formatOnType": false,
-	"diagnostic.refreshAfterSave": true,
+	"typescript.format.enabled": false,
+	"javascript.format.enabled": false,
+	"diagnostic.refreshAfterSave": false,
 	"languageserver": {
 		"elmLS": {
 			"command": "elm-language-server",
-			"filetypes": ["elm"],
-			"rootPatterns": ["elm.json"],
+			"filetypes": [
+				"elm"
+			],
+			"rootPatterns": [
+				"elm.json"
+			],
 			"initializationOptions": {
 				"elmFormatPath": "elm-format"
 			}
@@ -29,6 +44,7 @@
 		"elm": "\\bclass \"([[_a-zA-Z0-9\\s-:/]]+)\""
 	},
 	"prettier.requireConfig": true,
+	"prettier.onlyUseLocalVersion": true,
 	"tailwindCSS.jsLanguages": [
 		"javascript",
 		"javascriptreact",
@@ -36,5 +52,7 @@
 		"typescriptreact",
 		"elm"
 	],
-	"css.validate": false
+	"css.validate": false,
+	"eslint.run": "onSave",
+	"eslint.autoFixOnSave": true
 }

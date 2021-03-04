@@ -70,8 +70,8 @@
 [submodule ".vim/pack/nikersify/start/vim-haskell-indent"]
 	path = .vim/pack/nikersify/start/vim-haskell-indent
 	url = https://github.com/itchyny/vim-haskell-indent
-[submodule "/Users/nikersify/.vim/pack/nikersify/start/vim-sneak"]
-	path = /Users/nikersify/.vim/pack/nikersify/start/vim-sneak
+[submodule ".vim/pack/nikersify/start/vim-sneak"]
+	path = .vim/pack/nikersify/start/vim-sneak
 	url = https://github.com/justinmk/vim-sneak
 [submodule ".vim/pack/nikersify/start/vim-indexed-search"]
 	path = .vim/pack/nikersify/start/vim-indexed-search
@@ -104,12 +104,15 @@
 	path = .vim/pack/nikersify/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
 	branch = release
-[submodule "/Users/nikersify/.vim/pack/nikersify/start/switch.vim"]
-	path = /Users/nikersify/.vim/pack/nikersify/start/switch.vim
+[submodule ".vim/pack/nikersify/start/switch.vim"]
+	path = .vim/pack/nikersify/start/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim
 [submodule ".vim/pack/nikersify/start/defx.nvim"]
 	path = .vim/pack/nikersify/start/defx.nvim
 	url = https://github.com/Shougo/defx.nvim
-[submodule "/Users/nikersify/.vim/pack/nikersify/start/defx-git"]
-	path = /Users/nikersify/.vim/pack/nikersify/start/defx-git
+[submodule ".vim/pack/nikersify/start/defx-git"]
+	path = .vim/pack/nikersify/start/defx-git
 	url = https://github.com/kristijanhusak/defx-git
+[submodule ".vim/pack/nikersify/start/editorconfig-vim"]
+	path = .vim/pack/nikersify/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim

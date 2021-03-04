@@ -35,5 +35,6 @@
                  [:!Fg ["g-layer" 1] ["fn-layer" 1] {:afterup ["g-layer" 0]}]
                  [:##n "open mvim://open?url=file://$(~/.config/bin/note-destination.sh)" [["fn-layer" 1]
                                                                                            ["g-layer" 1]]]]}
-        {:des "caps to escape"
-         :rules [[:caps_lock :escape nil {:held :!CTOleft_shift}]]}]}
+        ; {:des "caps to escape"
+        ;  :rules [[:caps_lock :escape nil {:held :!CTOleft_shift}]]}
+        ]}
