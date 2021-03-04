@@ -1,6 +1,6 @@
-# Defined in /Users/nikersify/.config/fish/alias.fish @ line 200
+# Defined in /Users/maciek/.config/fish/alias.fish @ line 200
 function ding --description 'Show a notification'
-    set st $status
+	set st $status
 
 	set desc "$_ - $PWD"
 

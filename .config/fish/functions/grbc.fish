@@ -1,4 +1,4 @@
 # Defined in - @ line 1
 function grbc --wraps='git rebase --continue' --description 'alias grbc git rebase --continue'
-    git rebase --continue $argv;
+  git rebase --continue $argv;
 end

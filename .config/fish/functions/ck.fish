@@ -1,4 +1,4 @@
 # Defined in - @ line 1
 function ck --wraps='vim ~/.config/kitty/kitty.conf' --description 'alias ck vim ~/.config/kitty/kitty.conf'
-    vim ~/.config/kitty/kitty.conf $argv;
+  vim ~/.config/kitty/kitty.conf $argv;
 end

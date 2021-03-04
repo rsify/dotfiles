@@ -1,6 +1,6 @@
-# Defined in /Users/nikersify/.config/fish/alias.fish @ line 163
+# Defined in /Users/maciek/.config/fish/alias.fish @ line 163
 function t --description 'tmux swiss knife'
-    if test -n "$argv"
+	if test -n "$argv"
 		if tmux ls -F "#S" | grep -Fxq $argv -
 			# if exists, attach
 			tmux attach -t $argv

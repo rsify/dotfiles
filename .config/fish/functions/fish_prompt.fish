@@ -34,6 +34,10 @@ function fish_prompt --description 'Write out the prompt'
     set -l prefix
     set -l last_status $status
 
+    if test (jobs)
+        echo -n (set_color --bold cyan) \&
+    end
+
     if test $last_status != "0"
         set prefix (set_color red --bold) "$last_status "
     end
