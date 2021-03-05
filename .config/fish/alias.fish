@@ -288,7 +288,6 @@ alias_if_exists ls exa 'exa -x --sort type'
 alias_if_exists ls1 exa 'exa -1 --sort type'
 alias_if_exists lsa exa 'exa -ax --sort type'
 alias_if_exists lsa1 exa 'exa -a1 --sort type'
-alias_if_exists stat gstat
 alias_if_exists ping prettyping
 
 # misc
