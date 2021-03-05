@@ -116,3 +116,6 @@
 [submodule ".vim/pack/nikersify/start/editorconfig-vim"]
 	path = .vim/pack/nikersify/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
+[submodule ".vim/pack/nikersify/start/nord-vim"]
+	path = .vim/pack/nikersify/start/nord-vim
+	url = https://github.com/arcticicestudio/nord-vim

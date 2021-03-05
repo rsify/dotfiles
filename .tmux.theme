@@ -1,20 +1,20 @@
-set -g message-style bg="colour236",fg="colour145"
-set -g message-command-style bg="colour236",fg="colour145"
-set -g pane-active-border-style fg="colour114"
-set -g pane-border-style fg="colour236"
+# Nord-ish
+set -g pane-active-border-style "bg=default fg=brightblack"
+set -g pane-border-style "bg=default fg=black"
 set -g status "on"
-set -g status-style bg="default"
+set -g status-bg default
+set -g status-fg white
 set -g status-justify "left"
-set -g status-left "#[fg=colour235,bg=colour114] #S #[fg=colour145,bg=colour236,nobold,nounderscore,noitalics]"
+set -g status-left "#[fg=black,bg=blue] #S #[fg=blue,bg=black,nobold,nounderscore,noitalics]"
 set -g status-left-length "100"
-set -g status-right "#[fg=colour235] #{git_name}#[fg=colour235]#{git_upstream} #{git_branch}#[fg=colour235]#{git_status}"
+set -g status-right "#[fg=white] #{git_name}#[fg=white]#{git_upstream} #{git_branch}#[fg=white]#{git_status}"
 set -g @git_status_status_delimiter ' '
 set -g status-interval 1
 set -g status-right-length "100"
 setw -g pane-border-format '─'
 setw -g pane-border-status bottom
-setw -g window-status-activity-style fg="colour114"
-setw -g window-status-style bg="default",fg="colour114"
-setw -g window-status-current-format "#[bold,fg=colour145,bg=colour236]  #I |#[fg=colour145,bg=colour236] #W #[fg=colour236,bg=,nobold,nounderscore,noitalics] "
-setw -g window-status-format " #[fg=colour114,bg=] #I |#[fg=colour114,bg=] #W  "
+setw -g window-status-activity-style fg="white"
+setw -g window-status-style bg="default",fg="white"
+setw -g window-status-current-format "#[bold,fg=white,bg=colour236]  #I |#[fg=white,bg=colour236] #W #[fg=colour236,bg=,nobold,nounderscore,noitalics] "
+setw -g window-status-format " #[fg=white,bg=default,dim] #I |#[fg=colour114,bg=] #W  "
 setw -g window-status-separator " "

@@ -1,6 +1,7 @@
 language en_US.UTF-8
 
-packadd! dracula
+" packadd! dracula
+packadd! nord-vim
 
 syntax enable
 
@@ -372,7 +373,9 @@ endif
 " Highlight symbol under cursor
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 
-colorscheme dracula
+" colorscheme dracula
+
+colorscheme nord
 
 let g:dracula_colorterm = 0
 let g:switch_mapping = ""
@@ -412,9 +415,6 @@ augroup END
 call TrailingWhitespace()
 
 hi CursorLine guibg=#2f3142
-hi Error ctermfg=red ctermbg=bg guifg=#ff0000 guibg=bg cterm=underline
-hi Warn cterm=none ctermfg=215 ctermbg=bg
-hi VertSplit cterm=none ctermfg=59 ctermbg=bg gui=none guifg=#4e4e51 guibg=bg
 hi EndOfBuffer ctermfg=59
 
 syn keyword cTodo TODO
