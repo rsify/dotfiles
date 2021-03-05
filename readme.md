@@ -1,12 +1,8 @@
-# hello!
-
 ![Screenshot](/.config/media/vim.png?raw=true "🎉")
 
-### prerequisites
-
-`git hub fish>=3 the_silver_searcher fzf`
-
-### setup
+```
+git hub fish>=3 the_silver_searcher fzf bat exa node
+```
 
 ```sh
 $ cd ~
@@ -22,20 +18,21 @@ $ mkdir -p .npm/bin .cargo/bin .gem/ruby
 $ echo `which fish` | sudo tee /etc/shells
 $ chsh -s `which fish`
 
-# enable vim javascript completion via tern
-$ cd .vim/pack/nikersify/start/completor.vim
-$ make js
+# - download node binary (https://nodejs.org/en/download)
+# - add its bin/ to path (PATH=$PATH:`pwd`/bin)
+# - npx n lts (or whatever version)
+
+$ cd .config/coc/extensions
+$ npm install
 ```
 
-### vim config
-
 ```sh
-# add plugin
+# add a plugin
 $ git submodule add <url> .vim/pack/nikersify/start/<name>
 
-# bump all
-$ git submodule update --recursive --remote
-
-# remove plugins
+# remove a plugin
 $ git rm -f .vim/pack/nikersify/start/<name>
+
+# bump all plugins
+$ git submodule update --recursive --remote
 ```
