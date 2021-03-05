@@ -1,4 +1,4 @@
-language en_US.utf8
+language en_US.UTF-8
 
 packadd! dracula
 
