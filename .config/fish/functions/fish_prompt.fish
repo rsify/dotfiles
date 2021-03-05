@@ -31,23 +31,26 @@ function _pure_format_time \
 end
 
 function fish_prompt --description 'Write out the prompt'
-    set -l prefix
     set -l last_status $status
 
+    set -l status_str
+    set -l job_str
+    set -l time_str
+
     if test (jobs)
-        echo -n (set_color --bold cyan) \&
+        set job_str (set_color --bold cyan)'& '
     end
 
     if test $last_status != "0"
-        set prefix (set_color red --bold) "$last_status "
+        set status_str (set_color red --bold) "$last_status "
     end
 
     set formatted_duration (_pure_format_time $CMD_DURATION 1)
-
-    set -l time
     if test -n $formatted_duration
-        set time (set_color yellow) $formatted_duration ' '
+        set time_str (set_color yellow) $formatted_duration ' '
     end
 
-    echo -n -s ' ' $prefix $time (set_color --bold white) (prompt_pwd) ' ' (set_color normal)
+    echo -s (set_color --bold brblack) '┌ ' $status_str $time_str $job_str (set_color --bold white) (prompt_pwd) ' ' (set_color normal)
+
+    echo -n (set_color --bold brblack)'└'(set_color normal)' ❯ '
 end
