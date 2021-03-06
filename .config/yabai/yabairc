@@ -16,4 +16,4 @@ yabai -m config window_topmost on
 yabai -m rule --add app="^System Preferences$" manage=off
 
 # Clean up empty spaces with no windows on them
-yabai -m signal --add event=space_changed action="sh ~/.config/yabai/scripts/cleanEmptySpaces.sh"
+yabai -m signal --add event=space_changed action="sh ~/.config/yabai/scripts/destroy-empty-spaces.sh"
