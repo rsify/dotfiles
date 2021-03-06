@@ -4,37 +4,15 @@
             :delay 80
             :alone 120
             :held 10}}
- :templates {:app "open -a \"%s\""
-             :alfred "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"}
- :main [{:des "jkl; navigation with fn"
+ :main [{:des "hjkl navigation with fn to arrow keys"
          :rules [[:!F##h :left_arrow]
                  [:!F##j :down_arrow]
                  [:!F##k :up_arrow]
                  [:!F##l :right_arrow]]}
-        {:des "jkl; navigation without fn"
-         :rules [[:!TC##h :left_arrow]
-                 [:!TC##j :down_arrow]
-                 [:!TC##k :up_arrow]
-                 [:!TC##l :right_arrow]]}
-        {:des "fn-q-layer"
-         :rules [[:fn [["fn-layer" 1] :fn] nil {:afterup ["fn-layer" 0]}]
-                 [:!Fq ["q-layer" 1] ["fn-layer" 1] {:afterup ["q-layer" 0]}]
-                 [:##n [:alfred ""] [["fn-layer" 1]
-                                     ["q-layer" 1]]]]}
-        {:des "fn-b-layer"
-         :rules [[:fn [["fn-layer" 1] :fn] nil {:afterup ["fn-layer" 0]}]
-                 [:!Fb ["b-layer" 1] ["fn-layer" 1] {:afterup ["b-layer" 0]}]
-                 [:##f "/usr/local/bin/defaultbrowser firefox" [["fn-layer" 1]
-                                                                ["b-layer" 1]]]
-                 [:##g "/usr/local/bin/defaultbrowser chrome" [["fn-layer" 1]
-                                                               ["b-layer" 1]]]
-                 [:##s "/usr/local/bin/defaultbrowser safari" [["fn-layer" 1]
-                                                               ["b-layer" 1]]]]}
-        {:des "fn-g-layer"
-         :rules [[:fn [["fn-layer" 1] :fn] nil {:afterup ["fn-layer" 0]}]
-                 [:!Fg ["g-layer" 1] ["fn-layer" 1] {:afterup ["g-layer" 0]}]
-                 [:##n "open mvim://open?url=file://$(~/.config/bin/note-destination.sh)" [["fn-layer" 1]
-                                                                                           ["g-layer" 1]]]]}
-        ; {:des "caps to escape"
-        ;  :rules [[:caps_lock :escape nil {:held :!CTOleft_shift}]]}
+
+        ; used on us international layout, which all macs sold in poland have
+        {:des "key left of 1 to (`) & (~)"
+         :rules [[:##non_us_backslash :grave_accent_and_tilde]]}
+        {:des "key left of z to hyper"
+         :rules [[:grave_accent_and_tilde :!CTOleft_shift]]}
         ]}

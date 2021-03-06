@@ -1,0 +1,19 @@
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+yabai -m config layout bsp
+
+yabai -m config top_padding    10
+yabai -m config bottom_padding 10
+yabai -m config left_padding   10
+yabai -m config right_padding  10
+yabai -m config window_gap     10
+
+# make floating windows always stay on top
+yabai -m config window_topmost on
+
+# always float system preferences
+yabai -m rule --add app="^System Preferences$" manage=off
+
+# Clean up empty spaces with no windows on them
+yabai -m signal --add event=space_changed action="sh ~/.config/yabai/scripts/cleanEmptySpaces.sh"
