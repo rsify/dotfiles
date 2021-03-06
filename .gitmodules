@@ -1,121 +1,42 @@
-[submodule ".vim/bundle/delimitmate"]
-	path = .vim/pack/nikersify/start/delimitmate
-	url = https://github.com/raimondi/delimitmate
-[submodule ".vim/bundle/vim-surround"]
-	path = .vim/pack/nikersify/start/vim-surround
-	url = https://github.com/tpope/vim-surround
-[submodule ".vim/bundle/vim-repeat"]
-	path = .vim/pack/nikersify/start/vim-repeat
-	url = https://github.com/tpope/vim-repeat
-[submodule ".vim/bundle/vim-gitgutter"]
-	path = .vim/pack/nikersify/start/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter
-[submodule ".vim/bundle/vim-riot"]
-	path = .vim/pack/nikersify/start/vim-riot
-	url = https://github.com/ryym/vim-riot.git
-[submodule ".vim/bundle/vim-closetag"]
-	path = .vim/pack/nikersify/start/vim-closetag
-	url = https://github.com/alvan/vim-closetag
-[submodule ".vim/bundle/vim-xo"]
-	path = .vim/pack/nikersify/start/vim-xo
-	url = https://github.com/sindresorhus/vim-xo
-[submodule ".vim/bundle/fzf.vim"]
-	path = .vim/pack/nikersify/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
-[submodule ".vim/bundle/fzf"]
-	path = .vim/pack/nikersify/start/fzf
-	url = https://github.com/junegunn/fzf
-[submodule ".vim/bundle/ack.vim"]
-	path = .vim/pack/nikersify/start/ack.vim
-	url = https://github.com/mileszs/ack.vim
-[submodule ".vim/bundle/vim-unimpaired"]
-	path = .vim/pack/nikersify/start/vim-unimpaired
-	url = https://github.com/tpope/vim-unimpaired
-[submodule ".vim/bundle/lightline.vim"]
-	path = .vim/pack/nikersify/start/lightline.vim
-	url = https://github.com/itchyny/lightline.vim
-[submodule ".vim/bundle/ale"]
-	path = .vim/pack/nikersify/start/ale
-	url = https://github.com/w0rp/ale
-[submodule ".vim/bundle/vim-sleuth"]
-	path = .vim/pack/nikersify/start/vim-sleuth
-	url = https://github.com/tpope/vim-sleuth
-[submodule ".vim/bundle/ultisnips"]
-	path = .vim/pack/nikersify/start/ultisnips
-	url = https://github.com/SirVer/ultisnips
-[submodule ".vim/pack/nikersify/start/vim-eunuch"]
-	path = .vim/pack/nikersify/start/vim-eunuch
-	url = https://github.com/tpope/vim-eunuch
-[submodule ".vim/pack/nikersify/start/vim-commentary"]
-	path = .vim/pack/nikersify/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary
-[submodule ".vim/pack/nikersify/start/ReplaceWithRegister"]
-	path = .vim/pack/nikersify/start/ReplaceWithRegister
-	url = https://github.com/vim-scripts/ReplaceWithRegister
-[submodule ".vim/pack/nikersify/start/vim-textobj-user"]
-	path = .vim/pack/nikersify/start/vim-textobj-user
-	url = https://github.com/kana/vim-textobj-user
-[submodule ".vim/pack/nikersify/start/vim-textobj-indent"]
-	path = .vim/pack/nikersify/start/vim-textobj-indent
-	url = https://github.com/kana/vim-textobj-indent
-[submodule ".vim/pack/nikersify/start/vim-textobj-entire"]
-	path = .vim/pack/nikersify/start/vim-textobj-entire
-	url = https://github.com/kana/vim-textobj-entire
-[submodule ".vim/pack/nikersify/start/vim-textobj-line"]
-	path = .vim/pack/nikersify/start/vim-textobj-line
-	url = https://github.com/kana/vim-textobj-line
-[submodule ".vim/pack/nikersify/start/vim-polyglot"]
-	path = .vim/pack/nikersify/start/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot
-[submodule ".vim/pack/nikersify/start/vim-haskell-indent"]
-	path = .vim/pack/nikersify/start/vim-haskell-indent
-	url = https://github.com/itchyny/vim-haskell-indent
-[submodule ".vim/pack/nikersify/start/vim-sneak"]
-	path = .vim/pack/nikersify/start/vim-sneak
-	url = https://github.com/justinmk/vim-sneak
-[submodule ".vim/pack/nikersify/start/vim-indexed-search"]
-	path = .vim/pack/nikersify/start/vim-indexed-search
-	url = https://github.com/henrik/vim-indexed-search
-[submodule ".vim/pack/nikersify/start/dracula"]
-	path = .vim/pack/nikersify/start/dracula
-	url = https://github.com/dracula/vim
-[submodule ".vim/pack/nikersify/start/vim-tmux-focus-events"]
-	path = .vim/pack/nikersify/start/vim-tmux-focus-events
-	url = https://github.com/tmux-plugins/vim-tmux-focus-events
-[submodule ".vim/pack/nikersify/start/lightline-ale"]
-	path = .vim/pack/nikersify/start/lightline-ale
-	url = https://github.com/maximbaz/lightline-ale
-[submodule ".vim/pack/nikersify/start/vim-gh-line"]
-	path = .vim/pack/nikersify/start/vim-gh-line
-	url = https://github.com/ruanyl/vim-gh-line
-[submodule ".vim/pack/nikersify/start/vim-sort-motion"]
-	path = .vim/pack/nikersify/start/vim-sort-motion
-	url = https://github.com/christoomey/vim-sort-motion
-[submodule ".vim/pack/nikersify/start/traces.vim"]
-	path = .vim/pack/nikersify/start/traces.vim
-	url = https://github.com/markonm/traces.vim
-[submodule ".vim/pack/nikersify/start/vim-js-pretty-template"]
-	path = .vim/pack/nikersify/start/vim-js-pretty-template
-	url = https://github.com/Quramy/vim-js-pretty-template
-[submodule ".vim/pack/nikersify/start/pgsql.vim"]
-	path = .vim/pack/nikersify/start/pgsql.vim
-	url = https://github.com/lifepillar/pgsql.vim
-[submodule ".vim/pack/nikersify/start/coc.nvim"]
-	path = .vim/pack/nikersify/start/coc.nvim
-	url = https://github.com/neoclide/coc.nvim
-	branch = release
-[submodule ".vim/pack/nikersify/start/switch.vim"]
-	path = .vim/pack/nikersify/start/switch.vim
-	url = https://github.com/AndrewRadev/switch.vim
-[submodule ".vim/pack/nikersify/start/defx.nvim"]
-	path = .vim/pack/nikersify/start/defx.nvim
-	url = https://github.com/Shougo/defx.nvim
-[submodule ".vim/pack/nikersify/start/defx-git"]
-	path = .vim/pack/nikersify/start/defx-git
-	url = https://github.com/kristijanhusak/defx-git
-[submodule ".vim/pack/nikersify/start/editorconfig-vim"]
-	path = .vim/pack/nikersify/start/editorconfig-vim
-	url = https://github.com/editorconfig/editorconfig-vim
 [submodule ".vim/pack/nikersify/start/nord-vim"]
 	path = .vim/pack/nikersify/start/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim
+[submodule ".vim/pack/nikersify/start/fzf.vim"]
+	path = .vim/pack/nikersify/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule ".vim/pack/nikersify/start/fzf"]
+	path = .vim/pack/nikersify/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule ".vim/pack/nikersify/start/vim-surround"]
+	path = .vim/pack/nikersify/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule ".vim/pack/nikersify/start/pear-tree"]
+	path = .vim/pack/nikersify/start/pear-tree
+	url = https://github.com/tmsvg/pear-tree
+[submodule ".vim/pack/nikersify/start/nerdtree"]
+	path = .vim/pack/nikersify/start/nerdtree
+	url = https://github.com/preservim/nerdtree
+[submodule ".vim/pack/nikersify/start/coc.nvim"]
+	path = .vim/pack/nikersify/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule ".vim/pack/nikersify/start/vim-sleuth"]
+	path = .vim/pack/nikersify/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth
+[submodule ".vim/pack/nikersify/start/vim-textobj-user"]
+	path = .vim/pack/nikersify/start/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user
+[submodule ".vim/pack/nikersify/start/vim-textobj-line"]
+	path = .vim/pack/nikersify/start/vim-textobj-line
+	url = https://github.com/kana/vim-textobj-line
+[submodule ".vim/pack/nikersify/start/vim-textobj-entire"]
+	path = .vim/pack/nikersify/start/vim-textobj-entire
+	url = https://github.com/kana/vim-textobj-entire
+[submodule ".vim/pack/nikersify/start/vim-textobj-indent"]
+	path = .vim/pack/nikersify/start/vim-textobj-indent
+	url = https://github.com/kana/vim-textobj-indent
+[submodule ".vim/pack/nikersify/start/vim-gitgutter"]
+	path = .vim/pack/nikersify/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule ".vim/pack/nikersify/start/ReplaceWithRegister"]
+	path = .vim/pack/nikersify/start/ReplaceWithRegister
+	url = https://github.com/vim-scripts/ReplaceWithRegister

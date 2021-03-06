@@ -1,427 +1,71 @@
 language en_US.UTF-8
 
-" packadd! dracula
-packadd! nord-vim
+colorscheme nord
 
-syntax enable
+" Syntax highlighting
+syntax on
 
-if has('python3')
-  silent! python3 1
-endif
+" Keep cursor vertically centered
+set scrolloff=999
 
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
+" Update gitgutter in real time-ish
+set updatetime=100
 
-" true color
-let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
+" Line numbers
+set number
+set relativenumber
 
-" italics
-let &t_ZH = "\<Esc>[3m"
-let &t_ZR = "\<Esc>[23m"
+" Ignore search case if only lower case characters, otherwise be case sensitive
+set ignorecase
+set smartcase
 
-set encoding=utf-8
-set fileencoding=utf-8
-
-set ttimeoutlen=10
+" Make `vnew` & `new` open windows to the right & bottom
+set splitright
+set splitbelow
 
 " fzf.vim is broken with fish and for some reason uses this rather than &shell
 " to determine the shell to run fzf in
 let $SHELL = '/bin/bash'
 
-set belloff=all
-set breakindent
-set breakindentopt=shift:4
-set cursorline
-set fillchars=vert:│,fold:-
-set formatoptions=tcqr
-set incsearch
-set lazyredraw
-set maxmempattern=5000
-set nobackup
-set nohlsearch
-set noshowmode
-set noswapfile
-set nowritebackup
-set number
-set relativenumber
-set scrolloff=9999
-set shiftwidth=4
-set showcmd
-set smartindent
-set tabstop=4
-set updatetime=100
-set wildmenu
-set wildmode=list
+" Mappings
+let mapleader = ","
 
-" hide |ins-completion-menu| messages
-set shortmess+=c
+" Clear search highlight on escape
+nnoremap <silent> <esc> :noh<return><esc>
 
-" when searching
-set smartcase
-set ignorecase
-
-" allow for deleting existing file content
-set backspace=indent,eol,start
-
-" more natural splits
-set splitbelow
-set splitright
-
-if &term =~ '^screen'
-  set ttymouse=xterm2
-endif
-
-filetype plugin indent on
-set autoindent
-set smartindent
-
-au BufRead,BufNewFile *.rkt set lisp
-au BufRead,BufNewFile *.fig setfiletype pug
-au BufRead,BufNewFile *.tex setfiletype tex
-
-" vim-commentary
-au FileType javascript,typescript setlocal commentstring=//\ %s
-au Filetype sass setlocal commentstring=//\ %s
-au FileType vim setlocal commentstring=\"\ %s
-au FileType pug setlocal commentstring=//-\ %s
-
-au FileType markdown,haskell let b:sleuth_automatic=0
-
-function! HaskellIndent ()
-  set shiftwidth=2
-  set tabstop=2
-  set expandtab
-endfunction
-
-au FileType haskell :call HaskellIndent()
-
-set nofoldenable
-set foldmethod=indent
-
-let g:mapleader = ','
-
-function! Open_defx (dir, search)
-  execute "Defx " . a:dir . " -search=" . a:search . " -columns=mark:indent:filename:time -show-ignored-files -toggle -new -root-marker='  '"
-endfunction
-
-let g:loaded_netrwPlugin = 1
-let g:loaded_netrw = 1
-
-augroup DefxInsteadOfNetrw
-  au!
-  let g:loaded_netrwSettings = 1
-  let g:loaded_netrwFileHandlers = 1
-
-  let s:isdir = {dir ->
-        \ !empty(dir) && (isdirectory(dir) ||
-        \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir))
-        \ )}
-
-  au VimEnter * silent! au! FileExplorer *
-  au BufEnter * if s:isdir(expand('%'))
-        \ | call Open_defx(expand('%'), expand('%'))
-        \ | endif
-augroup END
-
-nnoremap <silent> - :call Open_defx(expand('%:p:h'), expand('%:p'))<CR>
-" `expand('%:p')`
-" `expand('%:p:h')`
-"
-nnoremap <silent> <c-w>\| <c-w>v :call Open_defx(expand('%:p:h'), expand('%:p'))<CR>
-nnoremap <silent> <c-w>-  <c-w>s :call Open_defx(expand('%:p:h'), expand('%:p'))<CR>
-nnoremap <silent> <c-w>_  <c-w>s :call Open_defx(expand('%:p:h'), expand('%:p'))<CR>
-
-autocmd FileType defx call s:defx_my_settings()
-function! s:defx_my_settings() abort
-  " dirty hack to hide ExtraWhitespace highlighting by appending a `figure
-  " space` character (U+2007) to every row as a time column
-  call defx#custom#column('time', {
-        \ 'format': ' ',
-        \ })
-
-  call defx#custom#column('git', 'indicators', {
-        \ 'Modified'  : '●',
-        \ 'Staged'    : '+',
-        \ 'Untracked' : 'u',
-        \ 'Renamed'   : 'r',
-        \ 'Unmerged'  : 'm',
-        \ 'Ignored'   : 'i',
-        \ 'Deleted'   : 'x',
-        \ 'Unknown'   : '?'
-        \ })
-
-  " dese me wante
-  nnoremap <silent><buffer><expr> - defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> <CR> defx#do_action('open')
-  nnoremap <silent><buffer><expr> % defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> K defx#do_action('new_directory')
-  nnoremap <silent><buffer><expr> D defx#do_action('remove')
-  nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
-  nnoremap <silent><buffer><expr> q defx#do_action('quit')
-  nnoremap <silent><buffer><expr> r defx#do_action('rename')
-
-  " Define mappings
-  nnoremap <silent><buffer><expr> c defx#do_action('copy')
-  nnoremap <silent><buffer><expr> m defx#do_action('move')
-  nnoremap <silent><buffer><expr> p defx#do_action('paste')
-  nnoremap <silent><buffer><expr> ! defx#do_action('execute_command')
-  nnoremap <silent><buffer><expr> yy defx#do_action('yank_path')
-  nnoremap <silent><buffer><expr> ; defx#do_action('repeat')
-  nnoremap <silent><buffer><expr> <Tab> defx#do_action('toggle_select') . 'j'
-  nnoremap <silent><buffer><expr> * defx#do_action('toggle_select_all')
-  nnoremap <silent><buffer><expr> <C-g> defx#do_action('print')
-  nnoremap <silent><buffer><expr> cd defx#do_action('change_vim_cwd')
-endfunction
-
-" make option/alt binds work
-" execute "set <A-h>=\eh"
-" execute "set <A-j>=\ej"
-" execute "set <A-k>=\ek"
-" execute "set <A-l>=\el"
-
-imap <A-j> <ESC><Plug>MoveLineDowni
-imap <A-k> <ESC><Plug>MoveLineUpi
-
-nmap <silent> \ :Switch<CR>
+" Moving around windows
 nnoremap <silent> <c-h> <c-w>h
 nnoremap <silent> <c-j> <c-w>j
 nnoremap <silent> <c-k> <c-w>k
 nnoremap <silent> <c-l> <c-w>l
 
-nnoremap <silent> <Left> gh
-nnoremap <silent> <Down> gj
-nnoremap <silent> <Up> gk
-nnoremap <silent> <Right> gl
+" fzf
+nnoremap <leader>f :Files<CR>
 
+" NERDTree
+nnoremap <leader>e :NERDTreeFind<CR>
+
+" exit if nerdtree is the only window left (from https://github.com/preservim/nerdtree)
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+
+" coc.nvim
 nmap <silent> <Leader>b <Plug>(coc-references)
 nmap <silent> <Leader>d <Plug>(coc-definition)
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nmap <silent> <Leader>t <Plug>(coc-type-definition)
-nmap <silent> <Leader>x :CocFix<CR>
-nnoremap <silent> <Leader>a :call AckSearch('')<Left><Left>
-nnoremap <silent> <Leader>e :copen<CR>
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>m :set mouse=a<CR>
-nnoremap <silent> <Leader>n :set mouse=<CR>
-nnoremap <silent> <Leader>p :set invpaste<CR>
-nnoremap <silent> <Leader>q :cclose<CR>
-nnoremap <silent> <Leader>s :UltiSnipsEdit<CR>
-nnoremap <silent> <Leader>v :source ~/.vim/vimrc<CR>
-nnoremap <silent> [q :ALEPreviousWrap<CR>
-nnoremap <silent> ]q :ALENextWrap<CR>
-
-nnoremap <Leader>n :call <sid>defx_open()<CR>
-
-" coc.nvim & vim docs
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
+	else
+		execute '!' . &keywordprg . " " . expand('<cword>')
+	endif
 endfunction
 
-" fzf.vim buffer search window
-nnoremap <silent> <space> :Buffers<CR>
-
-nmap <silent> [s <Plug>(ale_previous_wrap)
-nmap <silent> ]s <Plug>(ale_next_wrap)
-
-" select last changed (e.g. pasted) text
-nnoremap gp `[v`]
-
-inoremap <silent><expr> <C-n> coc#refresh()
-
-set laststatus=2
-
-if ! has('gui_running')
-  set ttimeoutlen=10
-  augroup FastEscape
-    autocmd!
-    au InsertEnter * set timeoutlen=0
-    au InsertLeave * set timeoutlen=1000
-  augroup END
-endif
-
-let g:lightline = {
-\  'colorscheme': 'deus',
-\  'inactive': {
-\    'left': [[], ['file', 'modified']],
-\    'right': []
-\  },
-\  'active': {
-\    'left': [['mode', 'paste'], ['file', 'modified']],
-\    'right': [['lineinfo'], ['percent'], ['readonly', 'linter_checking', 'linter_warnings', 'linter_errors', 'linter_ok']]
-\  },
-\  'tabline': {
-\  'left': [ [ 'tabs' ] ],
-\  'right': [ [ 'close' ] ]
-\  },
-\  'component': {
-\    'file': '%{fnamemodify(expand("%"), ":~:.")}'
-\  },
-\  'component_expand': {
-\    'linter_checking': 'lightline#ale#checking',
-\    'linter_warnings': 'lightline#ale#warnings',
-\    'linter_errors': 'lightline#ale#errors',
-\    'linter_ok': 'lightline#ale#ok'
-\  },
-\  'component_type': {
-\    'readonly': 'error',
-\    'linter_warnings': 'warning',
-\    'linter_errors': 'error'
-\  }
-\}
-
-let g:lightline#ale#indicator_checking = '↻ '
-let g:lightline#ale#indicator_errors = '✖ '
-let g:lightline#ale#indicator_warnings = '▲ '
-let g:lightline#ale#indicator_ok = '✓ '
-
-" disable ale in ~
-let g:ale_enabled = getcwd() !=? expand('~')
-let g:ale_disable_lsp = 1
-
-let g:ale_linters = {
-\  'typescript': ['xo'],
-\  'javascript': ['xo'],
-\  'vue': ['xo'],
-\  'markdown': []
-\}
-
-"\  'typescript': 'javascript'
-let g:ale_linter_aliases = {
-\  'vue': 'javascript',
-\}
-
-let g:ale_pattern_options = {
-\  '\/Users\/nikersify\/[^/]*\.js': {'ale_enabled': 0}
-\}
-
-let g:ale_fixers = {
-\  'haskell': ['brittany']
-\  }
-
-let g:ale_elm_ls_elm_analyse_trigger = 'never'
-let g:ale_fix_on_save = 1
-let g:ale_javascript_xo_options = '--extend ~/.xo.js'
-let g:ale_keep_list_window_open = 1
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_list_window_size = 8
-let g:ale_set_quickfix = 1
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '▲'
-
-let delimitMate_expand_cr = 1
-au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:}"
-
-let g:completor_completion_delay = 0
-au BufRead,BufNewFile *.md let g:completor_auto_trigger = 0
-imap <expr> <CR> pumvisible() ? "<C-Y>\<Plug>delimitMateCR" : "\<Plug>delimitMateCR"
-
-let g:vim_markdown_new_list_item_indent = 0
-
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
-let g:UltiSnipsEditSplit="horizontal"
-" disable autotrigger for better typing performance
-" au VimEnter * au! UltiSnips_AutoTrigger
-
-let g:closetag_filenames = "*.html,*.tag,*.js,*.jsx,*.tsx"
-
-" disable vim-polyglot's default elm formatter for the sake of coc.nvim's
-let g:elm_format_autosave = 0
-
-let g:gitgutter_sign_added = '∙'
-let g:gitgutter_sign_modified = '∙'
-let g:gitgutter_sign_modified_removed = '∙'
-let g:gitgutter_sign_removed = '∙'
-let g:gitgutter_sign_removed_first_line = '∙'
-
-let g:polyglot_disabled = ['vue', 'haskell']
-let g:vue_disable_pre_processors = 1
-
-let g:indexed_search_colors = 0
-let g:indexed_search_numbered_only = 1
-
-" Bash version
-"let g:gh_open_command = 'fn() { echo "$@" | pbcopy; }; fn '
-
-" Fish version
-let g:gh_open_command = 'function fn; echo "$argv" | pbcopy; end; fn '
-
-" vim-js-pretty-template
-" au FileType javascript,typescript :call jspretmpl#register_tag('sql', 'sql')
-" au FileType javascript :call jspretmpl#register_tag('pug', 'pug')
-" au FileType javascript,typescript JsPreTmpl
-
-let g:sql_type_default = 'pgsql'
-
-au BufRead,BufNewFile sass Sleuth
-
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-" Highlight symbol under cursor
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" colorscheme dracula
-
-colorscheme nord
-
-let g:dracula_colorterm = 0
-let g:switch_mapping = ""
-
-function! AckSearch(string) abort
-  let saved_shellpipe = &shellpipe
-  let &shellpipe = '>'
-
-  try
-    execute 'Ack!' shellescape(a:string, 1)
-  finally
-    let &shellpipe = saved_shellpipe
-  endtry
-endfunction
-
-function! SynGroup()
-  let l:s = synID(line('.'), col('.'), 1)
-  echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
-endfun
-
-function! TrailingWhitespace ()
-  hi clear MatchParen
-  hi MatchParen cterm=bold,underline term=bold,underline gui=underline,bold
-
-  hi ExtraWhitespace cterm=underline,bold gui=underline,bold ctermfg=red guifg=#ee0000
-  match ExtraWhitespace /\s\+$/
-endfunction
-
-au BufWinEnter * :call TrailingWhitespace()
-
-" close vim if quickfix is the only buffer left
-augroup QFClose
-  au!
-  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
-augroup END
-
-call TrailingWhitespace()
-
-hi CursorLine guibg=#2f3142
-hi EndOfBuffer ctermfg=59
-
-syn keyword cTodo TODO
-hi link cTodo Todo
-hi link ALEWarningSign Warn
-hi link ALEErrorSign Error
-hi link QuickFixLine CursorLine
-
-au BufEnter * set colorcolumn=80
-set colorcolumn=80
+let g:smoothie_speed_constant_factor = 20
+let g:smoothie_speed_linear_factor = 20
+let g:smoothie_speed_exponentiation_factor = 0.9
