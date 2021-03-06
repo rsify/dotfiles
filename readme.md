@@ -1,4 +1,4 @@
-![Screenshot](/.config/media/vim.png?raw=true "🎉")
+![Screenshot](/.config/media/mac.png?raw=true "🎉")
 
 ```
 git hub fish>=3 the_silver_searcher fzf bat exa node
