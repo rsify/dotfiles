@@ -6,7 +6,7 @@ yabai skhd # mac only
 ```
 
 ```
-WhichSpace.app Dato.app Karabiner-Elements.app BetterTouchTool.app
+WhichSpace.app Dato.app Karabiner-Elements.app BetterTouchTool.app BitBar.app
 ```
 
 ```sh
