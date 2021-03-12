@@ -1,7 +1,7 @@
 ![Screenshot](/.config/media/mac.png?raw=true "🎉")
 
 ```
-git hub fish>=3 the_silver_searcher fzf bat exa node
+git hub fish>=3 the_silver_searcher fzf bat exa node renameutils (qmv, imv)
 yabai skhd # mac only
 ```
 

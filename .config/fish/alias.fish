@@ -301,6 +301,7 @@ alias -s hows 'howdoi -n 5'
 alias -s ld 'lazydocker'
 alias -s lg 'lazygit'
 alias -s orange '~/dev/scripts/orange/index.js'
+alias -s qmv 'qmv --options=swap,indicator1="dest: ",indicator2="src: "'
 
 function mkd --description 'Make directory and cd'
 	mkdir $argv
