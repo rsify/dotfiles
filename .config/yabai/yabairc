@@ -15,5 +15,12 @@ yabai -m config window_topmost on
 # always float system preferences
 yabai -m rule --add app="^System Preferences$" manage=off
 
-# Clean up empty spaces with no windows on them
+# below signals stolen from https:xbar://github.com/Jean-Tinland/simple-bar#refresh-bar-on-app-or-workspace-change
+
+yabai -m signal --add event=space_changed action="open -jg 'xbar://app.xbarapp.com/refreshPlugin?path=spaces.py'"
+yabai -m signal --add event=display_changed action="open -jg 'xbar://app.xbarapp.com/refreshPlugin?path=spaces.py'"
+yabai -m signal --add event=window_resized action="open -jg 'xbar://app.xbarapp.com/refreshPlugin?path=spaces.py'"
+yabai -m signal --add event=window_focused action="open -jg 'xbar://app.xbarapp.com/refreshPlugin?path=spaces.py'"
+
+# clean up empty spaces with no windows on them
 yabai -m signal --add event=space_changed action="sh ~/.config/yabai/scripts/destroy-empty-spaces.sh"
