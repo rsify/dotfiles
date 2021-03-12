@@ -1,3 +1,4 @@
 {
-	"tsserver.maxTsServerMemory": 32000
+	"tsserver.maxTsServerMemory": 32000,
+	"tsserver.formatOnType": false
 }
