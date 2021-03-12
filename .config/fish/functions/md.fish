@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function md --wraps=macdown --description 'alias md macdown'
-  macdown  $argv;
+  macdown $argv; 
 end

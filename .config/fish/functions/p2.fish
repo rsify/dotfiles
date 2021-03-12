@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function p2 --wraps=python2 --description 'alias p2 python2'
-  python2  $argv;
+  python2 $argv; 
 end

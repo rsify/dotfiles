@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function gsuba --wraps='git submodule add' --description 'alias gsuba git submodule add'
-  git submodule add $argv;
+  git submodule add $argv; 
 end

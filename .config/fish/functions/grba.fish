@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function grba --wraps='git rebase --abort' --description 'alias grba git rebase --abort'
-  git rebase --abort $argv;
+  git rebase --abort $argv; 
 end

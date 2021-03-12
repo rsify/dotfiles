@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function how --wraps=howdoi --description 'alias how howdoi'
-  howdoi  $argv;
+  howdoi $argv; 
 end

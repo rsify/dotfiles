@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function v --wraps=vim --description 'alias v vim'
-  vim  $argv;
+  vim $argv; 
 end

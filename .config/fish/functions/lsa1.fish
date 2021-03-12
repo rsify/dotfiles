@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function lsa1 --wraps='exa -a1 --sort type' --description 'alias lsa1 exa -a1 --sort type'
-  exa -a1 --sort type $argv;
+  exa -a1 --sort type $argv; 
 end

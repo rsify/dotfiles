@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function pd --wraps=prevd --description 'alias pd prevd'
-  prevd  $argv;
+  prevd $argv; 
 end

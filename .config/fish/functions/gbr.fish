@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function gbr --wraps='git browse' --description 'alias gbr git browse'
-  git browse $argv;
+  git browse $argv; 
 end

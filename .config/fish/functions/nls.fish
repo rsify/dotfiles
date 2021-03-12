@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function nls --wraps='npm list' --description 'alias nls npm list'
-  npm list $argv;
+  npm list $argv; 
 end

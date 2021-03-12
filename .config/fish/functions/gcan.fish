@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function gcan --wraps='git commit --amend --no-edit' --description 'alias gcan git commit --amend --no-edit'
-  git commit --amend --no-edit $argv;
+  git commit --amend --no-edit $argv; 
 end

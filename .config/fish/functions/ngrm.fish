@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function ngrm --wraps='npm uninstall -g' --description 'alias ngrm npm uninstall -g'
-  npm uninstall -g $argv;
+  npm uninstall -g $argv; 
 end

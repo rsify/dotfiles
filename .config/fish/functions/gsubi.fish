@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function gsubi --wraps='git submodule init' --description 'alias gsubi git submodule init'
-  git submodule init $argv;
+  git submodule init $argv; 
 end

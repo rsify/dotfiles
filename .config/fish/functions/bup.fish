@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function bup --wraps='brew upgrade' --description 'alias bup brew upgrade'
-  brew upgrade $argv;
+  brew upgrade $argv; 
 end

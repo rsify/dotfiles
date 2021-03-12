@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function grm --wraps='git rm' --description 'alias grm git rm'
-  git rm $argv;
+  git rm $argv; 
 end

@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function f --wraps='ag -g' --description 'alias f ag -g'
-  ag -g $argv;
+  ag -g $argv; 
 end

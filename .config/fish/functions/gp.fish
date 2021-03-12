@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function gp --wraps='git push' --description 'alias gp git push'
-  git push $argv;
+  git push $argv; 
 end

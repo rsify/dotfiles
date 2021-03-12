@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function br --wraps='brew reinstall' --description 'alias br brew reinstall'
-  brew reinstall $argv;
+  brew reinstall $argv; 
 end

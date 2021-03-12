@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function bd --wraps='brew doctor' --description 'alias bd brew doctor'
-  brew doctor $argv;
+  brew doctor $argv; 
 end

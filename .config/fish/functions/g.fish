@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function g --wraps=git --description 'alias g git'
-  git  $argv;
+  git $argv; 
 end

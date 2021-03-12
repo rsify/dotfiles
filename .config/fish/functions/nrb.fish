@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function nrb --wraps='npm rebuild' --description 'alias nrb npm rebuild'
-  npm rebuild $argv;
+  npm rebuild $argv; 
 end

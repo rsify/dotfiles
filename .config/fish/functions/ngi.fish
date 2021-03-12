@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function ngi --wraps='npm install -g' --description 'alias ngi npm install -g'
-  npm install -g $argv;
+  npm install -g $argv; 
 end

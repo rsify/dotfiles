@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function ls --wraps='exa -x --sort type' --description 'alias ls exa -x --sort type'
-  exa -x --sort type $argv;
+  exa -x --sort type $argv; 
 end

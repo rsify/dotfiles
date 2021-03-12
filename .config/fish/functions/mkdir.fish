@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function mkdir --wraps='mkdir -p' --description 'alias mkdir mkdir -p'
- command mkdir -p $argv;
+ command mkdir -p $argv; 
 end

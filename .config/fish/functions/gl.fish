@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function gl --wraps='git log' --description 'alias gl git log'
-  git log $argv;
+  git log $argv; 
 end

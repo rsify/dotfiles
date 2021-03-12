@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function gpf --wraps='git push --force' --description 'alias gpf git push --force'
-  git push --force $argv;
+  git push --force $argv; 
 end

@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function gcl --wraps='git clone' --description 'alias gcl git clone'
-  git clone $argv;
+  git clone $argv; 
 end

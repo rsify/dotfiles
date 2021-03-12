@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function gd --wraps='git diff' --description 'alias gd git diff'
-  git diff $argv;
+  git diff $argv; 
 end

@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function r --wraps=ag --description 'alias r ag'
-  ag  $argv;
+  ag $argv; 
 end

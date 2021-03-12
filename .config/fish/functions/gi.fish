@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function gi --wraps='git init' --description 'alias gi git init'
-  git init $argv;
+  git init $argv; 
 end

@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function grl --wraps='git reflog' --description 'alias grl git reflog'
-  git reflog $argv;
+  git reflog $argv; 
 end

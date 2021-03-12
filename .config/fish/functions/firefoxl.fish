@@ -1,4 +1,4 @@
-# Defined in - @ line 1
+# Defined via `source`
 function firefoxl --wraps='open -a firefox' --description 'alias firefoxl open -a firefox'
-  open -a firefox $argv;
+  open -a firefox $argv; 
 end
