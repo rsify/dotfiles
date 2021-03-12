@@ -54,6 +54,7 @@ nmap <silent> <Leader>b <Plug>(coc-references)
 nmap <silent> <Leader>d <Plug>(coc-definition)
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nmap <silent> <Leader>t <Plug>(coc-type-definition)
+nmap <silent> <Leader>x :CocFix<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -65,3 +66,10 @@ function! s:show_documentation()
 		execute '!' . &keywordprg . " " . expand('<cword>')
 	endif
 endfunction
+
+function! s:trailing_whitespace()
+  hi ExtraWhitespace cterm=underline,bold gui=underline,bold ctermfg=blue
+  match ExtraWhitespace /\s\+$/
+endfunction
+
+au BufWinEnter * :call s:trailing_whitespace()
