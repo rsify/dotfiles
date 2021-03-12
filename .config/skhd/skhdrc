@@ -16,10 +16,10 @@ hyper - m : yabai -m space --create; yabai -m window --space last; yabai -m spac
 hyper - i : yabai -m window --space prev; yabai -m space --focus prev
 hyper - o : yabai -m window --space next; yabai -m space --focus next
 
-hyper - r : yabai -m space --rotate 90
+hyper - r : yabai -m space --rotate 270
 
-hyper - left : yabai -m space --swap prev
-hyper - right : yabai -m space --swap next
+hyper - left : yabai -m space --swap prev; open -jg 'xbar://app.xbarapp.com/refreshPlugin?path=spaces.py'
+hyper - right : yabai -m space --swap next; open -jg 'xbar://app.xbarapp.com/refreshPlugin?path=spaces.py'
 
 ralt - 1 : yabai -m space --focus 1
 ralt - 2 : yabai -m space --focus 2

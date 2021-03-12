@@ -6,7 +6,7 @@ yabai skhd # mac only
 ```
 
 ```
-WhichSpace.app Dato.app Karabiner-Elements.app BetterTouchTool.app BitBar.app
+WhichSpace.app Dato.app Karabiner-Elements.app BetterTouchTool.app xbar.app (https://github.com/matryer/xbar/releases)
 ```
 
 ```sh
