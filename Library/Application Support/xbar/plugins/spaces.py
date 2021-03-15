@@ -3,6 +3,7 @@
 # this is meant to be refreshed manually by the api (see .config/yabai/yabairc)
 # (https://github.com/matryer/xbar/blob/cdfab602362617b4991f6bac1176950c4cf3a7b4/README.md#xbar-control-api)
 
+from collections import Counter
 import subprocess
 import json
 
@@ -19,7 +20,14 @@ def space_format(index, space, windows):
 
     space_windows = [window for window in windows if window["space"] == space["index"]]
 
-    window_str = ", ".join(map(lambda w: w["app"], space_windows))
+    apps = list(map(lambda w: w["app"], space_windows))
+
+    # create a list with frequencies
+    freqs = zip(Counter(apps.copy()).values(), Counter(apps.copy()).keys())
+
+    freq_mapped = map(lambda freq: freq[1] + ((" x" + str(freq[0])) if freq[0] > 1 else ""), freqs)
+
+    window_str = ", ".join(freq_mapped)
 
     index_str = str(index + 1) + "/"
 
