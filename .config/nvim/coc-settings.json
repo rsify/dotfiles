@@ -1,4 +1,5 @@
 {
 	"tsserver.maxTsServerMemory": 32000,
-	"tsserver.formatOnType": false
+	"tsserver.formatOnType": false,
+	"deno.path": "~/.deno/bin/deno"
 }

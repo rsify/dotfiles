@@ -31,6 +31,9 @@ _path "$N_PATH/bin"
 # npm global packages
 _path "$HOME/.npm/bin"
 
+# deno bin folder
+_path "$HOME/.deno/bin"
+
 # go
 set --universal -x GOPATH "$HOME/dev/go"
 
