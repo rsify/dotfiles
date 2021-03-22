@@ -23,6 +23,10 @@ set smartcase
 set splitright
 set splitbelow
 
+" 4 char wide indents
+set shiftwidth=4
+set tabstop=4
+
 " fzf.vim is broken with fish and for some reason uses this rather than &shell
 " to determine the shell to run fzf in
 let $SHELL = '/bin/bash'
