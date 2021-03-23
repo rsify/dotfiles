@@ -5,6 +5,11 @@ colorscheme nord
 " Syntax highlighting
 syntax on
 
+" Read file changes on vim focus, disable swap file to allow multiple vim's to
+" edit the same file
+set autoread
+set noswapfile
+
 " Keep cursor vertically centered
 set scrolloff=999
 
@@ -82,3 +87,7 @@ au BufWinEnter * :call s:trailing_whitespace()
 " when pressing <CR> (this was done in the plugin originally to keep dot
 " repeatability working, but idgaf)
 let g:pear_tree_repeatable_expand = 0
+
+" blamer.nvim delay before showing the blame line. Toggle with
+" `:BlamerToggle`, disabled by default.
+let g:blamer_delay = 400

@@ -40,3 +40,15 @@
 [submodule ".vim/pack/nikersify/start/ReplaceWithRegister"]
 	path = .vim/pack/nikersify/start/ReplaceWithRegister
 	url = https://github.com/vim-scripts/ReplaceWithRegister
+[submodule ".vim/pack/nikersify/start/traces.vim"]
+	path = .vim/pack/nikersify/start/traces.vim
+	url = https://github.com/markonm/traces.vim
+[submodule ".vim/pack/nikersify/start/vim-tmux-focus-events"]
+	path = .vim/pack/nikersify/start/vim-tmux-focus-events
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events
+[submodule ".vim/pack/nikersify/start/git-messenger"]
+	path = .vim/pack/nikersify/start/git-messenger
+	url = https://github.com/rhysd/git-messenger.vim
+[submodule ".vim/pack/nikersify/start/blamer.nvim"]
+	path = .vim/pack/nikersify/start/blamer.nvim
+	url = https://github.com/APZelos/blamer.nvim
