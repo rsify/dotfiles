@@ -32,6 +32,10 @@ set splitbelow
 set shiftwidth=4
 set tabstop=4
 
+" Indent broken up lines by 4 chars
+set breakindent
+set breakindentopt=shift:4
+
 " fzf.vim is broken with fish and for some reason uses this rather than &shell
 " to determine the shell to run fzf in
 let $SHELL = '/bin/bash'
