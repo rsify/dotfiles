@@ -15,6 +15,8 @@ yabai -m config window_topmost on
 # always float system preferences
 yabai -m rule --add app="^System Preferences$" manage=off
 
+yabai -m rule --add app="^Digital Colour Meter$" manage=off
+
 # below signals stolen from https:xbar://github.com/Jean-Tinland/simple-bar#refresh-bar-on-app-or-workspace-change
 
 yabai -m signal --add event=space_changed action="open -jg 'xbar://app.xbarapp.com/refreshPlugin?path=spaces.py'"
