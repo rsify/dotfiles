@@ -36,6 +36,10 @@ set tabstop=4
 set breakindent
 set breakindentopt=shift:4
 
+" Make all folds based on indents, and disable them on file open (`zi` to toggle)
+set foldmethod=indent
+set nofoldenable
+
 " fzf.vim is broken with fish and for some reason uses this rather than &shell
 " to determine the shell to run fzf in
 let $SHELL = '/bin/bash'
