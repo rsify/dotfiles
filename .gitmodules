@@ -52,3 +52,6 @@
 [submodule ".vim/pack/nikersify/start/blamer.nvim"]
 	path = .vim/pack/nikersify/start/blamer.nvim
 	url = https://github.com/APZelos/blamer.nvim
+[submodule ".vim/pack/nikersify/start/vim-repeat"]
+	path = .vim/pack/nikersify/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
