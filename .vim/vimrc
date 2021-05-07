@@ -84,7 +84,6 @@ nmap <silent> <c-h> <c-w>h
 nmap <silent> <c-j> <c-w>j
 nmap <silent> <c-k> <c-w>k
 nmap <silent> <c-l> <c-w>l
-nmap <silent> <esc> :noh<return><esc>
 nmap <silent> <leader>b <Plug>(coc-references)
 nmap <silent> <leader>c :CocDiagnostics<CR>
 nmap <silent> <leader>d <Plug>(coc-definition)
@@ -96,3 +95,4 @@ nmap <silent> <leader>x :CocFix<CR>
 nmap <silent> K :call <SID>show_documentation()<CR>
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> <esc> :noh<return><esc>
