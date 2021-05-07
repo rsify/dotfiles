@@ -1,5 +1,6 @@
 {
 	"tsserver.maxTsServerMemory": 32000,
 	"tsserver.formatOnType": false,
-	"deno.path": "~/.deno/bin/deno"
+	"deno.path": "~/.deno/bin/deno",
+	"eslint.run": "onSave"
 }
