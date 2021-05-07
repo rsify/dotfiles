@@ -55,3 +55,6 @@
 [submodule ".vim/pack/nikersify/start/vim-repeat"]
 	path = .vim/pack/nikersify/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
+[submodule ".vim/pack/nikersify/start/vim-sort-motion"]
+	path = .vim/pack/nikersify/start/vim-sort-motion
+	url = https://github.com/christoomey/vim-sort-motion
