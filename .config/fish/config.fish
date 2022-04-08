@@ -1,3 +1,9 @@
+function _path
+	set -gx PATH $argv $PATH
+end
+
+_path /opt/homebrew/bin
+
 set -x LC_ALL en_US.UTF-8
 
 # Disable directory shortening for prompt_pwd
@@ -7,14 +13,10 @@ set fish_prompt_pwd_dir_length 0
 source ~/.config/fish/colors.fish
 source ~/.config/fish/complete.fish
 
-[ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+[ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
 [ -f ~/.config/fish/env.fish ]; and source ~/.config/fish/env.fish
 
 set -gx EDITOR nvim
-
-function _path
-	set -gx PATH $argv $PATH
-end
 
 # match all ~/.gem/ruby/[version]/bin paths
 # _path (find ~/.gem/ruby -type d -regex ".+\.gem/ruby/[^/]+/bin")
@@ -36,7 +38,7 @@ _path "$HOME/.npm/bin"
 _path "$HOME/.deno/bin"
 
 # go
-set --universal -x GOPATH "$HOME/dev/go"
+set --universal -x GOPATH "$HOME/.go"
 
 if not test -d $GOPATH
 	echo $GOPATH
