@@ -7,12 +7,14 @@ from collections import Counter
 import subprocess
 import json
 
+yabai_path = "/opt/homebrew/bin/yabai"
+
 spaces = json.loads(
-    subprocess.run(["/usr/local/bin/yabai", "-m", "query", "--spaces"], capture_output=True).stdout
+    subprocess.run([yabai_path, "-m", "query", "--spaces"], capture_output=True).stdout
 )
 
 windows = json.loads(
-    subprocess.run(["/usr/local/bin/yabai", "-m", "query", "--windows"], capture_output=True).stdout
+    subprocess.run([yabai_path, "-m", "query", "--windows"], capture_output=True).stdout
 )
 
 def space_format(index, space, windows):
