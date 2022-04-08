@@ -189,9 +189,6 @@ function tk --description "tmux kill session[s]"
 end
 funcsave tk
 
-complete --command t -xa "(tmux ls -F '#S')"
-complete --command tk -xa "(tmux ls -F '#S')"
-
 # mac
 # ===
 
@@ -328,7 +325,6 @@ function o --description 'Search Obsidian vault' --wraps=v
 	v ~/v/$argv
 end
 funcsave o
-complete --command o -xa "(gfind ~/Documents/vet -type f -not -path '*/.obsidian/*' -not -path '*/Archive/*' -not -name '*.png' -printf '%P\n')"
 
 alias -s f 'ag -g'
 alias -s mkdir 'mkdir -p'
