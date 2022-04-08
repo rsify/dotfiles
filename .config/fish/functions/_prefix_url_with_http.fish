@@ -1,4 +1,3 @@
-# Defined in /Users/maciek/.config/fish/alias.fish @ line 224
 function _prefix_url_with_http
 	set res $argv
 

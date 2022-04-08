@@ -1,4 +1,3 @@
-# Defined in /Users/maciek/.config/fish/alias.fish @ line 96
 function gcal --wraps='git commit --all -m'
 	if test -n "$argv"
 		git commit --all -m "$argv"

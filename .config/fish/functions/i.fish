@@ -1,4 +1,3 @@
-# Defined in /Users/maciek/.config/fish/alias.fish @ line 312
 function i --description 'cd or cat'
 	if test -n "$argv"
 		set file "$argv"

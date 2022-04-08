@@ -1,4 +1,3 @@
-# Defined in /Users/maciek/.config/fish/alias.fish @ line 163
 function t --description 'tmux swiss knife'
 	if test -n "$argv"
 		if tmux ls -F "#S" | grep -Fxq $argv -
