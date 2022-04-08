@@ -322,7 +322,7 @@ end
 funcsave i
 
 function o --description 'Search Obsidian vault' --wraps=v
-	v ~/v/$argv
+	v ~/Documents/vet/$argv
 end
 funcsave o
 
