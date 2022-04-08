@@ -2,7 +2,7 @@
 set -g pane-active-border-style "bg=default fg=brightblack"
 set -g pane-border-style "bg=default fg=black"
 set -g status "on"
-set -g status-bg default
+set -g status-bg terminal
 set -g status-fg white
 set -g status-justify "left"
 set -g status-left "#[fg=black,bg=blue] #S #[fg=blue,bg=black,nobold,nounderscore,noitalics]"
