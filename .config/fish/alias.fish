@@ -324,6 +324,12 @@ function i --description 'cd or cat'
 end
 funcsave i
 
+function o --description 'Search Obsidian vault' --wraps=v
+	v ~/v/$argv
+end
+funcsave o
+complete --command o -xa "(gfind ~/Documents/vet -type f -not -path '*/.obsidian/*' -not -path '*/Archive/*' -not -name '*.png' -printf '%P\n')"
+
 alias -s f 'ag -g'
 alias -s mkdir 'mkdir -p'
 alias -s nd 'nextd'
