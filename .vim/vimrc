@@ -40,6 +40,9 @@ set breakindentopt=shift:4
 set foldmethod=indent
 set nofoldenable
 
+" disables the ~/.viminfo file. viminfo/shada stores some state across vim startups, see `:h shada`/`:h viminfo` for more.
+set shada=
+
 " fzf.vim is broken with fish and for some reason uses this rather than &shell
 " to determine the shell to run fzf in
 let $SHELL = '/bin/bash'
