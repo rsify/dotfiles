@@ -47,13 +47,6 @@ set shada=
 " to determine the shell to run fzf in
 let $SHELL = '/bin/bash'
 
-" exit if nerdtree is the only window left (from https://github.com/preservim/nerdtree)
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
-
-" coc.nvim
-
-
 function! s:trailing_whitespace()
   hi ExtraWhitespace cterm=underline,bold gui=underline,bold ctermfg=blue
   match ExtraWhitespace /\s\+$/
@@ -90,7 +83,6 @@ nmap <silent> <c-l> <c-w>l
 nmap <silent> <leader>b <Plug>(coc-references)
 nmap <silent> <leader>c :CocDiagnostics<CR>
 nmap <silent> <leader>d <Plug>(coc-definition)
-nmap <silent> <leader>e :NERDTreeFind<CR>
 nmap <silent> <leader>f :Files<CR>
 nmap <silent> <leader>r <Plug>(coc-rename)
 nmap <silent> <leader>t <Plug>(coc-type-definition)

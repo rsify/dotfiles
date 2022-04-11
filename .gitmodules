@@ -13,9 +13,6 @@
 [submodule ".vim/pack/nikersify/start/pear-tree"]
 	path = .vim/pack/nikersify/start/pear-tree
 	url = https://github.com/tmsvg/pear-tree
-[submodule ".vim/pack/nikersify/start/nerdtree"]
-	path = .vim/pack/nikersify/start/nerdtree
-	url = https://github.com/preservim/nerdtree
 [submodule ".vim/pack/nikersify/start/coc.nvim"]
 	path = .vim/pack/nikersify/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
