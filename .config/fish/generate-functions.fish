@@ -1,3 +1,13 @@
+# this file is not used directly, instead it generates functions
+# for ~/.config/fish/functions/ that are used instead of
+# sourcing `alias` directly for performance reasons.
+# use `cas` to source this file.
+
+# clear out all generated functions, hopefully skipping
+# everything not placed there by this file (including fzf's
+# function which is of `find`'s `-type` `l` for link)
+rm (find $HOME/.config/fish/functions -type f -not -name 'fish_*')
+
 # brew
 # ====
 
@@ -26,8 +36,8 @@ alias -s but "brew untap"
 # config
 # ======
 
-alias -s ca "vim ~/.config/fish/alias.fish"
-alias -s cas "source ~/.config/fish/alias.fish"
+alias -s ca "vim ~/.config/fish/generate-functions.fish"
+alias -s cas "source ~/.config/fish/generate-functions.fish"
 alias -s cf "vim ~/.config/fish/config.fish"
 alias -s ch "vim ~/.hammerspoon/init.lua"
 alias -s cha "vim ~/.hammerspoon/hyper-apps.lua"
@@ -41,7 +51,7 @@ alias -s cv "vim ~/.vim/vimrc"
 # ====
 
 alias -s fns 'functions'
-alias -s fsa 'source ~/.config/fish/alias.fish'
+alias -s fsa 'source ~/.config/fish/generate-functions.fish'
 alias -s fsc 'source ~/.config/fish/config.fish'
 
 # git
