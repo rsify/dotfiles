@@ -1,55 +1,40 @@
-function _path
-	set -gx PATH $argv $PATH
-end
+set --export LC_ALL en_US.UTF-8
 
-_path /opt/homebrew/bin
-
-set -x LC_ALL en_US.UTF-8
-
-# Disable directory shortening for prompt_pwd
+# disable directory shortening for prompt_pwd (`man prompt_pwd`)
 set fish_prompt_pwd_dir_length 0
 
-# source ~/.config/fish/alias.fish
+# sources
 source ~/.config/fish/colors.fish
 source ~/.config/fish/complete.fish
 
-[ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
-[ -f ~/.config/fish/env.fish ]; and source ~/.config/fish/env.fish
+if test -f /opt/homebrew/share/autojump/autojump.fish
+	source /opt/homebrew/share/autojump/autojump.fish
+end
 
-set -gx EDITOR nvim
+# vars
+set --export EDITOR nvim
+set --export N_PREFIX "$HOME/.n" # n
+set --export GOPATH "$HOME/.go"
+set --export FZF_DEFAULT_COMMAND "ag --hidden --silent --ignore .git -g ''"
+set --export FZF_CTRL_T_COMMAND "ag --hidden --silent --ignore .git -g ''"
 
-# match all ~/.gem/ruby/[version]/bin paths
-# _path (find ~/.gem/ruby -type d -regex ".+\.gem/ruby/[^/]+/bin")
+function _path
+	set --export PATH $argv $PATH
+end
 
-_path "/usr/local/sbin"
-
-# rust cargo path
-_path "$HOME/.cargo/bin"
-
-# n - node version manager
-set N_PATH "$HOME/.n"
-set -gx N_PREFIX $N_PATH
-_path "$N_PATH/bin"
-
-# npm global packages
-_path "$HOME/.npm/bin"
-
-# deno bin folder
-_path "$HOME/.deno/bin"
-
-# go
-set --universal -x GOPATH "$HOME/.go"
+# paths
+_path /opt/homebrew/bin
+_path "$HOME/.cargo/bin" # rust cargo path
+_path "$N_PREFIX/bin" # n - node version manager
+_path "$HOME/.npm/bin" # npm global packages
+_path "$HOME/.deno/bin" # deno bin folder
 
 if not test -d $GOPATH
 	echo $GOPATH
 	mkdir -p $GOPATH
 end
 
-# fzf
-set -gx FZF_DEFAULT_COMMAND "ag --hidden --silent --ignore .git -g ''"
-set -gx FZF_CTRL_T_COMMAND "ag --hidden --silent --ignore .git -g ''"
-
-# binds
+# fzf binds
 function __bind_functions
 	set val (eval echo (commandline -t))
 
@@ -60,15 +45,15 @@ function __bind_functions
 	commandline -f repaint
 end
 
-function fish_user_key_bindings
-	bind \ea __bind_functions
-	fzf_key_bindings
+if type -q fzf_key_bindings
+	function fish_user_key_bindings
+		bind \ea __bind_functions
+		fzf_key_bindings
+	end
 end
 
-if type -q direnv
-	eval (direnv hook fish)
-end
-
+# start/attach to ssh-agent
 fish_ssh_agent
 
-set -x GPG_TTY (tty)
+# gpg crap, otherwise pinentry breyks
+set --export GPG_TTY (tty)
