@@ -1,3 +1,3 @@
-function ca --wraps='vim ~/.config/fish/alias.fish' --description 'alias ca vim ~/.config/fish/alias.fish'
-  vim ~/.config/fish/alias.fish $argv; 
+function ca --wraps='vim ~/.config/fish/generate-functions.fish' --description 'alias ca vim ~/.config/fish/generate-functions.fish'
+  vim ~/.config/fish/generate-functions.fish $argv; 
 end
