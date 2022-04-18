@@ -1,12 +1,8 @@
 ![Screenshot](/.config/media/mac.png?raw=true "🎉")
 
-```
-git hub fish>=3 the_silver_searcher fzf bat exa node renameutils (qmv, imv)
-yabai skhd # mac only
-```
-
-```
-WhichSpace.app Dato.app Karabiner-Elements.app BetterTouchTool.app xbar.app (https://github.com/matryer/xbar/releases)
+```sh
+$ brew leaves
+autojump bat coreutils deno exa ffmpeg findutils fish fzf git gnupg hub insect jo jq libvterm lua ncdu neovim nghttp2 ripgrep the_silver_searcher tmux wget youtube-dl
 ```
 
 ```sh
