@@ -1,3 +1,3 @@
-function d --wraps=docker --description 'alias d docker'
-  docker $argv; 
+function d --wraps=docker --wraps=ranger --description 'alias d ranger'
+  ranger $argv; 
 end

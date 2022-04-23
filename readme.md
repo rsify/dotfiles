@@ -2,7 +2,7 @@
 
 ```sh
 $ brew leaves
-autojump bat coreutils deno exa ffmpeg findutils fish fzf git gnupg hub insect jo jq libvterm lua ncdu neovim nghttp2 ripgrep the_silver_searcher tmux wget youtube-dl
+autojump bat coreutils deno exa ffmpeg findutils fish fzf git gnupg hub insect jo jq libvterm lua ncdu neovim nghttp2 ranger ripgrep the_silver_searcher tmux wget youtube-dl
 ```
 
 ```sh

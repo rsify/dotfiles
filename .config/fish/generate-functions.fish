@@ -301,7 +301,7 @@ alias_if_exists ping prettyping
 # ====
 
 alias -s chx 'chmod +x'
-alias -s d 'docker'
+alias -s d 'ranger'
 alias -s dc 'docker-compose'
 alias -s how 'howdoi'
 alias -s hows 'howdoi -n 5'
