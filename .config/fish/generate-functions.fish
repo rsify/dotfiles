@@ -1,7 +1,8 @@
-# this file is not used directly, instead it generates functions
-# for ~/.config/fish/functions/ that are used instead of
-# sourcing `alias` directly for performance reasons.
-# use `cas` to source this file.
+# this file is not used in config.fish directly - instead it
+# generates functions for ~/.config/fish/functions/ that are used
+# instead of sourcing `alias` directly for performance reasons.
+# use `cas` or source this file directly to generate them and
+# remove any dangling ones.
 
 # clear out all generated functions, hopefully skipping
 # everything not placed there by this file (including fzf's
