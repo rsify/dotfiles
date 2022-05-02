@@ -1,6 +1,3 @@
-[submodule ".vim/pack/nikersify/start/nord-vim"]
-	path = .vim/pack/nikersify/start/nord-vim
-	url = https://github.com/arcticicestudio/nord-vim
 [submodule ".vim/pack/nikersify/start/fzf.vim"]
 	path = .vim/pack/nikersify/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
@@ -55,3 +52,6 @@
 [submodule ".vim/pack/nikersify/start/vim-sort-motion"]
 	path = .vim/pack/nikersify/start/vim-sort-motion
 	url = https://github.com/christoomey/vim-sort-motion
+[submodule ".vim/pack/nikersify/start/dracula"]
+	path = .vim/pack/nikersify/start/dracula
+	url = https://github.com/dracula/vim.git

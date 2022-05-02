@@ -1,9 +1,9 @@
 language en_US.UTF-8
 
-colorscheme nord
-
-" Syntax highlighting
+" Syntax highlighting and theme
 syntax on
+colorscheme dracula
+set termguicolors " real colors
 
 " Read file changes on vim focus, disable swap file to allow multiple vim's to
 " edit the same file
