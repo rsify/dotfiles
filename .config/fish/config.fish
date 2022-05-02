@@ -52,8 +52,5 @@ if type -q fzf_key_bindings
 	end
 end
 
-# start/attach to ssh-agent
-fish_ssh_agent
-
 # gpg crap, otherwise pinentry breyks
 set --export GPG_TTY (tty)
