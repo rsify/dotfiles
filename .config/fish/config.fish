@@ -64,3 +64,17 @@ set -x LESS_TERMCAP_se (printf "\e[0m")
 # set -x LESS_TERMCAP_so (set_color 949494) # includes search item & bottom bar
 set -x LESS_TERMCAP_ue (printf "\e[0m")
 set -x LESS_TERMCAP_us (set_color --underline afafd7)
+
+if test $hostname = 'ryrz'
+	# test if in login shell
+	if status is-login
+		# test if length of $DISPLAY is non zero and
+		# $XDG_VTNR (virtual terminal number, set by `pam_systemd`) is 1
+		if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+			# -keeptty redirects the output from the X session into the Xorg log file. (source: https://wiki.archlinux.org/title/Xinit#Autostart_X_at_login)
+			# use `exec` to replace the login shell process with startx
+			# (so as to prevent getting into the login shell just by killing X hopefully)
+			exec startx -- -keeptty
+		end
+	end
+end
