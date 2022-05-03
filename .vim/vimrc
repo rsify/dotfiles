@@ -47,6 +47,11 @@ set shada=
 " to determine the shell to run fzf in
 let $SHELL = '/bin/bash'
 
+if hostname() == "ryrz"
+  " set the default clipboard to sync with system clipboard.
+  set clipboard+=unnamedplus
+endif
+
 function! s:trailing_whitespace()
   hi ExtraWhitespace cterm=underline,bold gui=underline,bold ctermfg=blue
   match ExtraWhitespace /\s\+$/
