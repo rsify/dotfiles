@@ -54,3 +54,13 @@ end
 
 # gpg crap, otherwise pinentry breyks
 set --export GPG_TTY (tty)
+
+# less (including man) colors
+# https://github.com/decors/fish-colored-man/blob/master/functions/man.fish
+set -x LESS_TERMCAP_mb (set_color --bold red)
+set -x LESS_TERMCAP_md (set_color --bold 5fafd7)
+set -x LESS_TERMCAP_me (printf "\e[0m")
+set -x LESS_TERMCAP_se (printf "\e[0m")
+# set -x LESS_TERMCAP_so (set_color 949494) # includes search item & bottom bar
+set -x LESS_TERMCAP_ue (printf "\e[0m")
+set -x LESS_TERMCAP_us (set_color --underline afafd7)
