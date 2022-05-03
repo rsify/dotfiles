@@ -123,6 +123,7 @@ alias -s gi "git init"
 alias -s gl "git log"
 alias -s gl1 "git log -n 1"
 alias -s glg "git log --color=always --format=oneline --abbrev-commit --decorate -n 10"
+alias -s gls "git ls-files"
 alias -s gm "git merge"
 alias -s gmff "git merge --ff-only"
 alias -s gp "git push"
@@ -171,10 +172,12 @@ function alias_if_exists
 end
 
 alias_if_exists cat bat
+alias_if_exists ip ip 'ip --color'
 alias_if_exists ls exa 'exa -x --sort type'
 alias_if_exists ls1 exa 'exa -1 --sort type'
 alias_if_exists lsa exa 'exa -ax --sort type'
 alias_if_exists lsa1 exa 'exa -a1 --sort type'
+alias_if_exists pacman pacman 'pacman --color=auto'
 alias_if_exists ping prettyping
 
 alias -s mkdir 'mkdir -p'
