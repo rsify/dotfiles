@@ -95,5 +95,5 @@ nmap <silent> <leader>x :CocFix<CR>
 nmap <silent> K :call <SID>show_documentation()<CR>
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nnoremap <silent> <esc> :noh<return><esc>
+nnoremap <silent> <esc> :nohlsearch<return><esc>
 inoremap <silent><expr> <c-space> coc#refresh()
