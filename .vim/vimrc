@@ -62,11 +62,6 @@ endfunction
 
 au BufWinEnter * :call s:trailing_whitespace()
 
-" Prevent pear tree (bracket complete plugin) from hiding paired character
-" when pressing <CR> (this was done in the plugin originally to keep dot
-" repeatability working, but idgaf)
-let g:pear_tree_repeatable_expand = 0
-
 " blamer.nvim delay before showing the blame line. Toggle with
 " `:BlamerToggle`, disabled by default.
 let g:blamer_delay = 400

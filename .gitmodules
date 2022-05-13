@@ -7,9 +7,6 @@
 [submodule ".vim/pack/nikersify/start/vim-surround"]
 	path = .vim/pack/nikersify/start/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule ".vim/pack/nikersify/start/pear-tree"]
-	path = .vim/pack/nikersify/start/pear-tree
-	url = https://github.com/tmsvg/pear-tree
 [submodule ".vim/pack/nikersify/start/coc.nvim"]
 	path = .vim/pack/nikersify/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
