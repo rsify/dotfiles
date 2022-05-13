@@ -405,6 +405,11 @@ end
 
 clientbuttons = gears.table.join(
     awful.button({ }, 1, function (c)
+        -- Activate on left click
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+    end),
+    awful.button({ }, 2, function (c)
+        -- Activate on middle click
         c:emit_signal("request::activate", "mouse_click", {raise = true})
     end),
     awful.button({ modkey }, 1, function (c)
