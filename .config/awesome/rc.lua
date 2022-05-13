@@ -167,6 +167,8 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widget
            {
               layout = wibox.layout.fixed.horizontal,
+              awful.widget.watch('bash -c "curl https://wttr.in/$(cat .config/private/current-city)?format=%C%20%t"', 900),
+              wibox.widget.textbox(" | "),
               awful.widget.watch(os.getenv("HOME")..'/.config/bin/wibar-loadavg.sh', 5),
               wibox.widget.textbox(" | "),
               awful.widget.watch(os.getenv("HOME")..'/.config/bin/wibar-memory.sh', 5),

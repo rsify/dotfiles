@@ -19,6 +19,8 @@ $ mkdir -p .npm/bin .cargo/bin .gem/ruby
 $ echo `which fish` | sudo tee /etc/shells
 $ chsh -s `which fish`
 
+$ echo "<city-name>" > .config/private/current-city
+
 # - download node binary (https://nodejs.org/en/download)
 # - add its bin/ to path (PATH=$PATH:`pwd`/bin)
 # - npx n lts (or whatever version)
