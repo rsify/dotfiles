@@ -255,6 +255,11 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "d", function () awful.spawn("alacritty --command ranger") end,
               {description = "ranger", group = "launcher"}),
 
+    awful.key({modkey, "Shift"    }, "s", function ()
+        -- screenshot with selection, save & copy to clipboard
+        awful.spawn.with_shell("maim -s -f png | tee ~/Screenshots/(date +%s%N)-(shuf -n 1 ~/.config/misc/words).png | xclip -selection clipboard -t image/png")
+    end, {description = "screenshot", group = "launcher"}),
+-- 
     -- Obsidian vault launcher.
     -- Spawns alacritty with a fuzzy file finder in an obsidian vault in ~/vet,
     -- or attaches to one already spawned on the current tag.
