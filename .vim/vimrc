@@ -40,6 +40,9 @@ set breakindentopt=shift:4
 set foldmethod=indent
 set nofoldenable
 
+" always display sign column/gutter so that there's no cursor jumperino
+set signcolumn=yes
+
 " disables the ~/.viminfo file. viminfo/shada stores some state across vim startups, see `:h shada`/`:h viminfo` for more.
 set shada=
 
