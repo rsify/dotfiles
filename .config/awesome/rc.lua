@@ -306,10 +306,6 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous layout", group = "layout"}),
 
-    -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
-
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
@@ -321,9 +317,15 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
 
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
+    -- Rofi
+    awful.key({ modkey }, "r", function() awful.spawn("rofi -show run") end,
+              {description = "run prompt", group = "launcher"}),
+
+    awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun") end,
+              {description = "launcher", group = "launcher"}),
+
+    awful.key({ modkey }, "i", function() awful.spawn("rofi -show window -matching fuzzy") end,
+              {description = "fuzzy select windows", group = "client"}),
 
     -- https://wiki.archlinux.org/title/Awesome#Media_Controls
     -- Volume Keys
