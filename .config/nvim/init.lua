@@ -63,6 +63,115 @@ vim.api.nvim_create_autocmd("BufWinEnter", { -- highlight extra whitespace
 	end
 })
 
+-- statusline
+-- heavily inspired by https://nuxsh.is-a.dev/blog/custom-nvim-statusline.html
+Statusline = {}
+
+Statusline.active = function()
+	local function mode()
+		local modes = {
+			["n"]  = {"NORMAL", "DraculaPurpleBold"},
+			["no"] = {"NORMAL", "DraculaPurpleBold"},
+			["v"]  = {"VISUAL", "DraculaGreenBold"},
+			["V"]  = {"V LINE", "DraculaGreenBold"},
+			[""] = {"VBLOCK", "DraculaGreenBold"},
+			["s"]  = {"SELECT", "DraculaPinkItalic"},
+			["S"]  = {"S LINE", "DraculaPinkItalic"},
+			[""] = {"SBLOCK", "DraculaPinkItalic"},
+			["i"]  = {"INSERT", "DraculaOrangeBold"},
+			["ic"] = {"INSERT", "DraculaOrangeBold"},
+			["R"]  = {"REPLCE", "DraculaRed"},
+			["Rv"] = {"VRPLCE", "DraculaRed"},
+			["c"]  = {"CMMNAD", "DraculaCommentBold"},
+			["cv"] = {"VIM EX", "DraculaCommentBold"},
+			["ce"] = {"EX MOD", "DraculaCommentBold"},
+			["r"]  = {"PROMPT", "DraculaCommentBold"},
+			["rm"] = {"MOARRR", "DraculaCommentBold"},
+			["r?"] = {"CONFRM", "DraculaCommentBold"},
+			["!"]  = {"!SHELL", "DraculaCommentBold"},
+			["t"]  = {"TERMNL", "DraculaCommentBold"},
+		}
+
+		local current_mode = vim.api.nvim_get_mode().mode
+
+		local label = modes[current_mode][1]
+		local highlight = modes[current_mode][2]
+
+		return "%#"..highlight.."#".."["..label.."]"
+	end
+
+	local function file()
+		local full_file_path = vim.fn.expand("%:p")
+		local cwd_length = string.len(vim.fn.getcwd())
+
+		-- TODO fix one character if cwd == "/"
+		-- TODO check if full_file_path actually starts with cwd.
+
+		return table.concat {
+			"%#DraculaCyan#",
+			string.sub(full_file_path, 1, cwd_length + 1),
+			"%#DraculaOrange#",
+			string.sub(full_file_path, cwd_length + 2)
+		}
+	end
+
+	local function coc()
+		if vim.g.coc_enabled == 0 then
+			return "[coc:n]"
+		end
+
+		return "[" .. vim.api.nvim_eval('coc#status()') .. "]"
+	end
+
+	local function copilot_status()
+		if vim.api.nvim_eval('copilot#Enabled()') == 1 then
+			return "[co:y]"
+		else
+			return "[co:n]"
+		end
+	end
+
+	local function file_type()
+		local ft = vim.bo.filetype
+		if ft == "" then
+			return "[no ft]"
+		else
+			return "["..ft.."]"
+		end
+	end
+
+	local function line_info()
+		return "[%c|%P]"
+	end
+
+	return table.concat {
+		mode(),
+		" ",
+		file(),
+		"%#Normal#",
+		"%=",
+		coc(),
+		" ",
+		copilot_status(),
+		" ",
+		file_type(),
+		" ",
+		line_info(),
+	}
+end
+
+function Statusline.inactive()
+	return " %F"
+end
+
+vim.api.nvim_exec([[
+	augroup Statusline
+		au!
+		au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()
+		au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()
+	augroup END
+]], false)
+
 
 -- Read file changes on vim focus, disable swap file to allow multiple nvim's to
 -- edit the same file
@@ -74,6 +183,9 @@ vim.opt.scrolloff = 999
 
 -- Update gitgutter in real time-ish
 vim.opt.updatetime = 100
+
+-- Disable `-- INSERT --` message
+vim.opt.showmode = false
 
 -- Line numbers
 vim.opt.number = true
@@ -123,10 +235,8 @@ vim.g.copilot_no_tab_map = true
 function toggle_copilot()
 	if vim.api.nvim_eval('copilot#Enabled()') == 1 then
 		vim.cmd('Copilot disable')
-		print('Copilot :: Disabled')
 	else
 		vim.cmd('Copilot enable')
-		print('Copilot :: Enabled')
 	end
 end
 
