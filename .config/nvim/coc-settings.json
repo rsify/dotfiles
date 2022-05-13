@@ -1,5 +1,6 @@
 {
 	"coc.preferences.formatOnSaveFiletypes": ["typescript"],
+	"suggest.minTriggerInputLength": 5,
 	"prettier.requireConfig": true,
 	"prettier.useTabs": false
 }
