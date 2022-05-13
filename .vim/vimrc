@@ -104,6 +104,14 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nnoremap <silent> <esc> :nohlsearch<return><esc>
 inoremap <silent><expr> <c-space> coc#refresh()
 
+nnoremap <silent> <space> :Buffers<CR>
+nnoremap <silent> <c-w>\| <c-w>v
+nnoremap <silent> <c-w>_  <c-w>s
+
+" it's 2 fewer keystrokes ok
+nnoremap <silent> <c-s> :w<CR>
+nnoremap <silent> <c-q> :q<CR>
+
 inoremap <silent> <cr> <C-g>u<CR><c-r>=coc#on_enter()<CR>
 
 let g:copilot_no_tab_map = v:true
