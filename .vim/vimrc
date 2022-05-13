@@ -1,9 +1,17 @@
 language en_US.UTF-8
 
 " Syntax highlighting and theme
-syntax on
 colorscheme dracula
 set termguicolors " real colors
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false
+	}
+}
+EOF
 
 " Read file changes on vim focus, disable swap file to allow multiple vim's to
 " edit the same file

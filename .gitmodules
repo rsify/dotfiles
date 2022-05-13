@@ -52,6 +52,9 @@
 [submodule ".vim/pack/nikersify/start/vim-eunuch"]
 	path = .vim/pack/nikersify/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch
+[submodule ".vim/pack/nikersify/start/nvim-treesitter"]
+	path = .vim/pack/nikersify/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
 [submodule ".vim/pack/nikersify/start/vim-vinegar"]
 	path = .vim/pack/nikersify/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
