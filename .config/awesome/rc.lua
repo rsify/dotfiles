@@ -220,9 +220,21 @@ globalkeys = gears.table.join(
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey            }, "l", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey            }, "l", function ()
+        -- make sure that there's no window focused if the screen being
+        -- switched to is empty (otherwise the only indication is the cursor
+        -- moving and it's hard to notice any change
+        client.focus = nil
+        awful.screen.focus_relative( 1)
+    end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey            }, "h", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey            }, "h", function ()
+        -- make sure that there's no window focused if the screen being
+        -- switched to is empty (otherwise the only indication is the cursor
+        -- moving and it's hard to notice any change
+        client.focus = nil
+        awful.screen.focus_relative(-1)
+    end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
