@@ -49,3 +49,12 @@
 [submodule ".vim/pack/nikersify/start/dracula"]
 	path = .vim/pack/nikersify/start/dracula
 	url = https://github.com/dracula/vim.git
+[submodule ".vim/pack/nikersify/start/vim-eunuch"]
+	path = .vim/pack/nikersify/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule ".vim/pack/nikersify/start/vim-vinegar"]
+	path = .vim/pack/nikersify/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule ".vim/pack/nikersify/start/vim-commentary"]
+	path = .vim/pack/nikersify/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
