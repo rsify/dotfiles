@@ -100,18 +100,27 @@ Statusline.active = function()
 		return "%#"..highlight.."#".."["..label.."]"
 	end
 
+	-- if the full filepath starts with the cwd, highlight the cwd part of the
+	-- path in one color, and the rest in another.
+	-- otherwise, show the full path in a dim color.
 	local function file()
 		local full_file_path = vim.fn.expand("%:p")
-		local cwd_length = string.len(vim.fn.getcwd())
+		local cwd = vim.fn.getcwd()
 
-		-- TODO fix one character if cwd == "/"
-		-- TODO check if full_file_path actually starts with cwd.
+		-- append "/" if cwd doesn't end with "/"
+		if cwd:sub(-1) ~= "/" then
+			cwd = cwd .. "/"
+		end
+
+		local cwd_color = "%%#DraculaCyan#"
+		local relative_color = "%%#DraculaOrange#"
+
+		-- must destructure like this because string.gsub returns two args
+		local r = string.gsub(full_file_path, "^"..cwd,cwd_color..cwd..relative_color)
 
 		return table.concat {
-			"%#DraculaCyan#",
-			string.sub(full_file_path, 1, cwd_length + 1),
-			"%#DraculaOrange#",
-			string.sub(full_file_path, cwd_length + 2)
+			"%#DraculaComment#",
+			r
 		}
 	end
 
