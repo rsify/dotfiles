@@ -23,6 +23,7 @@ alias -s bup "brew upgrade"
 
 alias -s ca "vim ~/.config/fish/generate-functions.fish"
 alias -s cas "source ~/.config/fish/generate-functions.fish"
+alias -s caw "vim ~/.config/awesome/rc.lua"
 alias -s cf "vim ~/.config/fish/config.fish"
 alias -s cv "vim ~/.vim/vimrc"
 
@@ -201,6 +202,8 @@ end
 
 alias -s chx 'chmod +x'
 alias -s d 'ranger'
+alias -s e 'exec'
+alias -s ev 'exec nvim'
 alias -s f 'ag -g'
 alias -s ld 'lazydocker'
 alias -s lg 'lazygit'
