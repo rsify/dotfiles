@@ -1,0 +1,167 @@
+vim.cmd('language en_US.UTF-8')
+
+-- bootstrap packer.nvim
+-- https://github.com/wbthomason/packer.nvim/tree/4dedd3b08f8c6e3f84afbce0c23b66320cd2a8f2#bootstrapping
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+	packer_bootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
+require('packer').startup(function(use)
+	use 'wbthomason/packer.nvim'                -- packer.nvim manages itself
+	use 'APZelos/blamer.nvim'                   -- inline git blame, toggle with `:BlamerToggle`
+	use 'airblade/vim-gitgutter'                -- git info in gutter
+	use 'christoomey/vim-sort-motion'           -- `gsip`
+	use 'dracula/vim'                           -- color scheme
+	use 'github/copilot.vim'                    -- copilot
+	use 'junegunn/fzf.vim'                      -- `:Files`, `:Buffers`, etc
+	use 'markonm/traces.vim'                    -- preview range, pattern, substitute
+	use 'tmux-plugins/vim-tmux-focus-events'    -- trigger vim enter events in tmux
+	use 'tpope/vim-commentary'                  -- comments
+	use 'tpope/vim-eunuch'                      -- unix style utilities, such as :Rename
+	use 'tpope/vim-repeat'                      -- repeat
+	use 'tpope/vim-sleuth'                      -- auto detect indent settings
+	use 'tpope/vim-surround'                    -- surround
+	use 'tpope/vim-vinegar'                     -- netrw integration
+	use 'vim-scripts/ReplaceWithRegister'       -- `griw`
+	use {                                       -- v nice syntax highlighting/indent
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate'
+	}
+	use {                                       -- completion engine & more
+		'neoclide/coc.nvim', branch = 'release'
+	}
+	use { 'kana/vim-textobj-user', requires = { -- text objects
+		'kana/vim-textobj-line',
+		'kana/vim-textobj-indent',
+		'kana/vim-textobj-entire'
+	} }
+
+	if packer_bootstrap then
+		require('packer').sync()
+	end
+end)
+
+-- enable treesitter
+require'nvim-treesitter.configs'.setup {
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false
+	}
+}
+
+-- Colors
+vim.opt.termguicolors = true -- real colors
+vim.cmd('colorscheme dracula')
+vim.g.dracula_full_special_attrs_support = 1
+vim.cmd('hi CursorLine guibg=#303241')
+vim.api.nvim_create_autocmd("BufWinEnter", { -- highlight extra whitespace
+	pattern = "*",
+	callback = function ()
+		vim.cmd('hi ExtraWhitespace gui=underline,bold guifg=red')
+		vim.cmd('match ExtraWhitespace /\\s\\+$/')
+	end
+})
+
+
+-- Read file changes on vim focus, disable swap file to allow multiple nvim's to
+-- edit the same file
+vim.opt.autoread = true
+vim.opt.swapfile = false
+
+-- Keep cursor vertically centered
+vim.opt.scrolloff = 999
+
+-- Update gitgutter in real time-ish
+vim.opt.updatetime = 100
+
+-- Line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+-- Highlight current line
+vim.opt.cursorline = true
+
+-- Ignore search case if only lower case characters, otherwise be case sensitive
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Make `vnew` & `new` open windows to the right & bottom
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- 4 char wide indents
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+
+-- Indent broken up lines by 4 chars
+vim.opt.breakindent = true
+vim.opt.breakindentopt = 'shift:4'
+
+-- Make all folds based on indents, and disable them on file open (`zi` to toggle)
+vim.opt.foldmethod = 'indent'
+vim.opt.foldenable = false
+
+-- always display sign column/gutter so that there's no cursor jumperino
+vim.opt.signcolumn = 'yes'
+
+-- disables the ~/.viminfo file. viminfo/shada stores some state across vim startups, see `:h shada`/`:h viminfo` for more.
+vim.opt.shada = ''
+
+if vim.fn.hostname() == 'ryrz' then
+	vim.api.nvim_set_option('clipboard', 'unnamedplus')
+end
+
+-- blamer.nvim delay before showing the blame line. Toggle with `:BlamerToggle`, disabled by default.
+vim.g.blamer_delay = 400
+
+-- disable copilot by default, toggle with <leader>g
+vim.g.copilot_enabled = 0
+vim.g.copilot_no_tab_map = true
+
+-- mappings (https://github.com/nanotee/nvim-lua-guide#defining-mappings)
+function toggle_copilot()
+	if vim.api.nvim_eval('copilot#Enabled()') == 1 then
+		vim.cmd('Copilot disable')
+		print('Copilot :: Disabled')
+	else
+		vim.cmd('Copilot enable')
+		print('Copilot :: Enabled')
+	end
+end
+
+function show_documentation()
+	if vim.fn.CocAction('hasProvider', 'hover') then
+		vim.fn.CocActionAsync('doHover')
+	else
+		vim.fn.feedkeys('K', 'in')
+	end
+end
+
+vim.g.mapleader = ','
+
+vim.api.nvim_set_keymap('i', '<c-j>',     'copilot#Accept("<CR>")',             { expr = true })
+vim.api.nvim_set_keymap('i', '<c-space>', 'coc#refresh()',                      { silent = true, expr = true })
+vim.api.nvim_set_keymap('i', '<cr>',      '<c-g>u<cr><c-r>=coc#on_enter()<cr>', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<c-h>',     '<c-w>h',                             { silent = true })
+vim.api.nvim_set_keymap('n', '<c-j>',     '<c-w>j',                             { silent = true })
+vim.api.nvim_set_keymap('n', '<c-k>',     '<c-w>k',                             { silent = true })
+vim.api.nvim_set_keymap('n', '<c-l>',     '<c-w>l',                             { silent = true })
+vim.api.nvim_set_keymap('n', '<c-q>',     ':q<CR>',                             { silent = true })
+vim.api.nvim_set_keymap('n', '<c-s>',     ':w<CR>',                             { silent = true })
+vim.api.nvim_set_keymap('n', '<c-w>_',    '<c-w>s',                             { silent = true })
+vim.api.nvim_set_keymap('n', '<c-w>_',    '<c-w>s',                             { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<c-w>|',    '<c-w>v',                             { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<esc>',     ':nohlsearch<return><esc>',           { silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>b', '<Plug>(coc-references)',             { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>c', ':CocDiagnostics<CR>',                { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>d', '<Plug>(coc-definition)',             { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>f', ':Files<CR>',                         { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>g', 'nil',                                { callback = toggle_copilot })
+vim.api.nvim_set_keymap('n', '<leader>r', '<Plug>(coc-rename)',                 { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>t', '<Plug>(coc-type-definition)',        { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>x', ':CocFix<CR>',                        { silent = true })
+vim.api.nvim_set_keymap('n', '<space>',   ':Buffers<CR>',                       { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', 'K',         '',                                   { callback = show_documentation })
+vim.api.nvim_set_keymap('n', '[g',        '<Plug>(coc-diagnostic-prev)',        { silent = true })
+vim.api.nvim_set_keymap('n', ']g',        '<Plug>(coc-diagnostic-next)',        { silent = true })

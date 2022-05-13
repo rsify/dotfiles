@@ -25,7 +25,7 @@ alias -s ca "vim ~/.config/fish/generate-functions.fish"
 alias -s cas "source ~/.config/fish/generate-functions.fish"
 alias -s caw "vim ~/.config/awesome/rc.lua"
 alias -s cf "vim ~/.config/fish/config.fish"
-alias -s cv "vim ~/.vim/vimrc"
+alias -s cv "vim ~/.config/nvim/init.lua"
 
 # ding
 # ===
