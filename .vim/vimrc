@@ -103,3 +103,14 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nnoremap <silent> <esc> :nohlsearch<return><esc>
 inoremap <silent><expr> <c-space> coc#refresh()
+
+inoremap <silent> <cr> <C-g>u<CR><c-r>=coc#on_enter()<CR>
+
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+
+" disable copilot by default
+let g:copilot_enabled = 0
+
+" bind expr <leader>g to enable copilot if it's disabled
+nnoremap <expr> <leader>g copilot#Enabled() ? "\:Copilot disable\<CR>" : "\:Copilot enable\<CR>"

@@ -58,6 +58,9 @@
 [submodule ".vim/pack/nikersify/start/vim-vinegar"]
 	path = .vim/pack/nikersify/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
+[submodule ".vim/pack/nikersify/start/copilot.vim"]
+	path = .vim/pack/nikersify/start/copilot.vim
+	url = https://github.com/github/copilot.vim
 [submodule ".vim/pack/nikersify/start/vim-commentary"]
 	path = .vim/pack/nikersify/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
