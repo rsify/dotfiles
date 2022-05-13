@@ -1,9 +1,5 @@
 {
-	"tsserver.maxTsServerMemory": 32000,
-	"typescript.format.enabled": false,
-	"javascript.format.enabled": false,
-	"deno.path": "~/.deno/bin/deno",
-	"eslint.run": "onSave",
-	"coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript"],
-	"prettier.requireConfig": true
+	"coc.preferences.formatOnSaveFiletypes": ["typescript"],
+	"prettier.requireConfig": true,
+	"prettier.useTabs": false
 }
