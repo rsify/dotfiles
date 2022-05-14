@@ -100,6 +100,14 @@ Statusline.active = function()
 		return "%#"..highlight.."#".."["..label.."]"
 	end
 
+	local function readonly()
+		if vim.o.readonly then
+			return "%#DraculaRed#[ro] "
+		else
+			return ""
+		end
+	end
+
 	-- if the full filepath starts with the cwd, highlight the cwd part of the
 	-- path in one color, and the rest in another.
 	-- otherwise, show the full path in a dim color.
@@ -156,6 +164,7 @@ Statusline.active = function()
 	return table.concat {
 		mode(),
 		" ",
+		readonly(),
 		file(),
 		"%#Normal#",
 		"%=",
