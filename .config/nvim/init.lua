@@ -68,6 +68,8 @@ vim.api.nvim_create_autocmd("BufWinEnter", { -- highlight extra whitespace
 Statusline = {}
 
 Statusline.active = function()
+	local modified = vim.o.modified
+
 	local function mode()
 		local modes = {
 			["n"]  = {"NORMAL", "DraculaPurpleBold"},
@@ -121,13 +123,13 @@ Statusline.active = function()
 		end
 
 		local cwd_color = "%%#DraculaCyan#"
-		local relative_color = "%%#DraculaOrange#"
+		local relative_color = modified and "%%#DraculaOrangeBold#" or "%%#DraculaOrange#"
 
 		-- must destructure like this because string.gsub returns two args
 		local r = string.gsub(full_file_path, "^"..cwd,cwd_color..cwd..relative_color)
 
 		return table.concat {
-			"%#DraculaComment#",
+			modified and "%#DraculaCommentBold#" or "%#DraculaComment#",
 			r
 		}
 	end
@@ -166,8 +168,9 @@ Statusline.active = function()
 		" ",
 		readonly(),
 		file(),
+		modified and "%#DraculaGreenBold# [+]" or "",
+		"%= ",
 		"%#Normal#",
-		"%=",
 		coc(),
 		" ",
 		copilot_status(),
