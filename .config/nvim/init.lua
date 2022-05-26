@@ -125,8 +125,11 @@ Statusline.active = function()
 		local cwd_color = "%%#DraculaCyan#"
 		local relative_color = modified and "%%#DraculaOrangeBold#" or "%%#DraculaOrange#"
 
+		-- escape characters in cwd for replacing
+		local escaped_cwd = cwd:gsub("[%(%)%.%%%+%-%*%?%[%]%^%$]", "%%%1")
+
 		-- must destructure like this because string.gsub returns two args
-		local r = string.gsub(full_file_path, "^"..cwd,cwd_color..cwd..relative_color)
+		local r = string.gsub(full_file_path, "^"..escaped_cwd,cwd_color..cwd..relative_color)
 
 		return table.concat {
 			modified and "%#DraculaCommentBold#" or "%#DraculaComment#",
