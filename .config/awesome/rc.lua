@@ -167,7 +167,9 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widget
            {
               layout = wibox.layout.fixed.horizontal,
-              awful.widget.watch('bash -c "curl https://wttr.in/$(cat .config/private/current-city)?format=%C%20%t"', 900),
+              awful.widget.watch('bash -c "curl https://wttr.in/$(cat .config/private/current-city)?format=%C%20%t"', 1800 --[[ 30 minutes ]]),
+              wibox.widget.textbox(" | "),
+              awful.widget.watch(os.getenv("HOME")..'/.config/bin/iwd-wlan0-ssid.sh', 10),
               wibox.widget.textbox(" | "),
               awful.widget.watch(os.getenv("HOME")..'/.config/bin/wibar-loadavg.sh', 5),
               wibox.widget.textbox(" | "),
@@ -178,7 +180,7 @@ awful.screen.connect_for_each_screen(function(s)
               awful.widget.keyboardlayout(),
               wibox.widget.textbox("|"),
               wibox.widget.systray(),
-              wibox.widget.textclock(),
+              wibox.widget.textclock(" %Y-%m-%d %a %H:%M "),
               awful.widget.layoutbox(s)
            },
            left = 3,
@@ -199,7 +201,7 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
+    awful.key({ modkey,           }, "a", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
     awful.key({ modkey,           }, "j",
@@ -282,7 +284,6 @@ globalkeys = gears.table.join(
 
         if not exists then
             awful.spawn(
-            --"alacritty --class vaultpopup --working-directory vet --command fish -c 'vim (ag --hidden --silent --ignore Archive --ignore .obsidian -g . | fzf --reverse --bind=alt-enter:print-query')"
             "alacritty --class "..vaultpopup_class.." --command fish .config/bin/alacritty-vaultpopup.fish"
             )
         end
@@ -292,6 +293,9 @@ globalkeys = gears.table.join(
               {description = "quit awesome", group = "awesome"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
+
+    awful.key({ modkey,           }, "Escape", function () awful.spawn('slock') end,
+              {description = "lock", group = "awesome"}),
 
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.01)          end,
               {description = "increase master width factor", group = "layout"}),
