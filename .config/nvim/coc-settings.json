@@ -1,6 +1,13 @@
 {
-	"coc.preferences.formatOnSaveFiletypes": ["typescript"],
-	"suggest.minTriggerInputLength": 5,
+	"coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "javascriptreact", "typescriptreact", "rust"],
+	"typescript.format.enabled": false,
+	"suggest.minTriggerInputLength": 3,
 	"prettier.requireConfig": true,
-	"prettier.useTabs": false
+	"prettier.useTabs": false,
+	"diagnostic.virtualText": true,
+	"diagnostic.virtualTextCurrentLineOnly": false,
+	"hover.autoHide": false,
+	"diagnostic.messageDelay": 0,
+	"html.autoCreateQuotes": false,
+	"volar.autoCreateQuotes": false
 }
