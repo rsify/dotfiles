@@ -17,6 +17,7 @@ end
 
 vim.g.mapleader = ','
 
+vim.api.nvim_set_keymap('n', '<leader>c', ':CocList --normal --auto-preview diagnostics<CR>', { silent = true })
 vim.api.nvim_set_keymap('i', '<c-j>',     'copilot#Accept("<CR>")',             { expr = true })
 vim.api.nvim_set_keymap('i', '<c-space>', 'coc#refresh()',                      { silent = true, expr = true })
 vim.api.nvim_set_keymap('i', '<cr>',      '<c-g>u<cr><c-r>=coc#on_enter()<cr>', { silent = true, noremap = true })
@@ -31,11 +32,15 @@ vim.api.nvim_set_keymap('n', '<c-w>_',    '<c-w>s',                             
 vim.api.nvim_set_keymap('n', '<c-w>|',    '<c-w>v',                             { silent = true, noremap = true })
 vim.api.nvim_set_keymap('n', '<esc>',     ':nohlsearch<return><esc>',           { silent = true, noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>F', ':GitFiles<CR>',                      { silent = true })
+vim.api.nvim_set_keymap('n', 'g[', ':CocPrev<CR>',                       { silent = true })
+vim.api.nvim_set_keymap('n', 'g]', ':CocNext<CR>',                       { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>a', '<Plug>(coc-codeaction)',             { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>b', '<Plug>(coc-references)',             { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>c', ':CocDiagnostics<CR>',                { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>d', '<Plug>(coc-definition)',             { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>e', ':CocListResume<CR>',                 { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>f', ':Files<CR>',                         { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>g', 'nil',                                { callback = toggle_copilot })
+vim.api.nvim_set_keymap('n', '<leader>q', '<Plug>(coc-fix-current)',            { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>r', '<Plug>(coc-rename)',                 { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>t', '<Plug>(coc-type-definition)',        { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>x', ':CocFix<CR>',                        { silent = true })
