@@ -157,6 +157,9 @@ awful.screen.connect_for_each_screen(function(s)
               wibox.widget.textbox("|"),
               wibox.widget.systray(),
               wibox.widget.textclock(" %Y-%m-%d %a %H:%M "),
+              wibox.widget.textbox("("),
+              awful.widget.watch('bash -c "cal | tail -n 1 | awk \'{print $NF}\'"', 5),
+              wibox.widget.textbox(") "),
               awful.widget.layoutbox(s)
            },
            left = 3,
