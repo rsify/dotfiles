@@ -256,7 +256,7 @@ globalkeys = gears.table.join(
         -- screenshot with selection, save & copy to clipboard
         awful.spawn.with_shell("maim -s -f png | tee ~/Screenshots/(date +%s%N)-(shuf -n 1 ~/.config/misc/words).png | xclip -selection clipboard -t image/png")
     end, {description = "screenshot", group = "launcher"}),
--- 
+
     -- Obsidian vault launcher.
     -- Spawns alacritty with a fuzzy file finder in an obsidian vault in ~/vet,
     -- or attaches to one already spawned on the current tag.
@@ -283,6 +283,10 @@ globalkeys = gears.table.join(
             )
         end
     end, {description = "vet", group = "launcher"}),
+
+    awful.key({ modkey, "Shift"   }, "v", function ()
+        awful.spawn("alacritty --class "..vaultpopup_class.." --command fish -c vim")
+    end, {description = "vim", group = "launcher"}),
 
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
