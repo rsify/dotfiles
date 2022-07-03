@@ -145,7 +145,7 @@ awful.screen.connect_for_each_screen(function(s)
               layout = wibox.layout.fixed.horizontal,
               awful.widget.watch('bash -c "curl https://wttr.in/$(cat .config/private/current-city)?format=%C%20%t"', 1800 --[[ 30 minutes ]]),
               wibox.widget.textbox(" | "),
-              awful.widget.watch(os.getenv("HOME")..'/.config/bin/iwd-wlan0-ssid.sh', 10),
+              awful.widget.watch({ os.getenv("HOME")..'/.config/bin/iwd-ssid.sh', "wlan0" }, 10),
               wibox.widget.textbox(" | "),
               awful.widget.watch(os.getenv("HOME")..'/.config/bin/wibar-loadavg.sh', 5),
               wibox.widget.textbox(" | "),
