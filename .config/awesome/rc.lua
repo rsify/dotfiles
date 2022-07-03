@@ -43,6 +43,8 @@ end
 -- }}}
 
 -- {{{ Variable definitions
+vaultpopup_rotation_index = 0
+
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(theme)
 
@@ -284,7 +286,7 @@ globalkeys = gears.table.join(
 
         if not exists then
             awful.spawn(
-            "alacritty --class "..vaultpopup_class.." --command fish .config/bin/alacritty-vaultpopup.fish"
+                "alacritty --class "..vaultpopup_class.." --command fish .config/bin/alacritty-vaultpopup.fish"
             )
         end
     end, {description = "vet", group = "launcher"}),
@@ -489,7 +491,22 @@ awful.rules.rules = {
         properties = {
             floating = true,
             ontop = true,
-            placement = awful.placement.centered,
+            placement = function (client)
+                awful.placement.centered(client)
+
+                geo = client:geometry()
+
+                r = 50
+                angle = vaultpopup_rotation_index
+                vaultpopup_rotation_index = vaultpopup_rotation_index + 0.4
+
+                client:geometry({
+                    x = geo.x + r * math.cos(angle) * 1.5,
+                    y = geo.y + r * math.sin(angle),
+                    height = geo.height,
+                    width = geo.width
+                })
+            end,
         }
     }
 
