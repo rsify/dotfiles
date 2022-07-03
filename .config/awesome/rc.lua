@@ -226,8 +226,25 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "Return", function ()
+        if client.focus and client.focus.pid then
+            awful.spawn.easy_async_with_shell(
+                -- note: only grabs the top child process without going deeper,
+                -- so things like pid's of nested shells or ranger shells won't be returned.
+                "readlink -f /proc/(pgrep -nP "..client.focus.pid..")/cwd | tr -d '\n'",
+                function (stdout)
+                    if stdout and stdout:len() > 0 then
+                        awful.spawn(terminal.." --working-directory "..stdout)
+                    else
+                        awful.spawn(terminal)
+                    end
+
+                    -- naughty.notify({text = "pgrep cwd: `"..stdout.."` pid("..client.focus.pid..")"})
+                end)
+        else
+            awful.spawn(terminal)
+        end
+    end, {description = "terminal", group = "launcher"}),
     awful.key({ modkey,           }, "f", function () awful.spawn("firefox") end,
               {description = "firefox", group = "launcher"}),
     awful.key({ modkey,           }, "d", function () awful.spawn("alacritty --command ranger") end,
