@@ -308,6 +308,9 @@ globalkeys = gears.table.join(
     -- Rofi
     awful.key({ modkey }, "r", function() awful.spawn("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
+    -- Rofi
+    awful.key({ modkey, "Shift" }, "r", function() awful.spawn("rofi -show run -filter ,") end,
+              {description = "run prompt with , prefix", group = "launcher"}),
 
     awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun") end,
               {description = "launcher", group = "launcher"}),
