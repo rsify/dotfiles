@@ -28,6 +28,7 @@ _path "$HOME/.cargo/bin" # rust cargo path
 _path "$N_PREFIX/bin" # n - node version manager
 _path "$HOME/.npm/bin" # npm global packages
 _path "$HOME/.deno/bin" # deno bin folder
+_path "$HOME/bin"
 
 if not test -d $GOPATH
 	echo $GOPATH
