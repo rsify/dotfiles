@@ -121,7 +121,8 @@ awful.screen.connect_for_each_screen(function(s)
                     )
                 end),
                 layout = {
-                    layout = wibox.layout.fixed.horizontal
+                    layout = wibox.layout.flex.horizontal,
+                    max_widget_size = 200
                 },
                 widget_template = {
                     {
