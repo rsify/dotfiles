@@ -41,15 +41,24 @@ function ding --description "Show a notification"
 	end
 
 	if test $last_status = 0
-		set sound "glass" # sound of good
+		set success true
+		set sound "Glass" # sound of good
 		set description "$last_command | $PWD"
 	else
-		set sound "sosumi" # sound of bad
+		set success false
+		set sound "Sosumi" # sound of bad
 		set description "($last_status) $last_command | $PWD"
 	end
 
 	if test (uname) = 'Darwin'
 		/usr/bin/osascript -e "display notification \"$description\" with title \"$title\" sound name \"$sound\""
+	end
+
+	if test $hostname = 'ryrz'
+		# the `disown` prevents ffplay from showing in list of jobs while it's running
+		ffplay -nodisp -autoexit ~/.config/sounds/$sound.aiff > /dev/null 2>&1 &; disown
+
+		awesome-client "require('naughty').notify({text = '$description', title = '$title'})"
 	end
 end
 funcsave ding

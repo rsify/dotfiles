@@ -14,6 +14,7 @@ local theme = {}
 theme.wallpaper = os.getenv("HOME").."/.config/wallpapers/cat-sky.jpg"
 
 theme.font          = "sans 8"
+theme.notification_font = "sans 16"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#535d6c"
