@@ -6,6 +6,7 @@
 	"prettier.useTabs": false,
 	"diagnostic.virtualText": true,
 	"diagnostic.virtualTextCurrentLineOnly": false,
+	"diagnostic.virtualTextLevel": "error",
 	"hover.autoHide": false,
 	"diagnostic.messageDelay": 0,
 	"html.autoCreateQuotes": false,
