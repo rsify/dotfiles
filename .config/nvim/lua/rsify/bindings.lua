@@ -48,3 +48,5 @@ vim.api.nvim_set_keymap('n', '<space>',   ':Buffers<CR>',                       
 vim.api.nvim_set_keymap('n', 'K',         '',                                   { callback = show_documentation })
 vim.api.nvim_set_keymap('n', '[g',        '<Plug>(coc-diagnostic-prev)',        { silent = true })
 vim.api.nvim_set_keymap('n', ']g',        '<Plug>(coc-diagnostic-next)',        { silent = true })
+
+vim.g.switch_mapping = '\\' -- switch.vim

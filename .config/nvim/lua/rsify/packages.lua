@@ -10,6 +10,8 @@ end
 
 require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'                -- packer.nvim manages itself
+
+	use 'AndrewRadev/switch.vim'                -- toggle true/false, js' function vs const, etc.
 	use 'APZelos/blamer.nvim'                   -- inline git blame, toggle with `:BlamerToggle`
 	use 'airblade/vim-gitgutter'                -- git info in gutter
 	use 'christoomey/vim-sort-motion'           -- `gsip`
@@ -59,3 +61,5 @@ require('nvim-treesitter.configs').setup {
 		additional_vim_regex_highlighting = false
 	}
 }
+
+vim.g.switch_custom_definitions = {{'TRUE', 'FALSE'}}
