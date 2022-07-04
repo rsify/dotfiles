@@ -31,6 +31,7 @@ require('packer').startup(function(use)
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
 	}
+	use 'nvim-treesitter/playground'
 	use {                                       -- completion engine & more
 		'neoclide/coc.nvim', branch = 'release'
 	}
@@ -59,6 +60,9 @@ require('nvim-treesitter.configs').setup {
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false
+	},
+	playground = {
+		enable = true
 	}
 }
 
