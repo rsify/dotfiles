@@ -18,6 +18,13 @@ require('packer').startup(function(use)
 	use 'dracula/vim'                           -- color scheme
 	use 'github/copilot.vim'                    -- copilot
 	use 'junegunn/fzf.vim'                      -- `:Files`, `:Buffers`, etc
+
+	use { 'nvim-telescope/telescope.nvim', requires = {
+		{'nvim-lua/plenary.nvim'}
+	} }
+
+	use 'crispgm/telescope-heading.nvim'
+
 	use 'markonm/traces.vim'                    -- preview range, pattern, substitute
 	use 'tmux-plugins/vim-tmux-focus-events'    -- trigger vim enter events in tmux
 	-- use 'tpope/vim-commentary'                  -- comments
@@ -67,3 +74,21 @@ require('nvim-treesitter.configs').setup {
 }
 
 vim.g.switch_custom_definitions = {{'TRUE', 'FALSE'}}
+
+local actions = require('telescope.actions')
+require('telescope').setup({
+	extensions = {
+		heading = {
+			treesitter = true,
+		}
+	},
+	defaults = {
+		mappings = {
+			i = {
+				["<esc>"] = actions.close
+			},
+		},
+	}
+})
+
+require('telescope').load_extension('heading')
