@@ -143,9 +143,11 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widget
            {
               layout = wibox.layout.fixed.horizontal,
-              awful.widget.watch('bash -c "curl https://wttr.in/$(cat .config/private/current-city)?format=%C%20%t"', 1800 --[[ 30 minutes ]]),
+              wibox.widget.textbox("["),
+              awful.widget.watch('cat .config/now', 5),
+              wibox.widget.textbox("]"),
               wibox.widget.textbox(" | "),
-              awful.widget.watch({ os.getenv("HOME")..'/.config/bin/iwd-ssid.sh', "wlan0" }, 10),
+              awful.widget.watch('bash -c "curl https://wttr.in/$(cat .config/private/current-city)?format=%C%20%t"', 1800 --[[ 30 minutes ]]),
               wibox.widget.textbox(" | "),
               awful.widget.watch(os.getenv("HOME")..'/.config/bin/wibar-loadavg.sh', 5),
               wibox.widget.textbox(" | "),
@@ -253,6 +255,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "d", function () awful.spawn("alacritty --command ranger") end,
               {description = "ranger", group = "launcher"}),
 
+    awful.key({modkey             }, "n", function () awful.spawn("alacritty --class "..vaultpopup_class.." --command alsamixer") end,
+              {description = "alsamixer", group = "launcher"}),
+
     awful.key({modkey, "Shift"    }, "s", function ()
         -- screenshot with selection, save & copy to clipboard
         awful.spawn.with_shell([[
@@ -302,7 +307,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
 
-    awful.key({ modkey,           }, "Escape", function () awful.spawn('slock') end,
+    awful.key({ modkey,           }, "Escape", function () awful.spawn('i3lock --color=000000') end,
               {description = "lock", group = "awesome"}),
 
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.01)          end,
@@ -322,7 +327,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "r", function() awful.spawn("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
     -- Rofi
-    awful.key({ modkey, "Shift" }, "r", function() awful.spawn("rofi -show run -filter ,") end,
+    awful.key({ modkey, "Shift" }, "r", function() awful.spawn("rofi -show run -filter , -matching fuzzy") end,
               {description = "run prompt with , prefix", group = "launcher"}),
 
     awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun") end,
