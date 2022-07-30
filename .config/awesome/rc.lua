@@ -255,7 +255,15 @@ globalkeys = gears.table.join(
 
     awful.key({modkey, "Shift"    }, "s", function ()
         -- screenshot with selection, save & copy to clipboard
-        awful.spawn.with_shell("maim -s -f png | tee ~/Screenshots/(date +%s%N)-(shuf -n 1 ~/.config/misc/words).png | xclip -selection clipboard -t image/png")
+        awful.spawn.with_shell([[
+            set destination "$HOME/Screenshots/"(~/.config/bin/iso-date.sh)"-"(shuf -n 1 ~/.config/misc/words)".png"
+            maim -s -f png $destination
+            if test $status = 0
+                cat $destination | xclip -selection clipboard -t image/png && ffplay -nodisp -autoexit .config/sounds/Glass.aiff &
+
+                awesome-client "require('naughty').notify({title = 'Screenshot saved!', text = '$destination'})"
+            end
+        ]])
     end, {description = "screenshot", group = "launcher"}),
 
     -- Obsidian vault launcher.
