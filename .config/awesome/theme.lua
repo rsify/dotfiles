@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.wallpaper = os.getenv("HOME").."/.config/wallpapers/cat-sky.jpg"
+theme.wallpaper = os.getenv("HOME").."/.config/wallpapers/southern-ring-nebula-cropped-1080p.png"
 
 theme.font          = "sans 8"
 theme.notification_font = "sans 16"
