@@ -54,6 +54,8 @@ require('packer').startup(function(use)
 		end
 	}
 
+	use "lukas-reineke/indent-blankline.nvim"   -- indentation line marks
+
 	if packer_bootstrap then
 		require('packer').sync()
 	end
