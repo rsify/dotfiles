@@ -41,6 +41,9 @@ do
 end
 -- }}}
 
+-- disable window to edge snapping
+awful.mouse.snap.edge_enabled = false
+
 -- {{{ Variable definitions
 vaultpopup_rotation_index = 0
 
@@ -66,6 +69,7 @@ awful.layout.layouts = {
     awful.layout.suit.tile.bottom,
     awful.layout.suit.fair,
 }
+
 -- }}}
 
 -- {{{ Wibar
