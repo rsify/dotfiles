@@ -19,9 +19,13 @@ vim.cmd("command! -nargs=* -range CocFix    :call CocActionAsync('codeActionRang
 
 vim.g.mapleader = ','
 
+vim.api.nvim_set_keymap('i', '<c-b>',     'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"',  { expr = true, silent = true, nowait = true })
+vim.api.nvim_set_keymap('i', '<c-f>',     'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"', { expr = true, silent = true, nowait = true })
 vim.api.nvim_set_keymap('i', '<c-j>',     'copilot#Accept("<CR>")',             { expr = true })
 vim.api.nvim_set_keymap('i', '<c-space>', 'coc#refresh()',                      { silent = true, expr = true })
 vim.api.nvim_set_keymap('i', '<cr>',      '<c-g>u<cr><c-r>=coc#on_enter()<cr>', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<c-b>',     'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"',  { expr = true, silent = true, nowait = true })
+vim.api.nvim_set_keymap('n', '<c-f>',     'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"',  { expr = true, silent = true, nowait = true })
 vim.api.nvim_set_keymap('n', '<c-h>',     '<c-w>h',                             { silent = true })
 vim.api.nvim_set_keymap('n', '<c-j>',     '<c-w>j',                             { silent = true })
 vim.api.nvim_set_keymap('n', '<c-k>',     '<c-w>k',                             { silent = true })
@@ -52,5 +56,8 @@ vim.api.nvim_set_keymap('n', '[g',        '<Plug>(coc-diagnostic-prev)',        
 vim.api.nvim_set_keymap('n', ']g',        '<Plug>(coc-diagnostic-next)',        { silent = true })
 vim.api.nvim_set_keymap('n', 'g[',        ':CocPrev<CR>',                       { silent = true })
 vim.api.nvim_set_keymap('n', 'g]',        ':CocNext<CR>',                       { silent = true })
+vim.api.nvim_set_keymap('v', '<c-b>',     'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', { expr = true, silent = true, nowait = true })
+vim.api.nvim_set_keymap('v', '<c-f>',     'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', { expr = true, silent = true, nowait = true })
+
 
 vim.g.switch_mapping = '\\' -- switch.vim
