@@ -3,3 +3,5 @@ key_bindings:
   - { key: J, mods: Control|Alt, chars: "\x1B[B" } # down
   - { key: H, mods: Control|Alt, chars: "\x1B[D" } # left
   - { key: L, mods: Control|Alt, chars: "\x1B[C" } # right
+mouse_bindings:
+  - { mouse: Middle, mode: ~Vi, chars: "" }
