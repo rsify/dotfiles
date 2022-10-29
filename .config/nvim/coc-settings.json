@@ -1,5 +1,5 @@
 {
-	"coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "javascriptreact", "typescriptreact", "rust"],
+	"coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "javascriptreact", "typescriptreact", "rust", "purescript"],
 	"typescript.format.enabled": false,
 	"suggest.minTriggerInputLength": 3,
 	"prettier.requireConfig": true,
@@ -10,5 +10,23 @@
 	"hover.autoHide": false,
 	"diagnostic.messageDelay": 0,
 	"html.autoCreateQuotes": false,
-	"volar.autoCreateQuotes": false
+	"volar.autoCreateQuotes": false,
+	"languageserver": {
+		"purescript": {
+			// source: https://github.com/nwolverson/purescript-language-server
+			// `npm install -g purescript-language-server purs-tidy`
+			"command": "purescript-language-server",
+			"args": ["--stdio"],
+			"filetypes": ["purescript"],
+			"trace.server": "off",
+			"rootPatterns": ["packages.dhall", "spago.dhall"],
+			"settings": {
+				"purescript": {
+					"addSpagoSources": true,
+					"addNpmPath": true,
+					"formatter": "purs-tidy"
+				}
+			}
+		}
+	}
 }

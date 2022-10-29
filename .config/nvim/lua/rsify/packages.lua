@@ -56,6 +56,9 @@ require('packer').startup(function(use)
 
 	use "lukas-reineke/indent-blankline.nvim"   -- indentation line marks
 
+	use "purescript-contrib/purescript-vim"     -- purescript highlight, indent
+	use "vmchale/dhall-vim"                     -- dhall highlight, indent
+
 	if packer_bootstrap then
 		require('packer').sync()
 	end
