@@ -1,3 +1,6 @@
+-- Disable mouse
+vim.opt.mouse = ''
+
 -- Read file changes on vim focus, disable swap file to allow multiple nvim's to
 -- edit the same file
 vim.opt.autoread = true
