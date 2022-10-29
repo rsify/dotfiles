@@ -7,9 +7,9 @@ set fish_prompt_pwd_dir_length 0
 source ~/.config/fish/colors.fish
 source ~/.config/fish/complete.fish
 
-if test -f /opt/homebrew/share/autojump/autojump.fish
-	source /opt/homebrew/share/autojump/autojump.fish
-end
+# https://github.com/gsamokovarov/jump
+# `go install github.com/gsamokovarov/jump@latest`
+~/.go/bin/jump shell fish | source
 
 # vars
 set --export EDITOR nvim
@@ -29,6 +29,7 @@ _path "$N_PREFIX/bin" # n - node version manager
 _path "$HOME/.npm/bin" # npm global packages
 _path "$HOME/.deno/bin" # deno bin folder
 _path "$HOME/.yarn/bin"
+_path "$HOME/.go/bin"
 _path "$HOME/bin"
 
 if not test -d $GOPATH
