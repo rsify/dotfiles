@@ -11,6 +11,12 @@
 	"diagnostic.messageDelay": 0,
 	"html.autoCreateQuotes": false,
 	"volar.autoCreateQuotes": false,
+	"hover.floatConfig": {
+		"border": true
+	},
+	"diagnostic.floatConfig": {
+		"border": false
+	},
 	"languageserver": {
 		"purescript": {
 			// source: https://github.com/nwolverson/purescript-language-server
