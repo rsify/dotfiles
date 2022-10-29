@@ -145,9 +145,11 @@ alias -s grb "git rebase"
 alias -s grba "git rebase --abort"
 alias -s grbc "git rebase --continue"
 alias -s grbi "git rebase -i"
+alias -s gre "git restore"
 alias -s grl "git reflog"
 alias -s grm "git rm"
 alias -s gs "git status"
+alias -s gsw "git switch"
 
 # npm
 # ===
