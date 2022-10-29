@@ -234,3 +234,8 @@ funcsave sudo!!
 if test (uname) = "Darwin"
 	alias -s flushdns "sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
 end
+
+if test $hostname = 'ryrz'
+	alias -s pbcopy 'xclip -selection clipboard'
+	alias -s pbpaste 'xclip -selection clipboard -o'
+end
