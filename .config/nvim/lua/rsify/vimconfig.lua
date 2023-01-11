@@ -9,6 +9,9 @@ vim.opt.swapfile = false
 -- Keep cursor vertically centered
 vim.opt.scrolloff = 999
 
+-- Disable timeout on chained keypresses (e.g. `,f`)
+vim.opt.timeout = false
+
 -- Update gitgutter in real time-ish
 vim.opt.updatetime = 100
 
