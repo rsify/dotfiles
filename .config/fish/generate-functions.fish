@@ -225,6 +225,7 @@ alias -s pd 'prevd'
 alias -s r 'ag'
 alias -s v 'vim'
 alias -s vf 'vim (fzf)'
+alias -s vv 'command vim'
 
 function sudo!!
 	eval sudo $history[1]
