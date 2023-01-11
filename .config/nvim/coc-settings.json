@@ -14,6 +14,16 @@
 	"hover.floatConfig": {
 		"border": true
 	},
+	"Lua.diagnostics.globals": [
+		"vim",
+
+		// awesomewm
+		"awesome",
+		"root",
+		"client",
+		"screen",
+		"mouse"
+	],
 	"diagnostic.floatConfig": {
 		"border": false
 	},
