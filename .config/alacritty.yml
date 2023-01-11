@@ -5,3 +5,25 @@ key_bindings:
   - { key: L, mods: Control|Alt, chars: "\x1B[C" } # right
 mouse_bindings:
   - { mouse: Middle, mode: ~Vi, chars: "" }
+font:
+  normal:
+    family: SF Mono
+    style: Regular
+  bold:
+    family: SF Mono
+    style: Bold
+  italic:
+    family: SF Mono
+    style: Regular Italic
+  size: 11
+# font:
+#   normal:
+#     family: Iosevka
+#     style: Regular
+#   bold:
+#     family: Iosevka
+#     style: Bold
+#   italic:
+#     family: Iosevka
+#     style: Regular Italic
+#   size: 12

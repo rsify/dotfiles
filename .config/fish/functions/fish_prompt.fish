@@ -52,5 +52,5 @@ function fish_prompt --description 'Write out the prompt'
 
     echo -s (set_color --bold brblack) '┌ ' $status_str $time_str $job_str (set_color --bold white) (prompt_pwd) ' ' (set_color normal)
 
-    echo -n (set_color --bold brblack)'└'(set_color normal)' ❯ '
+    echo -n (set_color --bold brblack)'└'(set_color normal)' $ '
 end
