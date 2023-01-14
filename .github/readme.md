@@ -4,6 +4,8 @@
 ```bash
 $ cd ~
 $ git init
+$ mv .git .dotfiles
+$ alias dots "git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 $ git remote add origin https://github.com/nikersify/dotfiles.git
 $ git fetch
 $ git reset --hard origin/master

@@ -71,6 +71,9 @@ alias -s fns 'functions'
 # git
 # ===
 
+alias -s dotfiles_infect "set -gx GIT_DIR $HOME/.dotfiles"
+alias -s dots "git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+
 function gc --wraps "git commit -m"
 	if test -n "$argv"
 		git commit -m "$argv"
