@@ -1,6 +1,8 @@
 {
-	"coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "javascriptreact", "typescriptreact", "rust", "purescript"],
+	"coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "javascriptreact", "typescriptreact", "rust", "purescript", "prisma"],
 	"typescript.format.enabled": false,
+	"javascript.format.enabled": false,
+	"coc.preferences.formatOnSave": false,
 	"suggest.minTriggerInputLength": 3,
 	"prettier.requireConfig": true,
 	"prettier.useTabs": false,

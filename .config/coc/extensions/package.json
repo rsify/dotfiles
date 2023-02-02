@@ -7,7 +7,9 @@
     "coc-prettier": ">=9.3.0",
     "coc-rls": ">=1.1.6",
     "coc-tsserver": ">=1.10.2",
-    "coc-lua": ">=1.0.1"
+    "coc-lua": ">=1.0.1",
+    "coc-prisma": ">=0.11.0",
+    "@yaegassy/coc-tailwindcss3": ">=0.4.7"
   },
   "disabled": [],
   "locked": []
