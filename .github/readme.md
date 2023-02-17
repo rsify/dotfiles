@@ -6,11 +6,11 @@ $ cd ~
 $ git init
 $ mv .git .dotfiles
 $ alias dots "git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
-$ git remote add origin https://github.com/nikersify/dotfiles.git
-$ git fetch
-$ git reset --hard origin/master
-$ git branch -u origin/master
-$ git config status.showuntrackedfiles no
+$ dots remote add origin https://github.com/nikersify/dotfiles.git
+$ dots fetch
+$ dots reset --hard origin/master
+$ dots branch -u origin/master
+$ dots config status.showuntrackedfiles no
 
 $ echo "<city-name>" > .config/private/current-city
 ```
@@ -25,10 +25,4 @@ $ chsh -s `which fish`
 # Node
 - Download a node binary (https://nodejs.org/en/download)
 - Add its `bin/` to path (fish: ``PATH=$PATH:`pwd`/bin``)
-- `npx n lts` (or whatever version)
-
-# Deps
-```bash
-$ brew leaves
-autojump bat coreutils deno exa ffmpeg findutils fish fzf git gnupg hub insect jo jq libvterm lua ncdu neovim nghttp2 ranger ripgrep the_silver_searcher tmux wget youtube-dl
-```
+- `npx n lts` (or whichever version)
