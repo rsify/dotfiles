@@ -102,6 +102,23 @@ Statusline.active = function()
 		return "[%c|%P]"
 	end
 
+	local function modified_count()
+		local count = 0
+		-- local current_buffer_nr = vim.fn.bufnr()
+
+		for _, buf in ipairs(vim.fn.getbufinfo()) do
+			if buf.changed == 1 --[[ and buf.bufnr ~= current_buffer_nr ]] then
+				count = count + 1
+			end
+		end
+
+		if count > 0 then
+			return "%#DraculaGreen#" .. "[" .. count .. "]" .. "%#Normal# "
+		end
+
+		return ""
+	end
+
 	return table.concat {
 		mode(),
 		" ",
@@ -116,6 +133,7 @@ Statusline.active = function()
 		" ",
 		file_type(),
 		" ",
+		modified_count(),
 		line_info(),
 	}
 end
