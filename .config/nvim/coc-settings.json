@@ -1,11 +1,11 @@
 {
-	"coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "javascriptreact", "typescriptreact", "rust", "purescript", "prisma"],
-	"typescript.format.enabled": false,
-	"javascript.format.enabled": false,
-	"coc.preferences.formatOnSave": false,
+	"pyright.inlayHints.variableTypes": false,
+	"typescript.format.enable": false,
+	"javascript.format.enable": false,
 	"suggest.minTriggerInputLength": 3,
 	"prettier.requireConfig": true,
 	"prettier.useTabs": false,
+	"prettier.onlyUseLocalVersion": true,
 	"diagnostic.virtualText": true,
 	"diagnostic.virtualTextCurrentLineOnly": false,
 	"diagnostic.virtualTextLevel": "error",
@@ -45,6 +45,35 @@
 					"formatter": "purs-tidy"
 				}
 			}
+		},
+		"haskell": {
+			"command": "haskell-language-server-wrapper",
+			"args": ["--lsp"],
+			"rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+			"filetypes": ["haskell", "lhaskell"],
+			"settings": {
+				"haskell": {
+					"checkParents": "CheckOnSave",
+					"checkProject": true,
+					"formattingProvider": "ormolu"
+				}
+			}
 		}
+	},
+	"coc.preferences.formatOnSave": false,
+	"[javascript][javascriptreact]": {
+		"coc.preferences.formatOnSave": true
+	},
+	"[typescript][typescriptreact]": {
+		"coc.preferences.formatOnSave": true
+	},
+	"[rust]": {
+		"coc.preferences.formatOnSave": true
+	},
+	"[prisma]": {
+		"coc.preferences.formatOnSave": true
+	},
+	"[haskell]": {
+		"coc.preferences.formatOnSave": true
 	}
 }
