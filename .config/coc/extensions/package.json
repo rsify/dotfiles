@@ -9,8 +9,11 @@
     "coc-tsserver": ">=1.10.2",
     "coc-lua": ">=1.0.1",
     "coc-prisma": ">=0.11.0",
-    "@yaegassy/coc-tailwindcss3": ">=0.4.7"
+    "@yaegassy/coc-tailwindcss3": ">=0.4.7",
+    "coc-deno": ">=3.11.0",
+    "coc-pyright": ">=1.1.298"
   },
   "disabled": [],
-  "locked": []
+  "locked": [],
+  "lastUpdate": 1690326608978
 }
