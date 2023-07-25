@@ -13,7 +13,10 @@ require('packer').startup(function(use)
 
 	use 'AndrewRadev/switch.vim'                -- toggle true/false, js' function vs const, etc.
 	use 'APZelos/blamer.nvim'                   -- inline git blame, toggle with `:BlamerToggle`
-	use 'airblade/vim-gitgutter'                -- git info in gutter
+	use {
+		'airblade/vim-gitgutter',
+		branch = 'main'
+	}                                           -- git info in gutter
 	use 'christoomey/vim-sort-motion'           -- `gsip`
 	use 'dracula/vim'                           -- color scheme
 	use 'github/copilot.vim'                    -- copilot
@@ -59,11 +62,18 @@ require('packer').startup(function(use)
 	use "purescript-contrib/purescript-vim"     -- purescript highlight, indent
 	use "vmchale/dhall-vim"                     -- dhall highlight, indent
 
+	use "prisma/vim-prisma"
+
+	-- use {
+	-- 	"tzachar/local-highlight.nvim",
+	-- 	config = function ()
+	-- 		require('local-highlight').setup({})
+	-- 	end
+	-- }
+
 	if packer_bootstrap then
 		require('packer').sync()
 	end
-
-	use "prisma/vim-prisma"
 end)
 
 -- enable treesitter
