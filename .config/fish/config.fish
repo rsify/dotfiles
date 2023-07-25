@@ -31,6 +31,9 @@ _path "$HOME/.deno/bin" # deno bin folder
 _path "$HOME/.yarn/bin"
 _path "$HOME/.go/bin"
 _path "$HOME/bin"
+_path "$HOME/.local/bin" # used by haskell's stack
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/rsify/.ghcup/bin # ghcup-env
 
 if not test -d $GOPATH
 	echo $GOPATH

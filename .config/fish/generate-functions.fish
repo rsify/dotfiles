@@ -71,7 +71,7 @@ alias -s fns 'functions'
 # git
 # ===
 
-alias -s dotfiles_infect "set -gx GIT_DIR $HOME/.dotfiles"
+alias -s dots-infect "set -gx GIT_DIR $HOME/.dotfiles"
 alias -s dots "git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 function gc --wraps "git commit -m"
@@ -226,6 +226,7 @@ alias -s p2 'python2'
 alias -s p3 'python3'
 alias -s pd 'prevd'
 alias -s r 'ag'
+alias -s tm 'task-man'
 alias -s v 'vim'
 alias -s vf 'vim (fzf)'
 alias -s vv 'command vim'
